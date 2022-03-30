@@ -18,6 +18,7 @@
         position: absolute;
         width: 300px;
         top: 85px;
+        left: 3%;
     }
     #big__container {
         display: flex;
@@ -142,5 +143,9 @@
     .p {
         margin-top: 10px;
         margin-bottom: 5px;
+    }
+    textarea {
+        width: 80%;
+        height: 100px;
     }
 }
