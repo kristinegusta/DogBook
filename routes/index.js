@@ -1,7 +1,7 @@
 const express = require('express');
 const router  = express.Router();
 const {ensureAuthenticated} = require('../config/auth')
-const Profile = require("../models/profile").Profile;
+const Profile = require("../models/user profile").Profile;
 const Post = require("../models/post").Post
 
 //login page

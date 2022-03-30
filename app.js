@@ -13,10 +13,15 @@ const fileupload = require('express-fileupload')
 
 //passport config:
 require('./config/passport')(passport)
+
 //mongoose
-mongoose.connect('',{useNewUrlParser: true, useUnifiedTopology : true})
+const dbPassword = "0TeEaRuCdH5yqRpJ";
+const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority`
+mongoose.connect(dbURI, {
+    useNewUrlParser: true, useUnifiedTopology: true,
+})
 .then(() => console.log('connected,,'))
-.catch((err)=> console.log(err));
+.catch((err) => console.log(err));
 
 
 //CLOUDINARY
@@ -25,7 +30,7 @@ cloudinary.config({
     cloud_name: "",
     api_key: "",
     api_secret: ""
-  });
+});
 
 // const storage = new CloudinaryStorage({
 // cloudinary: cloudinary,
@@ -36,26 +41,26 @@ cloudinary.config({
 // const parser = multer({ storage: storage });
 
 //EJS
-app.set('view engine','ejs');
+app.set('view engine', 'ejs');
 app.use(expressEjsLayout);
 //BodyParser
-app.use(express.urlencoded({extended : false}));
+app.use(express.urlencoded({extended: false}));
 app.use(express.json())
 //express session
 app.use(session({
-    secret : 'secret',
-    resave : true,
-    saveUninitialized : true
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use((req,res,next)=> {
+app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error  = req.flash('error');
     next();
-    })
+})
 
 app.use(fileupload({useTempFiles: true}))
 app.use("/static", express.static("public"));
@@ -63,10 +68,10 @@ app.use("/static", express.static("public"));
 
 
 //Routes
-app.use('/',require('./routes/index'));
-app.use('/users',require('./routes/users'));
-app.use('/profiles',require('./routes/profiles'));
-app.use('/posts',require('./routes/posts'));
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
+app.use('/profiles', require('./routes/profiles'));
+app.use('/posts', require('./routes/posts'));
 
 
 

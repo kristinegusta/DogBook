@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Profile = require("../models/profile").Profile;
+const Profile = require("../models/user profile").Profile;
 const User = require("../models/user")
 const Post = require("../models/post").Post
 const cloudinary = require("cloudinary");
@@ -34,13 +34,12 @@ router.post("/new", async (req, res) => {
 
 router.post("/upload-image", async (req, res) => {
   try {
-
-        console.log(uploadResponse);
-        res.json({ msg: 'yaya' });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ err: 'Something went wrong' });
-    }
+    console.log(uploadResponse);
+    res.json({ msg: 'yaya' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ err: 'Something went wrong' });
+  }
 });
 
 

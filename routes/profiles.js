@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Profile = require("../models/profile").Profile;
+const Profile = require("../models/user profile").Profile;
 const User = require("../models/user")
 
 // OUR CODE
@@ -9,12 +9,12 @@ const User = require("../models/user")
 router.post("/new", async (req, res) => {
   const newProfile = new Profile(req.body)
   // newProfile.save();
-  try{
+  try {
     await newProfile.save()
     await User.findOneAndUpdate({_id: req.user._id}, {profile: newProfile})
     res.redirect('/dashboard')
 
-  }catch(err){
+  } catch(err){
     console.log(err)
     res.redirect('/dashboard')
   }
@@ -25,7 +25,6 @@ router.post("/search", async (req, res) => {
   console.log(req.body)
   const profiles = await Profile.find({"username": {$regex: req.body.user_input}})
   res.send({data: profiles})
-
 })
 
 const getUserProfileAndPosts = function(id){
