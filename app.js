@@ -15,15 +15,6 @@ const fileupload = require('express-fileupload')
 require('./config/passport')(passport)
 
 //mongoose
-
-    mongoose.connect('', { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('connected,,'))
-    .catch((err) => console.log(err));
-
-=======
-
-
-//mongoose
 const dbPassword = "0TeEaRuCdH5yqRpJ";
 const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority`
 mongoose.connect(dbURI, {
