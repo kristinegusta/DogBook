@@ -13,11 +13,12 @@ const fileupload = require('express-fileupload')
 
 //passport config:
 require('./config/passport')(passport)
-    //mongoose
-mongoose.connect('', { useNewUrlParser: true, useUnifiedTopology: true })
+//mongoose
+/*
+    mongoose.connect('', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('connected,,'))
     .catch((err) => console.log(err));
-
+*/
 
 
 
@@ -43,7 +44,7 @@ app.use(expressEjsLayout);
 //BodyParser
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json())
-    //express session
+//express session
 app.use(session({
     secret: 'secret',
     resave: true,
