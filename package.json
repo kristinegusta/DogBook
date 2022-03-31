@@ -1,7 +1,7 @@
 {
   "name": "passport-learning",
   "version": "1.0.0",
-  "description": "",
+  "description": "1. Set up a database schema\r 2. Finish Mockup",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -27,5 +27,13 @@
     "multer-storage-cloudinary": "^4.0.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristinegusta/DogBook.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kristinegusta/DogBook/issues"
+  },
+  "homepage": "https://github.com/kristinegusta/DogBook#readme"
 }
