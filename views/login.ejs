@@ -1,23 +1,27 @@
-<h1> Login </h1>
-<%- include ('./partials/messages') %>
-<form action="/users/login" method="POST">
-<div>
-<label for="email">Email</label>
-<input
-type="email"
-name="email"
-placeholder="Enter Email"
-/>
+<title>BookDoog</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+<link rel="stylesheet" href="/static/stylesheets/registerP.css">
+
+<div id="big__container">
+<div id="background"></div>
+
+<div id="logoText">
+    <div id="logo"></div>
 </div>
-<div>
-    <label for="password">Password</label>
-    <input
-      type="password"
-      name="password"
-      placeholder="Enter Password"
-    />
-  
+<div id="register">
+    <h1 id="reg">Login</h1>
+    <%- include ('./partials/messages') %>
+    <form action="/users/login" method="post">
+        <p>Enter your email</p>
+        <input type="text" name="email" placeholder="Enter Email">
+
+        <p>Enter your password</p>
+        <input type="password" name="password" placeholder="Enter your password">
+
+        <br>
+        <button type="submit" id="btn">Login</button>
+    </form>
 </div>
-<button type="submit" class="btn btn-primary btn-block">Login</button>
-   
-</form>
+
+<div id="line"></div>
+</div>
