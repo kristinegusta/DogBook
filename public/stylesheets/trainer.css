@@ -12,6 +12,7 @@
 .orange-line {
   margin: 3vh 0 3vh 0;
   border: solid 2px #fa6650;
+  background-color: #fa6650;
 }
 .header {
   justify-content: space-around;
