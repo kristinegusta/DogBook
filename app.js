@@ -8,20 +8,17 @@ const session = require('express-session');
 const passport = require("passport");
 const multer = require("multer");
 const cloudinary = require("cloudinary");
-const {CloudinaryStorage} = require("multer-storage-cloudinary");
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const fileupload = require('express-fileupload')
 
 //passport config:
 require('./config/passport')(passport)
+    //mongoose
+mongoose.connect('', { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('connected,,'))
+    .catch((err) => console.log(err));
 
-//mongoose
-const dbPassword = "0TeEaRuCdH5yqRpJ";
-const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority`
-mongoose.connect(dbURI, {
-    useNewUrlParser: true, useUnifiedTopology: true,
-})
-.then(() => console.log('connected,,'))
-.catch((err) => console.log(err));
+
 
 
 //CLOUDINARY
@@ -44,9 +41,9 @@ cloudinary.config({
 app.set('view engine', 'ejs');
 app.use(expressEjsLayout);
 //BodyParser
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json())
-//express session
+    //express session
 app.use(session({
     secret: 'secret',
     resave: true,
@@ -58,11 +55,11 @@ app.use(flash());
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
-    res.locals.error  = req.flash('error');
+    res.locals.error = req.flash('error');
     next();
 })
 
-app.use(fileupload({useTempFiles: true}))
+app.use(fileupload({ useTempFiles: true }))
 app.use("/static", express.static("public"));
 
 
