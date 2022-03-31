@@ -7,12 +7,13 @@
 .flex {
   display: flex;
 }
-/* .main-container {
-  } */
+.main-container {
+  max-width: 100vw;
+  height: auto;
+}
 .orange-line {
-  margin: 3vh 0 3vh 0;
+  margin: 1rem 0 1rem 0;
   border: solid 2px #fa6650;
-  background-color: #fa6650;
 }
 .header {
   justify-content: space-around;
@@ -22,7 +23,7 @@
   line-height: 8vh;
 }
 .trainer {
-  text-decoration: underline 5px #fa6650;
+  text-decoration: underline 5px #fa6650 !important;
 }
 .training-type {
   justify-content: space-evenly;
@@ -102,5 +103,52 @@ input {
   border-radius: 10px;
   border: solid 2px black;
 }
-@media only screen and (min-width: 600px) {
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  color: white;
+  width: 100px;
+  height: auto;
+  padding: 1em;
+  margin: 0.5em;
+  border-radius: 65px;
+  text-align: center;
+  text-decoration: none;
+}
+.orange {
+  background-color: #fa6650;
+}
+.black {
+  background: rgba(0, 0, 0, 0.55);
+}
+.nav {
+  text-decoration: none;
+  font-size: 2em;
+  font-weight: bold;
+  color: black;
+}
+.activities-card {
+  width: 100%;
+  height: auto;
+  padding: 1.5rem;
+}
+.activities-img-div {
+  border-radius: 65px;
+  width: 100%;
+  height: 200px;
+  background-image: url(./img-trainer/puppy.jpg);
+  background-size: contain;
+
+  margin-bottom: 1rem;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 1em;
 }
