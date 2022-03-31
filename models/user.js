@@ -4,10 +4,10 @@ const ProfileSchema = require("./profile").ProfileSchema
 
 
 const UserSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
+    // name: {
+    //     type: String,
+    //     required: false
+    // },
     email: {
         type: String,
         required: true
