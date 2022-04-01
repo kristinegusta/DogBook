@@ -91,7 +91,6 @@ input {
 .star {
   margin: 2px;
   height: 24px;
-  margin-left: ;
 }
 .post-my-activity {
   text-align: center;
@@ -116,6 +115,17 @@ input {
   border-radius: 10px;
   border: solid 2px black;
   background-color: black;
+}
+a {
+  color: black;
+  font-size: 2em;
+  font-weight: 600;
+  text-decoration: none;
+}
+.post-btn {
+  color: white;
+  font-size: 1em;
+  font-weight: 300;
 }
 @media only screen and (min-width: 600px) {
 }

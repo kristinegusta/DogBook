@@ -7,9 +7,13 @@ const cloudinary = require("cloudinary");
 
 
 // OUR CODE
+//Post my activity handle
+//login handle
+router.get('/postActivity', (req, res) => {
+    res.render('post');
+})
 
-
-router.post("/new", async(req, res) => {
+router.post("/new", async (req, res) => {
     console.log(req.body)
 
     try {
@@ -32,7 +36,7 @@ router.post("/new", async(req, res) => {
 
 })
 
-router.post("/upload-image", async(req, res) => {
+router.post("/upload-image", async (req, res) => {
     try {
 
         console.log(uploadResponse);
