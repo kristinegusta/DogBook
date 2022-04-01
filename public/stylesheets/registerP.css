@@ -102,7 +102,7 @@
   }
   .center {
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
   }
   .p {
     margin-top: 10px;
@@ -110,5 +110,12 @@
   }
   .btn-cont {
     text-align: center;
+  }
+  textarea {
+    width: 270px;
+    height: 100px;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
   }
 }
