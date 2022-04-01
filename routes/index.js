@@ -8,9 +8,13 @@ const Post = require("../models/post").Post
 router.get('/', (req, res) => {
     res.render('index');
 })
-//rendering activities page to fix it
+//rendering activities page
 router.get('/activities', (req, res) => {
     res.render('activities');
+})
+//trainers page
+router.get("/trainers", (req, res) => {
+    res.render("trainer");
 })
 /*
 //register page
