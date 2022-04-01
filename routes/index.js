@@ -19,19 +19,19 @@ router.get('/register', (req, res) => {
 })
 */
 
-const getProfileAndPopulate = function (id) {
-    return Profile.findById(id).populate("posts")
-}
+// const getProfileAndPopulate = function (id) {
+//     return Profile.findById(id).populate("posts")
+// }
 
 
-const renderDashboardWithPosts = async function (req, res) {
-    posts = await getProfileAndPopulate(req.user.profile._id)
+// const renderDashboardWithPosts = async function (req, res) {
+//     posts = await getProfileAndPopulate(req.user.profile._id)
 
-    res.render('dashboard', {
-        user: req.user,
-        posts: posts
-    });
-}
+//     res.render('dashboard', {
+//         user: req.user,
+//         posts: posts
+//     });
+// }
 
 
 
@@ -41,8 +41,9 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
             user: req.user
         });
     } else {
-        renderDashboardWithPosts(req, res)
-
+        // renderDashboardWithPosts(req, res)
+        // render activities page
+        res.redirect("activities")
     }
 })
 module.exports = router;
