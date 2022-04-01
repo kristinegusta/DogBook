@@ -8,11 +8,16 @@ const Post = require("../models/post").Post
 router.get('/', (req, res) => {
     res.render('index');
 })
+//rendering activities page to fix it
+router.get('/activities', (req, res) => {
+    res.render('activities');
+})
+/*
 //register page
 router.get('/register', (req, res) => {
     res.render('register');
 })
-
+*/
 
 const getProfileAndPopulate = function (id) {
     return Profile.findById(id).populate("posts")

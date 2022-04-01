@@ -47,7 +47,7 @@ input {
   border-radius: 50%;
   height: 50px;
   width: 50px;
-  background-image: url(./img-trainer/gosling.jpg);
+  background-image: url("/static/img-trainer/gosling.jpg");
   background-size: 50px;
 }
 .activity-name {
