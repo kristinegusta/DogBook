@@ -41,8 +41,9 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
             user: req.user
         });
     } else {
-        renderDashboardWithPosts(req, res)
-
+        // renderDashboardWithPosts(req, res)
+        // render activities page
+        res.render("activites")
     }
 })
 module.exports = router;
