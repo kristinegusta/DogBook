@@ -73,6 +73,6 @@ app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
 app.use("/profiles", require("./routes/profiles"));
 app.use("/posts", require("./routes/posts"));
-app.use("/trainer", require("./routes/trainer"));
+// app.use("/trainer", require("./routes/trainer"));
 
 app.listen(3000);

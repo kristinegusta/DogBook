@@ -6,6 +6,11 @@ const ActivitySchema  = new mongoose.Schema({
     required: true
   },
 
+  description: {
+    type: String,
+    required: true
+  },
+
   location: {
     type: String,
     required: true
