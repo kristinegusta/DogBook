@@ -8,7 +8,16 @@
   display: flex;
 }
 /* .main-container {
+  width: 100vw;
+  height: 100vh
 } */
+h1 {
+  color: #fa6650;
+  margin-bottom: 10px;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 3em;
+  text-align: center;
+}
 .orange-line {
   margin: 3vh 0 3vh 0;
   border: solid 2px #fa6650;
@@ -38,7 +47,18 @@
 }
 
 input {
-  padding-left: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 25px;
+  border: none;
+  background-color: #f0f0f0;
+}
+form {
+  padding: 1.5em;
+}
+#description {
+  height: 200px;
 }
 .activities-infos {
   margin-left: 10vw;
@@ -128,6 +148,27 @@ a {
   color: white;
   font-size: 1em;
   font-weight: 300;
+}
+.form-container {
+  height: 70vh;
+}
+.btn {
+  color: white;
+  width: 200px;
+  height: auto;
+  padding: 1em;
+  margin: 0.3em;
+  border-radius: 65px;
+  text-align: center;
+  border: none;
+  font-size: 1em;
+  margin-top: 2rem;
+}
+.orange {
+  background-color: #fa6650;
+}
+.btn-cont {
+  text-align: center;
 }
 @media only screen and (min-width: 600px) {
 }
