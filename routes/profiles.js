@@ -11,7 +11,7 @@ router.post("/new", async(req, res) => {
         // newProfile.save();
     try {
         await newProfile.save()
-        await User.findOneAndUpdate({ _id: req.user._id }, { profile: newProfile })
+        await User.findOneAndUpdate({ _id: req.user._id }, { profile: newProfile }, {useFindAndModify: false})
         res.redirect('/activities')
 
     } catch (err) {
