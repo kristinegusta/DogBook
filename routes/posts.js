@@ -7,6 +7,7 @@ const Activity = require("../models/activitiy").Activity
 const cloudinary = require("cloudinary");
 //mongoose
 const mongoose = require("mongoose");
+const { ensureAuthenticated } = require('../config/auth');
 const dbPassword = "0TeEaRuCdH5yqRpJ";
 const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority`;
 
@@ -14,8 +15,14 @@ const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb
 // OUR CODE
 //Post my activity handle
 //login handle
-router.get('/postActivity', (req, res) => {
-    res.render('post');
+router.get('/postActivity', ensureAuthenticated, (req, res) => {
+    if (!req.user.profile) {
+        res.render('dashboard', {
+            user: req.user
+        });
+    } else {
+        res.render('post');
+    }
 })
 
 router.post("/newActivity", async (req, res) => {
