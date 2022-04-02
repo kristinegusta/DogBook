@@ -35,19 +35,9 @@ router.post("/newActivity", async (req, res) => {
             location: req.body.location,
         })
         await newActivity.save()
-        // var temporaryId = newActivity._id
         await Profile.findOneAndUpdate({_id: req.user.profile._id}, {$push: {activities: newActivity._id }}, {useFindAndModify: false})
         res.redirect('/activities')
     } catch (err) {
-        // console.log(typeof temporaryId, temporaryId);
-        // let test = temporaryId.stringify()
-        // console.log(test, typeof test);
-        // mongoose.connect(dbURI, function(err, db) {
-        //     db.collection('activities', function(err, collection){
-        //         console.log(err);
-        //         collection.deleteOne({"_id": ObjectId(test)});
-        //     })
-        // })
         console.log(err);
         res.redirect("/posts/postActivity")
     }
