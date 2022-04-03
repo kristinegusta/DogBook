@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/stylesheets/activity-post.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <title>Trainers</title>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="header flex">
+        <img src="/static/img-trainer/logo.png" alt="" />
+        <h1 class="trainer">Trainers</h1>
+        <h1>Activities</h1>
+        <img src="/static/img-trainer/user-profile-img.jpg" alt="" />
+      </div>
+      <hr class="orange-line" />
+      <h1 class="flex h1">Post your idea</h1>
+      <form action="/newActivity" method="post">
+        <div id="title">
+          <p type="text">Title</p>
+          <input
+            type="text "
+            class="input"
+            placeholder="Dog Park Near Brussel"
+          />
+        </div>
+
+        <div id="descreiption">
+          <p>descreiption</p>
+          <textarea class="des">
+The dog trainer's responsibilities include evaluating dogs' dispositions and temperaments, providing regular progress updates to clients, and teaching clients how to reinforce good behavior. You should also be able to answer clients' questions regarding training, behavioral issues, boarding, and pricing.</textarea
+          >
+        </div>
+
+        <div id="location">
+          <p>Location</p>
+          <input
+            type="text "
+            class="input"
+            placeholder="Uirbreideingstraat 2"
+          />
+        </div>
+
+        <div id="add">
+          <p>Add a picture</p>
+          <input type="text " class="input" placeholder="Add a picure" />
+        </div>
+
+        <div id="pic__container">
+          <div id="pictures"></div>
+        </div>
+      </form>
+      <div class="post-my-activity flex">
+        <h2>Post my activity</h2>
+        <img
+          src="/static/img-activity/plus-circle.png "
+          alt=" "
+          class="plus-icon"
+        />
+      </div>
+
+      <div class="footer">
+        <hr class="footer-line" />
+      </div>
+    </div>
+  </body>
+</html>
