@@ -1,27 +1,32 @@
 <title>BookDoog</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-<link rel="stylesheet" href="/static/stylesheets/registerP.css">
+<link rel="stylesheet" href="/static/stylesheets/registerP.css" />
 
 <div id="big__container">
-<div id="background"></div>
+  <div id="logo"></div>
 
-<div id="logoText">
-    <div id="logo"></div>
-</div>
-<div id="register">
-    <h1 id="reg">Login</h1>
-    <%- include ('./partials/messages') %>
-    <form action="/users/login" method="post">
+  <div id="register">
+    <h1>Login</h1>
+    <div class="form-container">
+      <%- include ('./partials/messages') %>
+      <form action="/users/login" method="post">
         <p>Enter your email</p>
-        <input type="text" name="email" placeholder="Enter Email">
+        <input type="text" name="email" placeholder="Enter Email" />
 
         <p>Enter your password</p>
-        <input type="password" name="password" placeholder="Enter your password">
+        <input
+          type="password"
+          name="password"
+          placeholder="Enter your password"
+        />
 
-        <br>
-        <button type="submit" id="btn">Login</button>
-    </form>
-</div>
+        <br />
+        <div class="btn-cont">
+          <button type="submit" class="btn orange">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-<div id="line"></div>
+  <div id="line"></div>
 </div>
