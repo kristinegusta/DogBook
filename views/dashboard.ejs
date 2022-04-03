@@ -1,46 +1,39 @@
 <title>BookDoog</title>
-<link rel="stylesheet" href="/static/stylesheets/createP.css">
+<link rel="stylesheet" href="/static/stylesheets/registerP.css" />
 <!-- <script src="/static/scripts/createprofile.js"></script> -->
 <div id="big__container" class="">
-    <div id="background">
-    </div>
+  <div id="logoText">
+    <div id="logo"></div>
+  </div>
+  <div id="register">
+    <h1>Create a profile</h1>
+    <div class="form-container">
+      <p class="p">Who are you?</p>
+      <div class="center">
+        <p>User</p>
+        <input type="checkbox" name="" />
+        <p>Trainer</p>
+      </div>
 
-    <div id="logoText">
-        <div id="logo"></div>
+      <form action="/profiles/new" method="post">
+        <p class="p">Your name</p>
+        <input type="text" name="name" placeholder="Enter Your name" />
 
+        <p class="p">Description</p>
+        <textarea
+          type="text"
+          name="bio"
+          placeholder="Write Your bio"
+        ></textarea>
 
+        <p class="p">Profile picture</p>
 
-
-    </div>
-    <div id="register">
-        <h1 id="reg">Create a profale</h1>
-        <p class="p">Who are you?</p>
-        <div class="center">
-            <p>User</p>
-            <input type="checkbox" name="">
-            <p>Trainer</p>
+        <div class="btn-cont">
+          <button type="submit" class="btn orange">Create</button>
         </div>
-
-
-
-
-        <form action="/profiles/new" method="post">
-            <p class="p">Your name</p>
-            <input type="text" name="name" placeholder="Enter Your name">
-
-            <p class="p">Description</p>
-            <textarea type="text" name="bio" placeholder="Write Your bio"></textarea>
-
-            <p class="p">Profile picture</p>
-            <!-- <input type="password" name="email"> -->
-            <br>
-            <!-- <input type="submit"> -->
-            <button type="submit" id="btn">Create</button>
-        </form>
+      </form>
     </div>
+  </div>
 
-
-
-
-    <div id="line"></div>
+  <div id="line"></div>
 </div>

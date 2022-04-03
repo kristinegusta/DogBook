@@ -15,8 +15,13 @@ const fileupload = require("express-fileupload");
 require("./config/passport")(passport);
 
 //mongoose
-const dbPassword = "0TeEaRuCdH5yqRpJ";
-const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority`;
+// Dylan cluster
+// const dbPassword = "0TeEaRuCdH5yqRpJ";
+// const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority`;
+// Antoine cluster
+const dbPassword = "ppp111ppp111";
+const dbURI = `mongodb+srv://antoine:${dbPassword}@cluster0.h3l4q.mongodb.net/dogbook_database?retryWrites=true&w=majority`;
+
 mongoose
   .connect(dbURI, {
     useNewUrlParser: true,
@@ -73,6 +78,7 @@ app.use("/", require("./routes/index"));
 app.use("/users", require("./routes/users"));
 app.use("/profiles", require("./routes/profiles"));
 app.use("/posts", require("./routes/posts"));
-app.use("/trainer", require("./routes/trainer"));
+// app.use("/trainer", require("./routes/trainer"));
+app.use("/activity", require("./routes/activity"));
 
 app.listen(3000);
