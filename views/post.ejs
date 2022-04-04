@@ -1,36 +1,33 @@
 <link rel="stylesheet" href="/static/stylesheets/activities.css" />
 <title>Post activity</title>
 
-<div class="main-container">
-  <div class="header flex">
-    <img src="/static/img-trainer/logo.png" alt="" />
-    <a class="nav trainer" href="/trainers">Trainers</a>
-    <a class="nav" href="/activities">Activities</a>
-    <img src="/static/img-activity/user-profile-img.jpg" alt="" />
-  </div>
-</div>
-<hr class="orange-line" />
-<div class="form-container">
-  <h1>Post your idea</h1>
-  <!-- <<%- include ('./partials/messages') %> -->
-  <form action="/posts/newActivity" method="post">
-    <p>Title</p>
-    <input type="text" name="name"/>
-
-    <p>Description</p>
-    <input type="text" id="description" name="description"/>
-
-    <p>Location</p>
-    <input type="text" name="location"/>
-    <p>Add img</p>
-    <!-- <input type="text" name="img"/> -->
-    <br />
-    <div class="btn-cont">
-      <button type="submit" class="btn orange">Submit</button>
+<div class="background-container">
+  <div class="feed-container">
+    <div class="header flex">
+      <img src="/static/img-trainer/logo.png" alt="" />
+      <a class="nav trainer" href="/trainers">Trainers</a>
+      <a class="nav" href="/activities">Activities</a>
+      <img src="/static/img-activity/user-profile-img.jpg" alt="" />
     </div>
-  </form>
-</div>
 
-<div class="footer">
-  <hr class="footer-line" />
+    <hr class="orange-line" />
+    <div class="form-container">
+      <h1>Post your idea</h1>
+      <!-- <<%- include ('./partials/messages') %> -->
+      <form action="/posts/newActivity" method="post">
+        <p>Title</p>
+        <input type="text" name="name" />
+
+        <p>Description</p>
+        <input type="text" id="description" name="description" />
+
+        <p>Location</p>
+        <input type="text" name="location" />
+        <!-- <input type="text" name="img"/> -->
+        <div class="btn-cont">
+          <button type="submit" class="btn orange">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

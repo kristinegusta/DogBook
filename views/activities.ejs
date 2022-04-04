@@ -1,6 +1,7 @@
 <title>Trainers</title>
 <link rel="stylesheet" href="/static/stylesheets/activities.css" />
 
+<<<<<<< HEAD
 <div class="main-container">
   <div class="header flex">
     <img src="/static/img-activity/logo.png" alt="" />
@@ -54,62 +55,137 @@
     <div class="activity-name">
       <h4>John</h4>
       <p class="grey-text">Golden Retriever - Mobile</p>
+=======
+<div class="background-container">
+  <div class="feed-container">
+    <div class="main-container">
+      <div class="header flex">
+        <img src="/static/img-activity/logo.png" alt="" />
+        <a class="nav" href="/trainers">Trainers</a>
+        <a class="nav page-now" href="/activities">Activities</a>
+        <img src="/static/img-activity/user-profile-img.jpg" alt="" />
+      </div>
+      <hr class="orange-line" />
+>>>>>>> main
     </div>
-  </div>
-  <div class="activity-description flex">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptates
-    sit distinctio.
-  </div>
-  <div class="location-text flex">
-    <img src="/static/img-activity/location-icon.png" alt="" class="location" />
-    <p>Miami Beach 56, Planet Earth</p>
-  </div>
-  <div class="dog-pic">
-    <img src="/static/img-activity/parc.jpg" alt="" class="dog-pic" />
-  </div>
-  <div class="reviews flex">
-    <h2 class="average-rating">4.6</h2>
-    <img src="/static/img-activity/star.png" alt="" class="star" />
-    <img src="/static/img-activity/star.png" alt="" class="star" />
-    <img src="/static/img-activity/star.png" alt="" class="star" />
-    <img src="/static/img-activity/star.png" alt="" class="star" />
-    <img src="/static/img-activity/star.png" alt="" class="star" />
-  </div>
-</div>
+    <div class="search-bar-div">
+      <input type="text" class="search-bar" placeholder="Search an activity" />
+    </div>
+    <!-- activities -->
 
-<div class="trainer-profile">
-  <hr class="orange-line" />
-  <div class="activities-infos flex">
-    <div class="trainer-pic"></div>
-    <div class="activity-name">
-      <h4>John</h4>
-      <p class="grey-text">Golden Retriever - Mobile</p>
+    <!-- adding activities begin -->
+    <% activities.reverse().forEach((activity) => { %>
+      <div class="trainer-profile">
+        <hr class="orange-line" />
+        <div class="activities-infos flex">
+          <div class="trainer-pic"></div>
+          <div class="activity-name">
+            <h4><%= activity.activityName %></h4>
+            <p class="grey-text">Shared by - <%= activity.authorName %></p>
+            <p class="grey-text"><%= activity.time %></p>
+          </div>
+        </div>
+        <div class="activity-description flex"><%= activity.description %></div>
+        <div class="location-text flex">
+          <img src="/static/img-activity/location-icon.png" alt="" class="location" />
+          <p><%= activity.location %></p>
+        </div>
+        <div class="dog-pic">
+          <img src="/static/img-activity/parc.jpg" alt="" class="dog-pic" />
+        </div>
+        <div class="reviews flex">
+          <h2 class="average-rating">4.6</h2>
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+        </div>
+      </div>
+    <% })%>
+    <!-- adding activities end -->
+      
+    <hr class="orange-line" />
+    <div class="card-container">
+      <div class="trainer-profile">
+        <div class="activities-infos flex">
+          <div class="trainer-pic"></div>
+          <div class="activity-name">
+            <h4>John</h4>
+            <p class="grey-text">Golden Retriever - Mobile</p>
+          </div>
+        </div>
+        <div class="activity-description ">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+          voluptates sit distinctio.
+        </div>
+        <div class="location-text flex">
+          <img
+            src="/static/img-activity/location-icon.png"
+            alt=""
+            class="location"
+          />
+          <p>Miami Beach 56, Planet Earth</p>
+        </div>
+        <div class="dog-pic">
+          <img src="/static/img-activity/parc.jpg" alt="" class="dog-pic" />
+        </div>
+        <div class="reviews flex">
+          <h2 class="average-rating">4.6</h2>
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+        </div>
+        <a href="" class="see-more"
+          >See more <i class="fa-solid fa-angles-right"></i
+        ></a>
+      </div>
+    </div>
+    <hr class="orange-line" />
+    <div class="trainer-profile">
+      <div class="activities-infos flex">
+        <div class="trainer-pic"></div>
+        <div class="activity-name">
+          <h4>John</h4>
+          <p class="grey-text">Golden Retriever - Mobile</p>
+        </div>
+      </div>
+      <div class="activity-description flex">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+        voluptates sit distinctio. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Accusantium ad maiores eius voluptatem vero nam illo
+        labore ipsum, nulla totam soluta fugiat. Quaerat natus ad expedita
+        officia deserunt beatae nobis.
+      </div>
+      <div class="location-text flex">
+        <img
+          src="/static/img-activity/location-icon.png"
+          alt=""
+          class="location"
+        />
+        <p>Miami Beach 56, Planet Earth</p>
+      </div>
+      <div class="dog-pic">
+        <img src="/static/img-activity/parc.jpg" alt="" class="dog-pic" />
+      </div>
+      <div class="reviews flex">
+        <h2 class="average-rating">4.6</h2>
+        <img src="/static/img-activity/star.png" alt="" class="star" />
+        <img src="/static/img-activity/star.png" alt="" class="star" />
+        <img src="/static/img-activity/star.png" alt="" class="star" />
+        <img src="/static/img-activity/star.png" alt="" class="star" />
+        <img src="/static/img-activity/star.png" alt="" class="star" />
+      </div>
+      <a href="" class="see-more"
+        >See more <i class="fa-solid fa-angles-right"></i
+      ></a>
+    </div>
+    <div class="post-my-activity flex">
+      <a class="post-btn" href="/posts/postActivity"
+        >Post my activity<i class="fa-solid fa-plus"></i
+      ></a>
     </div>
   </div>
-  <div class="activity-description flex">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat voluptates
-    sit distinctio.
-  </div>
-  <div class="location-text flex">
-    <img src="/static/img-activity/location-icon.png" alt="" class="location" />
-    <p>Miami Beach 56, Planet Earth</p>
-  </div>
-  <div class="dog-pic">
-    <img src="/static/img-activity/parc.jpg" alt="" class="dog-pic" />
-  </div>
-  <div class="reviews flex">
-    <h2 class="average-rating">4.6</h2>
-    <img src="/static/img-activity/star.png" alt="" class="star" />
-    <img src="/static/img-activity/star.png" alt="" class="star" />
-    <img src="/static/img-activity/star.png" alt="" class="star" />
-    <img src="/static/img-activity/star.png" alt="" class="star" />
-    <img src="/static/img-activity/star.png" alt="" class="star" />
-  </div>
-</div>
-<div class="post-my-activity flex">
-  <a class="post-btn" href="/posts/postActivity">Post my activity</a>
-  <img src="/static/img-activity/plus-circle.png" alt="" class="plus-icon" />
-</div>
-<div class="footer">
-  <hr class="footer-line" />
 </div>
