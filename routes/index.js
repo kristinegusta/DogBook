@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const { ensureAuthenticated } = require('../config/auth')
-// const Profile = require("../models/profile").Profile;
+const Profile = require("../models/profile").Profile;
 // const Post = require("../models/post").Post;
-// const Activity = require("../models/activitiy").Activity;
+const Activity = require("../models/activitiy").Activity;
 
 //db info
 const mongoose = require("mongoose");
@@ -18,7 +18,8 @@ router.get('/', (req, res) => {
 //rendering activities page
 router.get('/activities', (req, res) => {
     //call renderacrivities renderAllActivities()
-    res.render('activities');
+    renderAllActivities(res)
+    // res.render('activities');
 })
 
 //trainers page
@@ -26,31 +27,43 @@ router.get("/trainers", (req, res) => {
     res.render("trainer");
 })
 
-const getActivityFromDB = () => {
-    //connecting to db/activities to retrieve the info
-    mongoose.connect(dbURI, function(err, db) {
-        const cursor = db.collection("activities").find({});
+const getActivityFromDB = async () => {
+    let activities = [];
+    const cursor = await Activity.find({});
 
-        function iterateFunc(doc) {
-            console.log(JSON.stringify(doc, null, 4));
-            
-            db.collection("profiles").find({activities: doc._id}).toArray(function(err, results) {
-                console.log(results);
-            });
+    for (let i = 0; i < cursor.length; i++) {
+        let doc = cursor[i];
+    
+        let info = {
+            activityId: "",
+            activityName: "",
+            description: "",
+            location: "",
+            time: "",
+            authorName: "",
         }
         
-        function errorFunc(error) {
-            console.log(error);
-        }
-        cursor.forEach(iterateFunc, errorFunc);
-    })
+        info.activityId = doc._id
+        info.activityName = doc.name
+        info.description = doc.description
+        info.location = doc.location
+        info.time = doc.date 
+    
+        const result = await Profile.find({activities: doc._id});
+        info.authorName = result[0].name
+        activities.push(info)
+    } 
+
+    return activities;  
 }
 
-const renderAllActivities = async function (req, res) {
-    activity = await getActivityFromDB()
+
+const renderAllActivities = async function (res) {
+    let activities = await getActivityFromDB()
+    console.log(activities);
 
     res.render("activities", {
-        activity: activity
+        activities: activities
     });
 }
 
@@ -77,7 +90,7 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
         });
     } else {
         // renderDashboardWithPosts(req, res)
-        //renderAllActivities()
+        // renderAllActivities()
         res.redirect("activities")
     }
 })
