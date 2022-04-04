@@ -7,10 +7,22 @@
 .flex {
   display: flex;
 }
-/* .main-container {
+.background-container {
   width: 100vw;
-  height: 100vh
-} */
+  min-height: 100vh;
+  background-image: url("../img/dogs2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.feed-container {
+  background-color: white;
+  width: 100%;
+  min-height: 100vh;
+}
 h1 {
   color: #fa6650;
   margin-bottom: 10px;
@@ -20,15 +32,23 @@ h1 {
 }
 .orange-line {
   margin: 3vh 0 3vh 0;
-  border: solid 2px #fa6650;
+  border: solid 1px #fa6650;
   background-color: #fa6650;
 }
 .header {
   justify-content: space-around;
-  margin-top: 5vh;
+  padding-top: 1rem;
   height: 8vh;
   font-size: 50%;
-  line-height: 8vh;
+}
+.nav {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 3.5em;
+}
+.page-now {
+  border: 2px solid #af4638;
+  border-radius: 65px;
+  padding: 3px;
 }
 .activities {
   text-decoration: underline 5px #fa6650;
@@ -58,7 +78,7 @@ form {
   padding: 1.5em;
 }
 #description {
-  height: 200px;
+  height: 150px;
 }
 .activities-infos {
   margin-left: 10vw;
@@ -80,9 +100,9 @@ form {
   margin-top: 3px;
 }
 .activity-description {
-  text-align: justify;
   margin: 1vh 5vw 1vh 5vw;
   color: rgb(92, 91, 91);
+  line-height: 1.5em;
 }
 .location-text {
   margin-left: 6vw;
@@ -102,6 +122,10 @@ form {
   border-radius: 5px;
   text-align: center;
 }
+.see-more {
+  margin-left: 6vw;
+  font-style: italic;
+}
 .reviews {
   height: 30px;
   line-height: 30px;
@@ -113,45 +137,35 @@ form {
   height: 24px;
 }
 .post-my-activity {
-  text-align: center;
   background-color: #fa6650;
-  height: 4vh;
-  line-height: 4vh;
+  height: 60px;
   justify-content: center;
-  font-size: 70%;
+  align-items: center;
+  font-size: 1em;
   margin: 3vh 10vw 0 10vw;
-  border-radius: 10px;
+  border-radius: 65px;
   color: white;
   position: sticky;
   bottom: 10;
 }
-.plus-icon {
-  height: 2.5vh;
-  margin: auto 0 auto 15px;
-}
-.footer-line {
-  margin: 40px;
-  width: 35vw;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  border: solid 2px black;
-  background-color: black;
-}
+
 a {
   color: black;
-  font-size: 2em;
   font-weight: 600;
   text-decoration: none;
 }
 .post-btn {
   color: white;
-  font-size: 1em;
   font-weight: 300;
+  font-size: 1.5em;
+}
+i {
+  margin-left: 10px;
 }
 .form-container {
-  height: 70vh;
+  height: 70%;
 }
+
 .btn {
   color: white;
   width: 200px;
@@ -164,11 +178,43 @@ a {
   font-size: 1em;
   margin-top: 2rem;
 }
+.trainer-infos {
+  justify-content: space-evenly;
+}
+.infos {
+  margin-left: -30px;
+}
+.trainer-pic {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  background-image: url(/static/img-trainer/gosling.jpg);
+  background-size: 120px;
+}
+.training-type {
+  justify-content: space-around;
+}
 .orange {
   background-color: #fa6650;
 }
 .btn-cont {
   text-align: center;
 }
+.card-container {
+  padding: 1rem;
+}
 @media only screen and (min-width: 600px) {
+  .feed-container {
+    width: 70%;
+    border-radius: 65px;
+    min-height: 60vh;
+  }
+  .background-container {
+    padding: 1rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .feed-container {
+    width: 50%;
+  }
 }
