@@ -14,6 +14,39 @@
   <input type="text" class="search-bar" placeholder="Search an activity" />
 </div>
 <!-- activities -->
+
+<!-- display activities begin -->
+<% activities.reverse().forEach((activity) => { %>
+  <div class="trainer-profile">
+    <hr class="orange-line" />
+    <div class="activities-infos flex">
+      <div class="trainer-pic"></div>
+      <div class="activity-name">
+        <h4><%= activity.activityName %></h4>
+        <p class="grey-text">Shared by - <%= activity.authorName %></p>
+        <p class="grey-text"><%= activity.time %></p>
+      </div>
+    </div>
+    <div class="activity-description flex"><%= activity.description %></div>
+    <div class="location-text flex">
+      <img src="/static/img-activity/location-icon.png" alt="" class="location" />
+      <p><%= activity.location %></p>
+    </div>
+    <div class="dog-pic">
+      <img src="/static/img-activity/parc.jpg" alt="" class="dog-pic" />
+    </div>
+    <div class="reviews flex">
+      <h2 class="average-rating">4.6</h2>
+      <img src="/static/img-activity/star.png" alt="" class="star" />
+      <img src="/static/img-activity/star.png" alt="" class="star" />
+      <img src="/static/img-activity/star.png" alt="" class="star" />
+      <img src="/static/img-activity/star.png" alt="" class="star" />
+      <img src="/static/img-activity/star.png" alt="" class="star" />
+    </div>
+  </div>
+  
+<% })%>
+<!-- display activities end -->
 <div class="trainer-profile">
   <hr class="orange-line" />
   <div class="activities-infos flex">
