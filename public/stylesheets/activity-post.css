@@ -1,128 +1,129 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    overflow: hidden;
 }
 
 .flex {
-  display: flex;
+    display: flex;
 }
+
 
 /* .main-container {
 } */
 
 .orange-line {
-  margin: 3vh 0 3vh 0;
-  border: solid 2px #fa6650;
-  background-color: #fa6650;
+    margin: 3vh 0 3vh 0;
+    border: solid 2px #fa6650;
+    background-color: #fa6650;
 }
 
 .header {
-  justify-content: space-around;
-  margin-top: 5vh;
-  height: 8vh;
-  font-size: 50%;
-  line-height: 8vh;
+    justify-content: space-around;
+    margin-top: 5vh;
+    height: 8vh;
+    font-size: 50%;
+    line-height: 8vh;
 }
 
 .footer-line {
-  margin: 40px;
-  width: 35vw;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  border: solid 2px black;
+    margin: 40px;
+    width: 35vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border: solid 2px black;
 }
 
 .post-my-activity {
-  text-align: center;
-  background-color: #fa6650;
-  height: 4vh;
-  line-height: 4vh;
-  justify-content: center;
-  font-size: 70%;
-  margin: 3vh 10vw 0 10vw;
-  border-radius: 10px;
-  color: white;
+    text-align: center;
+    background-color: #fa6650;
+    height: 4vh;
+    line-height: 4vh;
+    justify-content: center;
+    font-size: 70%;
+    margin: 3vh 10vw 0 10vw;
+    border-radius: 10px;
+    color: white;
 }
 
 .plus-icon {
-  height: 2.5vh;
-  margin: auto 0 auto 15px;
-  background-image: url("/img-activity/plus-circle.png");
+    height: 2.5vh;
+    margin: auto 0 auto 15px;
+    background-image: url("/img-activity/plus-circle.png");
 }
 
 .input {
-  width: 15em;
-  height: 2.5em;
-  border-radius: 10px;
+    width: 15em;
+    height: 2.5em;
+    border-radius: 10px;
 }
 
 .margin {
-  margin: 0 10px 0 10px;
+    margin: 0 10px 0 10px;
 }
 
 .h1 {
-  justify-content: space-evenly;
+    justify-content: space-evenly;
 }
 
 .space {
-  justify-content: space-evenly;
+    justify-content: space-evenly;
 }
 
 #title {
-  text-align: center;
+    text-align: center;
 }
 
 input {
-  text-align: center;
-  width: 15em;
-  height: 2.5em;
-  border-radius: 10px;
-  background-color: #f0f0f0;
-  border: none;
-  margin: 5px 0 5px 0;
+    text-align: center;
+    width: 15em;
+    height: 2.5em;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    border: none;
+    margin: 5px 0 5px 0;
 }
 
 .des {
-  width: 250px;
-  height: 150px;
-  border-radius: 10px;
-  background-color: #f0f0f0;
-  padding: 0 5px 0 5px;
+    width: 250px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    padding: 0 5px 0 5px;
 }
 
 #descreiption {
-  text-align: center;
+    text-align: center;
 }
 
 #location {
-  text-align: center;
+    text-align: center;
 }
 
 #add {
-  text-align: center;
+    text-align: center;
 }
 
 #pictures {
-  background-image: url("img-trainer/dog-parks-philadelphia-new.jpg");
-  width: 300px;
-  height: 200px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 20px;
-  margin-top: 10px;
+    background-image: url("img-trainer/dog-parks-philadelphia-new.jpg");
+    width: 300px;
+    height: 200px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    margin-top: 10px;
 }
 
 #pic__container {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 p {
-  margin: 5px 0 5px 0;
+    margin: 5px 0 5px 0;
 }
 
-@media only screen and (min-width: 600px) {
-}
+@media only screen and (min-width: 600px) {}
