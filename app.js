@@ -16,26 +16,26 @@ require("./config/passport")(passport);
 
 //mongoose
 // Dylan cluster
-const dbPassword = "0TeEaRuCdH5yqRpJ";
-const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority`;
+// const dbPassword = "0TeEaRuCdH5yqRpJ";
+// const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority`;
 // Antoine cluster
-// const dbPassword = "ppp111ppp111";
-// const dbURI = `mongodb+srv://antoine:${dbPassword}@cluster0.h3l4q.mongodb.net/dogbook_database?retryWrites=true&w=majority`;
+const dbPassword = "ppp111ppp111";
+const dbURI = `mongodb+srv://antoine:${dbPassword}@cluster0.h3l4q.mongodb.net/dogbook_database?retryWrites=true&w=majority`;
 
 mongoose
-    .connect(dbURI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    })
-    .then(() => console.log("connected,,"))
-    .catch((err) => console.log(err));
+  .connect(dbURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("connected,,"))
+  .catch((err) => console.log(err));
 
 //CLOUDINARY
 
 cloudinary.config({
-    cloud_name: "",
-    api_key: "",
-    api_secret: "",
+  cloud_name: "",
+  api_key: "",
+  api_secret: "",
 });
 
 // const storage = new CloudinaryStorage({
@@ -54,20 +54,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 //express session
 app.use(
-    session({
-        secret: "secret",
-        resave: true,
-        saveUninitialized: true,
-    })
+  session({
+    secret: "secret",
+    resave: true,
+    saveUninitialized: true,
+  })
 );
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use((req, res, next) => {
-    res.locals.success_msg = req.flash("success_msg");
-    res.locals.error_msg = req.flash("error_msg");
-    res.locals.error = req.flash("error");
-    next();
+  res.locals.success_msg = req.flash("success_msg");
+  res.locals.error_msg = req.flash("error_msg");
+  res.locals.error = req.flash("error");
+  next();
 });
 
 app.use(fileupload({ useTempFiles: true }));

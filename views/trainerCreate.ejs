@@ -1,101 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+<title>BookDoog</title>
+<link rel="stylesheet" href="/static/stylesheets/registerP.css" />
+<!-- <script src="/static/scripts/createprofile.js"></script> -->
+<div id="big__container" class="">
+  <div id="logo"></div>
+  <div id="register">
+    <h1>Create a profile</h1>
+    <div class="form-container">
+      <p class="p" style="text-align: center ;">Who are you?</p>
+      <div class="center">
+        <a href="/dashboard">
+          <div>
+            <p>User</p>
+          </div>
+        </a>
+        <span style="margin: 0 15vw 0 0;"></span>
+        <a href="/users/login">
+          <div>
+            <p>Trainer</p>
+          </div>
+                </div>
+        </a>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="trainerCre.css">
-    <title>BookDoog</title>
-</head>
+      <form action="/profiles/new" method="post">
+        <p class="p">Your name</p>
+        <input type="text" name="name" placeholder="Enter Your name" />
 
-<body>
+        <p class="p">Your email</p>
+        <input type="text" name="email" placeholder="Enter Your email" />
 
-    <div id="big__container">
-        <div id="background">
+        <p class="p">Your location</p>
+        <input type="text" name="location" placeholder="Enter Your location" />
+
+        <p class="p">Your phone</p>
+        <input type="text" name="phone" placeholder="Enter Your phone" />
+
+        <p class="p">Your website</p>
+        <input type="text" name="website" placeholder="Enter Your website" />
+
+        <p class="p">Description</p>
+        <textarea
+          type="text"
+          name="bio"
+          placeholder="Write Your bio"
+        ></textarea>
+
+        <div class="btn-cont">
+          <button type="submit" class="btn orange">Create</button>
         </div>
-
-        <div id="logoText">
-            <div id="logo"></div>
-
-
-
-
-        </div>
-        <div id="register">
-            <h1 id="reg">Create a profale</h1>
-            <p class="p">Who are you?</p>
-            <div class="center">
-                <p>User</p>
-                <input type="checkbox" name="">
-                <p>Trainer</p>
-            </div>
-
-
-            <div id="nav">
-                <div class="flex">
-                    <img src="img/obedience.png" alt="obedience">
-                    <p class="navP">Obedience</p>
-                </div>
-                <div class="flex">
-                    <img src="img/protection.png" alt="">
-                    <p class="navP"> Protection</p>
-                </div>
-                <div class="flex">
-                    <img src="img/hoop.png" alt="">
-                    <p class="navP"> Hoop</p>
-                </div>
-                <div class="flex">
-                    <img src="img/other.png" alt="">
-                    <p class="navP"> Other</p>
-                </div>
-
-            </div>
-
-
-
-
-
-
-            </form>
-            <p class="p">Your name or Association name</p>
-            <input type="text" name="email" placeholder="Enter Your name">
-
-            <p class="p">Description</p>
-            <textarea>Some text...</textarea>
-
-            <p class="p">Street name</p>
-            <input type="text" name="Street" placeholder="Street name">
-
-            <div id="city">
-                <p class="p">Post code</p>
-                <input type="text" name="post" class="smollInput">
-                <p class="p">City</p>
-                <input type="text" name="city" class="smollInput">
-
-            </div>
-            <p class="p">Country</p>
-            <input type="text" name="Country">
-
-            <p class="p">Profile picture</p>
-            <input type="text" name="pic">
-            <p class="p">Extra Picture</p>
-            <input type="text" name="extra">
-            <p class="p">Phone Namber</p>
-            <input type="text" name="number">
-
-
-            <br>
-            <button id="btn">Submit</button>
-            </form>
-        </div>
-
-
-
-
-
+      </form>
     </div>
-
-</body>
-
-</html>
+  </div>
+</div>
