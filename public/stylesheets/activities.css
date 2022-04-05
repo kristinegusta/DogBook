@@ -1,174 +1,205 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    overflow: hidden;
 }
+
 .flex {
-  display: flex;
+    display: flex;
 }
+
+
 /* .main-container {
   width: 100vw;
   height: 100vh
 } */
+
 h1 {
-  color: #fa6650;
-  margin-bottom: 10px;
-  font-family: "Shadows Into Light", cursive;
-  font-size: 3em;
-  text-align: center;
+    color: #fa6650;
+    margin-bottom: 10px;
+    font-family: "Shadows Into Light", cursive;
+    font-size: 3em;
+    text-align: center;
 }
+
 .orange-line {
-  margin: 3vh 0 3vh 0;
-  border: solid 2px #fa6650;
-  background-color: #fa6650;
+    margin: 3vh 0 3vh 0;
+    border: solid 2px #fa6650;
+    background-color: #fa6650;
 }
+
 .header {
-  justify-content: space-around;
-  margin-top: 5vh;
-  height: 8vh;
-  font-size: 50%;
-  line-height: 8vh;
+    justify-content: space-around;
+    margin-top: 5vh;
+    height: 8vh;
+    font-size: 50%;
+    line-height: 8vh;
 }
+
 .activities {
-  text-decoration: underline 5px #fa6650;
+    text-decoration: underline 5px #fa6650;
 }
+
 .search-bar-div {
-  text-align: center;
-  margin: 3vh 0 3vh 0;
+    text-align: center;
+    margin: 3vh 0 3vh 0;
 }
+
 .search-bar {
-  height: 4vh;
-  width: 80vw;
-  max-width: 300px;
-  border-radius: 30px;
-  border: none;
-  background-color: rgb(241, 241, 241);
+    height: 4vh;
+    width: 80vw;
+    max-width: 300px;
+    border-radius: 30px;
+    border: none;
+    background-color: rgb(241, 241, 241);
 }
 
 input {
-  padding: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-  border-radius: 25px;
-  border: none;
-  background-color: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 25px;
+    border: none;
+    background-color: #f0f0f0;
 }
+
 form {
-  padding: 1.5em;
+    padding: 1.5em;
 }
+
 #description {
-  height: 200px;
+    height: 200px;
 }
+
 .activities-infos {
-  margin-left: 10vw;
+    margin-left: 10vw;
 }
+
 .trainer-pic {
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  background-image: url("/static/img-trainer/gosling.jpg");
-  background-size: 50px;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-image: url("/static/img-trainer/gosling.jpg");
+    background-size: 50px;
 }
+
 .activity-name {
-  margin-left: 5vw;
-  margin-top: 5px;
+    margin-left: 5vw;
+    margin-top: 5px;
 }
+
 .grey-text {
-  color: rgb(168, 166, 166);
-  font-size: 80%;
-  margin-top: 3px;
+    color: rgb(168, 166, 166);
+    font-size: 80%;
+    margin-top: 3px;
 }
+
 .activity-description {
-  text-align: justify;
-  margin: 1vh 5vw 1vh 5vw;
-  color: rgb(92, 91, 91);
+    text-align: justify;
+    margin: 1vh 5vw 1vh 5vw;
+    color: rgb(92, 91, 91);
 }
+
 .location-text {
-  margin-left: 6vw;
-  color: rgb(92, 91, 91);
+    margin-left: 6vw;
+    color: rgb(92, 91, 91);
 }
+
 .location {
-  height: 25px;
-  line-height: 25px;
-  margin-bottom: 1vh;
-  margin-right: 1vw;
+    height: 25px;
+    line-height: 25px;
+    margin-bottom: 1vh;
+    margin-right: 1vw;
 }
+
 .dog-pic {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 90vw;
-  max-height: 25vh;
-  border-radius: 5px;
-  text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90vw;
+    max-height: 25vh;
+    border-radius: 5px;
+    text-align: center;
 }
+
 .reviews {
-  height: 30px;
-  line-height: 30px;
-  justify-content: center;
-  margin-top: 2vh;
+    height: 30px;
+    line-height: 30px;
+    justify-content: center;
+    margin-top: 2vh;
 }
+
 .star {
-  margin: 2px;
-  height: 24px;
+    margin: 2px;
+    height: 24px;
 }
+
 .post-my-activity {
-  text-align: center;
-  background-color: #fa6650;
-  height: 4vh;
-  line-height: 4vh;
-  justify-content: center;
-  font-size: 70%;
-  margin: 3vh 10vw 0 10vw;
-  border-radius: 10px;
-  color: white;
-  position: sticky;
-  bottom: 10;
+    text-align: center;
+    background-color: #fa6650;
+    height: 4vh;
+    line-height: 4vh;
+    justify-content: center;
+    font-size: 70%;
+    margin: 3vh 10vw 0 10vw;
+    border-radius: 10px;
+    color: white;
+    position: sticky;
+    bottom: 10;
 }
+
 .plus-icon {
-  height: 2.5vh;
-  margin: auto 0 auto 15px;
+    height: 2.5vh;
+    margin: auto 0 auto 15px;
 }
+
 .footer-line {
-  margin: 40px;
-  width: 35vw;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 10px;
-  border: solid 2px black;
-  background-color: black;
+    margin: 40px;
+    width: 35vw;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    border: solid 2px black;
+    background-color: black;
 }
+
 a {
-  color: black;
-  font-size: 2em;
-  font-weight: 600;
-  text-decoration: none;
+    color: black;
+    font-size: 2em;
+    font-weight: 600;
+    text-decoration: none;
 }
+
 .post-btn {
-  color: white;
-  font-size: 1em;
-  font-weight: 300;
+    color: white;
+    font-size: 1em;
+    font-weight: 300;
 }
+
 .form-container {
-  height: 70vh;
+    height: 70vh;
 }
+
 .btn {
-  color: white;
-  width: 200px;
-  height: auto;
-  padding: 1em;
-  margin: 0.3em;
-  border-radius: 65px;
-  text-align: center;
-  border: none;
-  font-size: 1em;
-  margin-top: 2rem;
+    color: white;
+    width: 200px;
+    height: auto;
+    padding: 1em;
+    margin: 0.3em;
+    border-radius: 65px;
+    text-align: center;
+    border: none;
+    font-size: 1em;
+    margin-top: 2rem;
 }
+
 .orange {
-  background-color: #fa6650;
+    background-color: #fa6650;
 }
+
 .btn-cont {
-  text-align: center;
+    text-align: center;
 }
-@media only screen and (min-width: 600px) {
-}
+
+@media only screen and (min-width: 600px) {}
