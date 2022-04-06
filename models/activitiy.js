@@ -23,12 +23,10 @@ const ActivitySchema  = new mongoose.Schema({
 
   // a bunch of pics to come
 
-//   ratings: [
-//     {
-//       type: mongoose.Schema.Types.ObjectId,
-//       ref: "Rating"
-//     }
-//   ],
+  rating: {
+    type: Number,
+    required: false
+  },
 
 //   comments: [
 //     {

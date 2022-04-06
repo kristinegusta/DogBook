@@ -6,7 +6,6 @@ const TrainerProfile = require("../models/trainerProfile").TrainerProfile;
 
 // OUR CODE
 
-// user profile
 router.post("/new", async (req, res) => {
   const newProfile = new Profile(req.body);
   // newProfile.save();
