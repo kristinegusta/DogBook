@@ -18,8 +18,6 @@ router.post("/newReview", ensureAuthenticated, async (req, res) => {
         // console.log(req.headers.referer);
         let activityId = req.headers.referer.split("?")
         
-        // console.log(req.user.profile._id, typeof req.user.profile._id);
-        // res.redirect(`/ActivityReview?${activityId[1]}`)
         try {
             const newReview = new Review({
                 rating: req.body.rating,

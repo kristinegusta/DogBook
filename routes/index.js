@@ -143,12 +143,32 @@ router.get('/activities', (req, res) => {
     renderAllActivities(res)
 })
 
+const fetchReviews = async (id) => {
+    let reviews = [];
+    const cursor = await Activity.find({_id: id});
+    const review = await Review.find({ _id: cursor[0].reviews });
+    // console.log(review);
+    for (let i = 0; i < review.length; i++) {
+        let doc = review[i];
+        let rating = doc.rating
+        reviews.push(info)
+    }
+    return reviews;
+}
+
 const getActivitiesFromDB = async () => {
     let activities = [];
     const cursor = await Activity.find({});
-
     for (let i = 0; i < cursor.length; i++) {
         let doc = cursor[i];
+        let reviews = [];
+
+        const review = await Review.find({ _id: cursor[i].reviews });
+        for (let i = 0; i < review.length; i++) {
+            let doc = review[i];
+            let rating = doc.rating
+            reviews.push(rating)
+        }
 
         let info = {
             activityId: "",
@@ -157,8 +177,20 @@ const getActivitiesFromDB = async () => {
             location: "",
             time: "",
             authorName: "",
+            rating: "",
+            reviews: "",
         }
-
+        
+        if (reviews.length === 0) {
+            info.rating = 0
+        } else {
+            let total = 0
+            for (let rating of reviews) {
+                total += rating
+            }
+            info.rating = total/reviews.length
+        }
+        info.reviews = reviews.length
         info.activityId = doc._id
         info.activityName = doc.name
         info.description = doc.description
@@ -177,8 +209,12 @@ const getActivitiesFromDB = async () => {
 
 const renderAllActivities = async function (res) {
     let activities = await getActivitiesFromDB()
-
-
+    // activities.forEach(el => {
+    //     let reviews = fetchReviews(el.activityId)
+    //     reviews.forEach(review => {
+            
+    //     });
+    // });
     res.render("activities", {
         activities: activities
     });
