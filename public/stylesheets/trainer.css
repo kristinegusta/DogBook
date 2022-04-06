@@ -153,3 +153,9 @@ h4,
 p {
   margin: 1em;
 }
+#map-container {
+  height: 300px;
+}
+h2 {
+  font-size: 2em;
+}
