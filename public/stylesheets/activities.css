@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +8,24 @@
   .flex {
     display: flex;
   }
+  .main-container {
+    max-width: 100vw;
+    height: auto;
+  }
+  .button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .padding{
+    padding-bottom: 30px;
+  }
+  /* .ratings{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  } */
   .background-container {
     width: 100vw;
     min-height: 100vh;
@@ -76,7 +95,7 @@
     left: 0;
     z-index: 1;
   }
-  input {
+  .input {
     padding: 10px;
     margin-bottom: 10px;
     width: 100%;
@@ -89,6 +108,9 @@
   }
   #description {
     height: 150px;
+  }
+  #review {
+    height: 85px;
   }
   .activities-infos {
     margin-left: 10vw;
@@ -159,6 +181,24 @@
     position: sticky;
     bottom: 10;
   }
+  .post-my-review {
+    /* height: 250px; */
+    background-color: white;
+    /* justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    margin: 3vh 10vw 0 10vw;
+    border-radius: 65px; */
+    /* color: white; */
+    position: sticky;
+    bottom: 1;
+  }
+  .space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 65px;
+  }
   
   a {
     color: black;
@@ -177,6 +217,17 @@
     height: 70%;
   }
   
+  .btn2 {
+    color: white;
+    width: 100px;
+    height: auto;
+    padding: 1em;
+    margin: 0.5em;
+    border-radius: 65px;
+    text-align: center;
+    text-decoration: none;
+  }
+
   .btn {
     color: white;
     width: 200px;
@@ -189,6 +240,44 @@
     font-size: 1em;
     margin-top: 2rem;
   }
+
+  .btn3 {
+    color: white;
+    width: 175px;
+    padding: 1em;
+    border-radius: 65px;
+    text-align: center;
+    border: none;
+    font-size: 1em;
+  }
+
+  [dir="rtl"] .rating {
+    --dir: left;
+  }
+  .rating{    
+    --star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.25l-6.188 3.75 1.641-7.031-5.438-4.734 7.172-0.609 2.813-6.609 2.813 6.609 7.172 0.609-5.438 4.734 1.641 7.031z"/></svg>');
+    --fill: #fa6650;
+    --fillbg: rgba(100, 100, 100, 0.15);
+    --dir: right;
+    --stars: 5;
+    --starsize: 2rem;
+    --symbol: var(--star);
+    --value: 1;
+    --w: calc(var(--stars) * var(--starsize));
+    --x: calc(100% * (var(--value) / var(--stars)));
+    block-size: var(--starsize);
+    inline-size: var(--w);
+    /* position: relative; */
+    touch-action: manipulation;
+    -webkit-appearance: none;
+  }
+  .rating::-webkit-slider-runnable-track {
+    background: linear-gradient(to var(--dir), var(--fill) 0 var(--x), var(--fillbg) 0 var(--x));
+    block-size: 100%;
+    mask: repeat left center/var(--starsize) var(--symbol);
+    -webkit-mask: repeat left center/var(--starsize) var(--symbol);
+  }
+
   .trainer-infos {
     justify-content: space-evenly;
   }
@@ -207,6 +296,9 @@
   }
   .orange {
     background-color: #fa6650;
+  }
+  .black {
+    background: rgba(0, 0, 0, 0.55);
   }
   .btn-cont {
     text-align: center;
