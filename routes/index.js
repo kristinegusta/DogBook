@@ -143,19 +143,6 @@ router.get('/activities', (req, res) => {
     renderAllActivities(res)
 })
 
-const fetchReviews = async (id) => {
-    let reviews = [];
-    const cursor = await Activity.find({_id: id});
-    const review = await Review.find({ _id: cursor[0].reviews });
-    // console.log(review);
-    for (let i = 0; i < review.length; i++) {
-        let doc = review[i];
-        let rating = doc.rating
-        reviews.push(info)
-    }
-    return reviews;
-}
-
 const getActivitiesFromDB = async () => {
     let activities = [];
     const cursor = await Activity.find({});
