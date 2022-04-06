@@ -5,6 +5,8 @@ const Profile = require("../models/profile").Profile;
 // const Post = require("../models/post").Post;
 const Activity = require("../models/activitiy").Activity;
 const Trainer = require("../models/trainerK").Trainer;
+const TrainerProfile = require("../models/trainerProfile").TrainerProfile;
+
 
 //test page
 router.get('/test', (req, res) => {
@@ -83,6 +85,17 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
         res.redirect("activities")
     }
 })
+// trainer dashboard 
+router.get("/trainerCreate", ensureAuthenticated, (req, res) => {
+    if (!req.user.profile) {
+      res.render("trainerCreate", {
+        user: req.user,
+      });
+    } else {
+      res.redirect("activities");
+    }
+  });
+
 /* EVERYTHING ACTIVITIES RELATED */
 //rendering activities page
 router.get('/activities', (req, res) => {
@@ -134,41 +147,73 @@ const renderAllActivities = async function (res) {
 /* EVERYTHING TRAINER RELATED */
 //trainers page
 router.get("/trainers", (req, res) => {
-    renderAllTrainers(res)
-})
-
-const getTrainerFromDB = async () => {
+    renderAllTrainers(res);
+  });
+  
+  const notScrappedGetTrainersFromDB = async () => {
     let trainers = [];
-    const cursor = await Trainer.find({});
-
+    const cursor = await TrainerProfile.find({});
+  
     for (let i = 0; i < cursor.length; i++) {
-        let doc = cursor[i];
-        let info = {}
-
-        info.trainerId = doc._id
-        info.name = doc.name
-        info.street = doc.street
-        info.city = doc.city
-        info.country = doc.country
-        info.phone = doc.phone
-        info.email = doc.email
-        info.website = doc.website
-
-        trainers.push(info)
+      let doc = cursor[i];
+  
+      let info = {
+        activityId: "",
+        trainerName: "",
+        email: "",
+        location: "",
+        phone: "",
+        website: "",
+        bio: "",
+        time: "",
+      };
+  
+      info.activityId = doc._id;
+      info.trainerName = doc.name;
+      info.email = doc.email;
+      info.location = doc.location;
+      info.phone = doc.phone;
+      info.website = doc.website;
+      info.bio = doc.bio;
+      info.time = doc.date;
+      trainers.push(info);
     }
+  
     return trainers;
-}
-const renderAllTrainers = async function (res) {
-    let trainers = await getTrainerFromDB()
-    /*console.log(trainers);*/
-
+  };
+  
+  const getTrainerFromDB = async () => {
+    let scrappedTrainers = [];
+    const cursor = await Trainer.find({});
+  
+    for (let i = 0; i < cursor.length; i++) {
+      let doc = cursor[i];
+      let info = {};
+  
+      info.trainerId = doc._id;
+      info.name = doc.name;
+      info.street = doc.street;
+      info.city = doc.city;
+      info.country = doc.country;
+      info.phone = doc.phone;
+      info.email = doc.email;
+      info.website = doc.website;
+  
+      scrappedTrainers.push(info);
+    }
+    return scrappedTrainers;
+  };
+  const renderAllTrainers = async function (res) {
+    let scrappedTrainers = await getTrainerFromDB();
+    let trainers = await notScrappedGetTrainersFromDB();
+    // console.log(trainers);
+    // console.log(scrappedTrainers);
+  
     res.render("trainer", {
-        trainers: trainers
+      trainers: trainers,
+      scrappedTrainers: scrappedTrainers,
     });
-}
-
-
-
-
-
-module.exports = router;
+  };
+  
+  module.exports = router;
+  
