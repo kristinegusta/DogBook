@@ -36,11 +36,10 @@
   <hr class="orange-line" />
   <div class="card-container">
      <!-- trainer profile -->
-  
-  <!-- adding activities begin -->
 
   <!-- adding unscrapped profiles -->
   <% trainers.reverse().forEach((trainer) => { %>
+    <a href="/about/show/<%= trainer.trainerId %>">
     <div class="trainer-profile">
      
       <div class="trainer-infos flex">
@@ -77,6 +76,7 @@
         <img src="/static/img-trainer/star.png" alt="" class="star" />
       </div>
     </div>
+  </a>
     <% })%>
 
     <!-- adding scrapped profiles  -->

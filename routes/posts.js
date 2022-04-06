@@ -17,15 +17,15 @@ router.post("/newReview", ensureAuthenticated, async (req, res) => {
     } else {
         // console.log(req.headers.referer);
         let activityId = req.headers.referer.split("?")
-        
+
         try {
             const newReview = new Review({
                 rating: req.body.rating,
                 description: req.body.review,
             })
             await newReview.save()
-            await Profile.findOneAndUpdate({_id: req.user.profile._id}, {$push: {reviews: newReview._id }}, {useFindAndModify: false})
-            await Activity.findOneAndUpdate({_id: activityId[1]}, {$push: {reviews: newReview._id }}, {useFindAndModify: false})
+            await Profile.findOneAndUpdate({ _id: req.user.profile._id }, { $push: { reviews: newReview._id } }, { useFindAndModify: false })
+            await Activity.findOneAndUpdate({ _id: activityId[1] }, { $push: { reviews: newReview._id } }, { useFindAndModify: false })
             res.redirect(`/ActivityReview?${activityId[1]}`)
         } catch (err) {
             console.log(err);
@@ -55,7 +55,7 @@ router.post("/newActivity", async (req, res) => {
             location: req.body.location,
         })
         await newActivity.save()
-        await Profile.findOneAndUpdate({_id: req.user.profile._id}, {$push: {activities: newActivity._id }}, {useFindAndModify: false})
+        await Profile.findOneAndUpdate({ _id: req.user.profile._id }, { $push: { activities: newActivity._id } }, { useFindAndModify: false })
         res.redirect('/activities')
     } catch (err) {
         console.log(err);
@@ -85,7 +85,8 @@ router.post("/newActivity", async (req, res) => {
 //     }
 
 // })
-
+/*
+Hangling uploads
 router.post("/upload-image", async (req, res) => {
     try {
 
@@ -96,7 +97,7 @@ router.post("/upload-image", async (req, res) => {
         res.status(500).json({ err: 'Something went wrong' });
     }
 });
-
+*/
 
 
 

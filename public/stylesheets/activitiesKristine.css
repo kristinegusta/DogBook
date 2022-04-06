@@ -23,6 +23,12 @@
   width: 100%;
   min-height: 100vh;
 }
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 h1 {
   color: #fa6650;
   margin-bottom: 10px;
@@ -121,10 +127,14 @@ form {
   margin-left: 6vw;
   color: rgb(92, 91, 91);
 }
+#map-container {
+  height: 200px;
+}
 .location {
-  line-height: 25px;
+  line-height: 20px;
   margin-bottom: 1vh;
   margin-right: 1vw;
+  display: block;
 }
 .dog-pic {
   margin-left: auto;
@@ -210,6 +220,9 @@ i {
 }
 .btn-cont {
   text-align: center;
+}
+.black {
+  background: rgba(0, 0, 0, 0.55);
 }
 .card-container {
   padding: 1rem;
