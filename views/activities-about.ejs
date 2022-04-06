@@ -26,11 +26,10 @@
     <!-- activity -->
     <div class="activities-card">
       <h2><%= activity.activityName %></h2>
-      <h3>Location: <%= activity.location %></h3>
+      <h3>Location: <span><%= activity.location %></span></h3>
+      <div id="map-container"><!-- Insert the map here --></div>
       <h4>Posted by: <%= activity.authorName %></h4>
-      <p>
-        <%= activity.description %>
-      </p>
+      <p><%= activity.description %></p>
       <div class="activities-img-div"></div>
       <div class="activities-img-div"></div>
       <hr class="orange-line" />
