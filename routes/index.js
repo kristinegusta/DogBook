@@ -42,10 +42,23 @@ const renderActivityAbout = async function (res, id) {
         activity: activity
     });
 }
+// Trainer about ( KAATS STYLE)
+/*
+router.get("/:id", async (req, res) => {
+    console.log(req.params.id)
+    //const trainerQuery = await TrainerProfile.findById(req.params.id)
 
+    
+    res.render('trainer-about', {
+        trainer: trainerQuery
+    })
+    
+    res.render('trainer-about')
+})
+*/
 const getReviewFromDB = async (id) => {
     let reviews = [];
-    const cursor = await Activity.find({_id: id});
+    const cursor = await Activity.find({ _id: id });
     const review = await Review.find({ _id: cursor[0].reviews });
     // console.log(review);
     for (let i = 0; i < review.length; i++) {
@@ -58,14 +71,14 @@ const getReviewFromDB = async (id) => {
             time: "",
             authorName: "",
         }
-        
-        
+
+
         info.reviewId = doc._id
         info.description = doc.description
         info.rating = doc.rating
         let date = doc.date.toString().split("GMT")
         info.time = date[0].trim()
-        
+
         const result = await Profile.find({ reviews: doc._id });
         info.authorName = result[0].name
         reviews.push(info)
@@ -75,13 +88,8 @@ const getReviewFromDB = async (id) => {
 
 const getActivityFromDB = async (id) => {
     let activities = [];
-    //an idea to be ttested
-    // if (id) {
-    //     console.log("you clicked on a card");
-    // } else {
-    //     console.log("you just clicked on activities");
-    // }
-    const cursor = await Activity.find({_id: id});
+
+    const cursor = await Activity.find({ _id: id });
 
     for (let i = 0; i < cursor.length; i++) {
         let doc = cursor[i];
@@ -129,13 +137,13 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
 // trainer dashboard 
 router.get("/trainerCreate", ensureAuthenticated, (req, res) => {
     if (!req.user.profile) {
-      res.render("trainerCreate", {
-        user: req.user,
-      });
+        res.render("trainerCreate", {
+            user: req.user,
+        });
     } else {
-      res.redirect("activities");
+        res.redirect("activities");
     }
-  });
+});
 
 /* EVERYTHING ACTIVITIES RELATED */
 //rendering activities page
@@ -167,7 +175,7 @@ const getActivitiesFromDB = async () => {
             rating: "",
             reviews: "",
         }
-        
+
         if (reviews.length === 0) {
             info.rating = 0
         } else {
@@ -175,7 +183,7 @@ const getActivitiesFromDB = async () => {
             for (let rating of reviews) {
                 total += rating
             }
-            info.rating = total/reviews.length
+            info.rating = total / reviews.length
         }
         info.reviews = reviews.length
         info.activityId = doc._id
@@ -196,12 +204,6 @@ const getActivitiesFromDB = async () => {
 
 const renderAllActivities = async function (res) {
     let activities = await getActivitiesFromDB()
-    // activities.forEach(el => {
-    //     let reviews = fetchReviews(el.activityId)
-    //     reviews.forEach(review => {
-            
-    //     });
-    // });
     res.render("activities", {
         activities: activities
     });
@@ -211,72 +213,61 @@ const renderAllActivities = async function (res) {
 //trainers page
 router.get("/trainers", (req, res) => {
     renderAllTrainers(res);
-  });
-  
-  const notScrappedGetTrainersFromDB = async () => {
+});
+
+const notScrappedGetTrainersFromDB = async () => {
     let trainers = [];
     const cursor = await TrainerProfile.find({});
-  
+
     for (let i = 0; i < cursor.length; i++) {
-      let doc = cursor[i];
-  
-      let info = {
-        activityId: "",
-        trainerName: "",
-        email: "",
-        location: "",
-        phone: "",
-        website: "",
-        bio: "",
-        time: "",
-      };
-  
-      info.activityId = doc._id;
-      info.trainerName = doc.name;
-      info.email = doc.email;
-      info.location = doc.location;
-      info.phone = doc.phone;
-      info.website = doc.website;
-      info.bio = doc.bio;
-      info.time = doc.date;
-      trainers.push(info);
+        let doc = cursor[i];
+
+        let info = {};
+
+        info.trainerId = doc._id;
+        info.trainerName = doc.name;
+        info.email = doc.email;
+        info.location = doc.location;
+        info.phone = doc.phone;
+        info.website = doc.website;
+        info.bio = doc.bio;
+        info.time = doc.date;
+        trainers.push(info);
+
     }
-  
+
     return trainers;
-  };
-  
-  const getTrainerFromDB = async () => {
+};
+
+const getTrainerFromDB = async () => {
     let scrappedTrainers = [];
     const cursor = await Trainer.find({});
-  
+
     for (let i = 0; i < cursor.length; i++) {
-      let doc = cursor[i];
-      let info = {};
-  
-      info.trainerId = doc._id;
-      info.name = doc.name;
-      info.street = doc.street;
-      info.city = doc.city;
-      info.country = doc.country;
-      info.phone = doc.phone;
-      info.email = doc.email;
-      info.website = doc.website;
-  
-      scrappedTrainers.push(info);
+        let doc = cursor[i];
+        let info = {};
+
+        info.trainerId = doc._id;
+        info.name = doc.name;
+        info.street = doc.street;
+        info.city = doc.city;
+        info.country = doc.country;
+        info.phone = doc.phone;
+        info.email = doc.email;
+        info.website = doc.website;
+
+        scrappedTrainers.push(info);
     }
     return scrappedTrainers;
-  };
-  const renderAllTrainers = async function (res) {
+};
+const renderAllTrainers = async function (res) {
     let scrappedTrainers = await getTrainerFromDB();
     let trainers = await notScrappedGetTrainersFromDB();
-    // console.log(trainers);
-    // console.log(scrappedTrainers);
-  
+
     res.render("trainer", {
-      trainers: trainers,
-      scrappedTrainers: scrappedTrainers,
+        trainers: trainers,
+        scrappedTrainers: scrappedTrainers,
     });
-  };
-  
-  module.exports = router;
-  
+};
+
+module.exports = router;

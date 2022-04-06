@@ -40,29 +40,9 @@ router.post("/newTrainer", async (req, res) => {
   }
 });
 
-// router.post("/search", async(req, res) => {
-//     console.log(req.body)
-//     const profiles = await Profile.find({ "username": { $regex: req.body.user_input } })
-//     res.send({ data: profiles })
-
-// })
-
-// const getUserProfileAndPosts = function(id) {
-//     return Profile.findById(id).populate("posts")
-// }
-
-// const renderProfileWithPosts = async function(id, req, res) {
-
-//     const posts = await getUserProfileAndPosts(id)
-//     console.log(posts)
-//     res.render('profile', {
-//         user: req.user,
-//         posts: posts
-//     })
-// }
-
+/*
 router.get("/show/:id", (req, res) => {
   renderProfileWithPosts(req.params.id, req, res);
 });
-
+*/
 module.exports = router;
