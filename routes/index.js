@@ -5,6 +5,7 @@ const Profile = require("../models/profile").Profile;
 // const Post = require("../models/post").Post;
 const Activity = require("../models/activitiy").Activity;
 const Trainer = require("../models/trainerK").Trainer;
+const Review = require("../models/review").Review;
 
 //test page
 router.get('/test', (req, res) => {
@@ -14,10 +15,19 @@ router.get('/test', (req, res) => {
 
 // Activity Review page
 router.get("/ActivityReview", (req, res) => {
-    res.render("activityReview")
+    let activityId = req.url.split("?")
+    // res.render("activityReview")
+    renderActivityReview(res, activityId[1])
 })
+const renderActivityReview = async function (res, id) {
+    let activity = await getActivityFromDB(id)
+    let reviews = await getReviewFromDB(id)
 
-
+    res.render("activityReview", {
+        activity: activity,
+        reviews: reviews
+    });
+}
 
 // Activity About Page
 router.get("/ActivityAbout", (req, res) => {
@@ -30,6 +40,36 @@ const renderActivityAbout = async function (res, id) {
     res.render("activities-about", {
         activity: activity
     });
+}
+
+const getReviewFromDB = async (id) => {
+    let reviews = [];
+    const cursor = await Activity.find({_id: id});
+    const review = await Review.find({ _id: cursor[0].reviews });
+    // console.log(review);
+    for (let i = 0; i < review.length; i++) {
+        let doc = review[i];
+
+        let info = {
+            reviewId: "",
+            description: "",
+            rating: "",
+            time: "",
+            authorName: "",
+        }
+        
+        
+        info.reviewId = doc._id
+        info.description = doc.description
+        info.rating = doc.rating
+        let date = doc.date.toString().split("GMT")
+        info.time = date[0].trim()
+        
+        const result = await Profile.find({ reviews: doc._id });
+        info.authorName = result[0].name
+        reviews.push(info)
+    }
+    return reviews;
 }
 
 const getActivityFromDB = async (id) => {
@@ -58,7 +98,9 @@ const getActivityFromDB = async (id) => {
         info.activityName = doc.name
         info.description = doc.description
         info.location = doc.location
-        info.time = doc.date
+
+        let date = doc.date.toString().split("GMT")
+        info.time = date[0].trim()
 
         const result = await Profile.find({ activities: doc._id });
         info.authorName = result[0].name
@@ -109,9 +151,8 @@ const getActivitiesFromDB = async () => {
         info.activityName = doc.name
         info.description = doc.description
         info.location = doc.location
-        // console.log(doc.date);
+
         let date = doc.date.toString().split("GMT")
-        // console.log(date);
         info.time = date[0].trim()
 
         const result = await Profile.find({ activities: doc._id });

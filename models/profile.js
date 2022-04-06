@@ -34,10 +34,10 @@ const ProfileSchema  = new mongoose.Schema({
     }
   ],
 
-  ratings: [
+  reviews: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Rating"
+      ref: "Review"
     }
   ],
 

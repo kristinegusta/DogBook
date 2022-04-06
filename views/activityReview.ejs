@@ -12,51 +12,67 @@
             </div>
             <hr class="orange-line" />
 
-            <!-- reviews -->
-            <!-- buttons -->
-            <div class="button-container">
-                <a class="btn2 orange" href="">About</a>
-                <a class="btn2 black" href="">Reviews</a>
-            </div>
-            <hr class="orange-line"/>
-
-            <div class="activities-infos flex">
-                <div class="activity-name">
-                  <h4>Dog Park Near Brussel</h4>
-                  <div class="location-text flex">
-                    <img
-                    src="/static/img-activity/location-icon.png"
-                    alt=""
-                    class="location location-img"
-                    />
-                    <p>UitBredingstraat 2, 1000<br>Brussel</p>
-                    </div>
-                  <p class="grey-text">Posted by: Anna Fakesurname</p>
-                  <p class="grey-text">Date: 20/01/2022</p>
+            <!-- activity -->
+            <% activity.forEach((activity) => { %>
+                <!-- buttons -->
+                <div class="button-container">
+                    <a class="btn2 black" href="/ActivityAbout?<%= activity.activityId %>">About</a>
+                    <a class="btn2 orange" href="/ActivityReview?<%= activity.activityId %>">Reviews</a>
                 </div>
-            </div>
-            <hr class="orange-line" />
+                <hr class="orange-line"/>
 
+                <div class="activities-infos flex">
+                    <div class="activity-name">
+                    <h4><%= activity.activityName %></h4>
+                    <div class="location-text flex">
+                        <img
+                        src="/static/img-activity/location-icon.png"
+                        alt=""
+                        class="location location-img"
+                        />
+                        <p><%= activity.location %></p>
+                        </div>
+                    <p class="grey-text">Posted by: <%= activity.authorName %></p>
+                    <p class="grey-text">Date: <%= activity.time %></p>
+                    </div>
+                </div>
+                <hr class="orange-line" />
+            <% }) %>
             <!-- adding reviews begin -->
             <div class="ratings">
-                <h3 class="average-rating padding">Average rating: 4.5</h3>
+                <% if (reviews.length === 0) { %>
+                    <h3 class="average-rating padding">Average rating: 0</h3>
+                <% } else { %>
+                    <% let total = 0 %>
+                    <% reviews.forEach((review) => { %>
+                        <% total += review.rating %>
+                    <% }) %>
+                    <% let average = total/reviews.length %>
+                    <h3 class="average-rating padding">Average rating: <%= average %></h3>
+                <% } %>
                 <!-- begin forEach -->
-                <div class="profile flex padding">
-                    <div class="trainer-pic"></div>
-                    <div class="user-review">
-                        <p>Anna Fakesurname</p>
-                        <p class="grey-text">This dog park near Brusels is really amazing.</p>
-                        <div class="flex">
-                            <h2 class="average-rating">4.6</h2>
-                            <img src="/static/img-activity/star.png" alt="" class="star"/>
+                <% if (reviews.length === 0) { %>
+                    <p>There are no reviews yet</p>
+                <% } else { %>
+                    <% reviews.forEach((review) => { %>
+                        <div class="profile flex padding">
+                            <div class="trainer-pic"></div>
+                            <div class="user-review">
+                                <p><%= review.authorName %></p>
+                                <p class="grey-text"><%= review.description %></p>
+                                <div class="flex">
+                                    <h2 class="average-rating"><%= review.rating %></h2>
+                                    <img src="/static/img-activity/star.png" alt="" class="star"/>
+                                </div>
+                                <p class="grey-text"><%= review.time %></p>
+                            </div>
                         </div>
-                        <p class="grey-text">30/10/2021</p>
-                    </div>
-                </div>
+                    <% }) %>
+                <% } %>
                 <!-- end forEach -->
 
                 <!-- temp filler -->
-                <div class="profile flex padding">
+                <!-- <div class="profile flex padding">
                     <div class="trainer-pic"></div>
                     <div class="user-review">
                         <p>Anna Fakesurname</p>
@@ -91,7 +107,7 @@
                         </div>
                         <p class="grey-text">30/10/2021</p>
                     </div>
-                </div>
+                </div> -->
             
             
                 
@@ -110,8 +126,8 @@
                             oninput="this.style.setProperty('--value', this.value)"
                             step="1"
                             type="range"
-                            value="1">
-                        <!-- <img src="/static/img-activity/star.png" alt="" class="star"/> -->
+                            value="1"
+                            name="rating">
                         <button type="submit" class="btn3 orange">Submit</button>
                     </div>
                 </form>

@@ -28,6 +28,13 @@ const ActivitySchema  = new mongoose.Schema({
     required: false
   },
 
+  reviews: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Review"
+    }
+  ],
+
 //   comments: [
 //     {
 //       type: mongoose.Schema.Types.ObjectId,

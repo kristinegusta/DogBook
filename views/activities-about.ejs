@@ -12,14 +12,14 @@
   <hr class="orange-line" />
   
   
-  <!-- buttons -->
-  <div class="button-container">
-    <a class="btn orange" href="">About</a>
-    <a class="btn black" href="">Reviews</a>
-  </div>
-  <hr class="orange-line" />
-
-  <% activity.reverse().forEach((activity) => { %>
+  <% activity.forEach((activity) => { %>
+    <!-- buttons -->
+    <div class="button-container">
+      <a class="btn orange" href="/ActivityAbout?<%= activity.activityId %>">About</a>
+      <a class="btn black" href="/ActivityReview?<%= activity.activityId %>">Reviews</a>
+    </div>
+    <hr class="orange-line" />
+    <!-- activity -->
     <div class="activities-card">
       <h2><%= activity.activityName %></h2>
       <h3>Location: <%= activity.location %></h3>
