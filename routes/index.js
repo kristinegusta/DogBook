@@ -6,11 +6,22 @@ const Profile = require("../models/profile").Profile;
 const Activity = require("../models/activitiy").Activity;
 const Trainer = require("../models/trainerK").Trainer;
 
-// testing page
-router.get("/tests", (req, res) => {
-    // res.render("activities-about");
+//test page
+router.get('/test', (req, res) => {
+    res.render("oldActivity_post")
+})
+
+
+// Activity Review page
+router.get("/ActivityReview", (req, res) => {
+    res.render("activityReview")
+})
+
+
+
+// Activity About Page
+router.get("/ActivityAbout", (req, res) => {
     let activityId = req.url.split("?")
-    // console.log(req.url.split("?"))
     renderActivityAbout(res, activityId[1])
 })
 const renderActivityAbout = async function (res, id) {
