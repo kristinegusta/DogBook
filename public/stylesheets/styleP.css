@@ -3,7 +3,6 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
-    overflow: hidden;
 }
 
 #big__container {
@@ -27,10 +26,10 @@
 
 #logo {
     background-image: url("../img/logo.png");
-    height: 135px;
+    height: 200px;
     width: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
 }
 
@@ -78,13 +77,11 @@ p {
 }
 
 .black {
-
     background: rgba(0, 0, 0, 0.55);
 }
 
-}
 @media screen and (min-width: 800px) {
-  #logo {
-    height: 300px;
-  }
+    #logo {
+        height: 300px;
+    }
 }
