@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const ProfileSchema  = new mongoose.Schema({
+const ProfileSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -9,15 +9,13 @@ const ProfileSchema  = new mongoose.Schema({
     type: String,
     required: false
   },
-  // image: {
-  //   data: Buffer,
-  //   contentType: String,
-  //   required: true
-  // },
-  
-  date :{
-    type : Date,
-    default : Date.now
+  url: {
+    type: String,
+    required: false
+  },
+  date: {
+    type: Date,
+    default: Date.now
   },
 
   // comments: [
@@ -50,4 +48,4 @@ const ProfileSchema  = new mongoose.Schema({
 });
 const Profile = mongoose.model('Profile', ProfileSchema);
 
-module.exports = {Profile, ProfileSchema};
+module.exports = { Profile, ProfileSchema };
