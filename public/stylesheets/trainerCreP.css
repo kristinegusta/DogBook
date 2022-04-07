@@ -3,10 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
-<<<<<<< HEAD
     overflow-x: hidden;
-=======
->>>>>>> omer2
 }
 
 @media screen and (max-width:414px) {

@@ -132,11 +132,7 @@
 
 #logo {
     background-image: url("../img/logo.png");
-<<<<<<< HEAD
     height: 160px;
-=======
-    height: 200px;
->>>>>>> omer2
     width: 100%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -264,11 +260,7 @@ textarea {
 
 @media screen and (min-width: 640px) and (max-width: 800px) {
     #logo {
-<<<<<<< HEAD
         height: 200px;
-=======
-        height: 350px;
->>>>>>> omer2
     }
 }
 

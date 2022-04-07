@@ -2,24 +2,29 @@
 <link rel="stylesheet" href="/static/stylesheets/activities.css" />
 
 <div class="background-container">
-    <div class="feed-container">
-        <div class="main-container">
-            <div class="header flex">
-                <img src="/static/img-activity/logo.png" alt="" />
-                <a class="nav" href="/trainers">Trainers</a>
-                <a class="nav page-now" href="/activities">Activities</a>
-                <img src="/static/img-activity/user-profile-img.jpg" alt="" />
-            </div>
-            <hr class="orange-line" />
+  <div class="feed-container">
+    <div class="main-container">
+      <div class="header flex">
+        <img src="/static/img-activity/logo.png" alt="" />
+        <a class="nav" href="/trainers">Trainers</a>
+        <a class="nav page-now" href="/activities">Activities</a>
+        <img src="/static/img-activity/user-profile-img.jpg" alt="" />
+      </div>
+      <hr class="orange-line" />
 
-            <!-- activity -->
-            <% activity.forEach((activity) => { %>
-                <!-- buttons -->
-                <div class="button-container">
-                    <a class="btn2 black" href="/ActivityAbout?<%= activity.activityId %>">About</a>
-                    <a class="btn2 orange" href="/ActivityReview?<%= activity.activityId %>">Reviews</a>
-                </div>
-                <hr class="orange-line"/>
+      <!-- activity -->
+      <% activity.forEach((activity) => { %>
+      <!-- buttons -->
+      <div class="button-container">
+        <a class="btn2 black" href="/ActivityAbout?<%= activity.activityId %>"
+          >About</a
+        >
+        <a class="btn2 orange" href="/ActivityReview?<%= activity.activityId %>"
+          >Reviews</a
+        >
+      </div>
+      <hr class="orange-line" />
+
 
                 <div class="activities-infos flex">
                     <div class="activity-name">
@@ -56,7 +61,10 @@
                 <% } else { %>
                     <% reviews.forEach((review) => { %>
                         <div class="profile flex padding">
-                            <div class="trainer-pic"></div>
+                             <div
+            class="trainer-pic"
+            style="background-image: url('<%= review.authorImg %>')"
+          ></div>
                             <div class="user-review">
                                 <p><%= review.authorName %></p>
                                 <p class="grey-text"><%= review.description %></p>
@@ -71,8 +79,9 @@
                 <% } %>
                 <!-- end forEach -->
 
-                <!-- temp filler -->
-                <!-- <div class="profile flex padding">
+
+        <!-- temp filler -->
+        <!-- <div class="profile flex padding">
                     <div class="trainer-pic"></div>
                     <div class="user-review">
                         <p>Anna Fakesurname</p>
@@ -108,16 +117,19 @@
                         <p class="grey-text">30/10/2021</p>
                     </div>
                 </div> -->
-            
-            
-                
-            </div>
-            <!-- adding reviews end -->
+      </div>
+      <!-- adding reviews end -->
 
-            <div class="post-my-review">
-                <h3 class="average-rating">Add your review:</h3>
-                <form action="/posts/newReview" method="post">
-                    <input class="input" type="text" placeholder="Give your opinion" id="review" name="review"/>
+      <div class="post-my-review">
+        <h3 class="average-rating">Add your review:</h3>
+        <form action="/posts/newReview" method="post">
+          <input
+            class="input"
+            type="text"
+            placeholder="Give your opinion"
+            id="review"
+            name="review"
+          />
 
                     <div class="space-between">
                         <input
@@ -133,10 +145,9 @@
                 </form>
             </div>
 
-            <!-- <a class="post-btn" href="/posts/postActivity"
+      <!-- <a class="post-btn" href="/posts/postActivity"
                 >Post my activity<i class="fa-solid fa-plus"></i
             ></a> -->
-            
-        </div>
     </div>
+  </div>
 </div>
