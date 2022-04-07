@@ -8,23 +8,19 @@ const fileupload = require("express-fileupload");
 const dotenv = require('dotenv').config();
 
 //CLOUDINARY
-
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
   api_key: process.env.CLOUD_APIKEY,
   api_secret: process.env.CLOUD_SECRETKEY
 });
 
-//Fileupload config
-
-
 // OUR CODE
 
 router.post("/new", async (req, res) => {
-
-
+  //img upload handle
   const fileStr = req.files.image || "https://picsum.photos/300/600";
   const uploadResponse = await cloudinary.uploader.upload(fileStr.tempFilePath, {});
+
   const newProfile = new Profile({
     name: req.body.name,
     bio: req.body.bio,
@@ -47,7 +43,20 @@ router.post("/new", async (req, res) => {
 
 // trainer profile
 router.post("/newTrainer", async (req, res) => {
-  const newTrainer = new TrainerProfile(req.body);
+  //img upload handle
+  const fileStr = req.files.image || "https://picsum.photos/300/600";
+  const uploadResponse = await cloudinary.uploader.upload(fileStr.tempFilePath, {});
+
+  const newTrainer = new TrainerProfile({
+    name: req.body.name,
+    email: req.body.email,
+    bio: req.body.bio,
+    location: req.body.location,
+    phone: req.body.phone,
+    website: req.body.website,
+    url: uploadResponse.url
+  });
+
   try {
     await newTrainer.save();
     await User.findOneAndUpdate(
@@ -62,9 +71,5 @@ router.post("/newTrainer", async (req, res) => {
   }
 });
 
-/*
-router.get("/show/:id", (req, res) => {
-  renderProfileWithPosts(req.params.id, req, res);
-});
-*/
+
 module.exports = router;
