@@ -1,172 +1,3 @@
-<<<<<<< HEAD
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
-    overflow: hidden;
-}
-
-.flex {
-    display: flex;
-}
-
-.background-container {
-    width: 100vw;
-    min-height: 100vh;
-    background-image: url("../img/dogs2.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.feed-container {
-    background-color: white;
-    width: 100%;
-    min-height: 100vh;
-}
-
-h1 {
-    color: #fa6650;
-    margin-bottom: 10px;
-    font-family: "Shadows Into Light", cursive;
-    font-size: 3em;
-    text-align: center;
-}
-
-.orange-line {
-    margin: 3vh 0 3vh 0;
-    border: solid 1px #fa6650;
-    background-color: #fa6650;
-}
-
-.header {
-    justify-content: space-around;
-    padding-top: 1rem;
-    height: 8vh;
-    font-size: 50%;
-}
-
-.nav {
-    font-family: "Shadows Into Light", cursive;
-    font-size: 3.5em;
-}
-
-.page-now {
-    border: 2px solid #af4638;
-    border-radius: 65px;
-    padding: 3px;
-}
-
-.activities {
-    text-decoration: underline 5px #fa6650;
-}
-
-.search-bar-div {
-    text-align: center;
-    margin: 3vh 0 3vh 0;
-}
-
-.search-bar {
-    height: 4vh;
-    width: 80vw;
-    max-width: 300px;
-    border-radius: 30px;
-    border: none;
-    background-color: rgb(241, 241, 241);
-}
-
-.trainer-profile {
-    position: relative;
-}
-
-.link {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-input {
-    padding: 10px;
-    margin-bottom: 10px;
-    width: 100%;
-    border-radius: 25px;
-    border: none;
-    background-color: #f0f0f0;
-}
-
-form {
-    padding: 1.5em;
-}
-
-#description {
-    height: 150px;
-}
-
-.activities-infos {
-    margin-left: 10vw;
-}
-
-.trainer-pic {
-    border-radius: 50%;
-    height: 50px;
-    width: 50px;
-    background-image: url("/static/img-trainer/gosling.jpg");
-    background-size: 50px;
-}
-
-.activity-name {
-    margin-left: 5vw;
-    margin-top: 5px;
-}
-
-.grey-text {
-    color: rgb(168, 166, 166);
-    font-size: 80%;
-    margin-top: 3px;
-}
-
-.activity-description {
-    margin: 1vh 5vw 1vh 5vw;
-    color: rgb(92, 91, 91);
-    line-height: 1.5em;
-}
-
-.location-text {
-    margin-left: 6vw;
-    color: rgb(92, 91, 91);
-}
-
-.location {
-    height: 25px;
-    line-height: 25px;
-    margin-bottom: 1vh;
-    margin-right: 1vw;
-}
-
-.dog-pic {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 90vw;
-    max-height: 25vh;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.see-more {
-    margin-left: 6vw;
-    font-style: italic;
-}
-
-.reviews {
-=======
-
 * {
     margin: 0;
     padding: 0;
@@ -328,28 +159,16 @@ form {
     font-style: italic;
   }
   .reviews {
->>>>>>> 5a96ae137e56613954ff6e051768dd93bf4e9ac3
     height: 30px;
     line-height: 30px;
     justify-content: center;
     margin-top: 2vh;
-<<<<<<< HEAD
-}
-
-.star {
-    margin: 2px;
-    height: 24px;
-}
-
-.post-my-activity {
-=======
   }
   .star {
     margin: 2px;
     height: 24px;
   }
   .post-my-activity {
->>>>>>> 5a96ae137e56613954ff6e051768dd93bf4e9ac3
     background-color: #fa6650;
     height: 60px;
     justify-content: center;
@@ -360,36 +179,6 @@ form {
     color: white;
     position: sticky;
     bottom: 10;
-<<<<<<< HEAD
-}
-
-a {
-    color: black;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.post-btn {
-    color: white;
-    font-weight: 300;
-    font-size: 1.5em;
-}
-
-i {
-    margin-left: 10px;
-}
-
-.form-container {
-    height: 70%;
-}
-
-.btn {
-    color: white;
-    width: 200px;
-    height: auto;
-    padding: 1em;
-    margin: 0.3em;
-=======
   }
   .post-my-review {
     /* height: 250px; */
@@ -455,25 +244,10 @@ i {
     color: white;
     width: 175px;
     padding: 1em;
->>>>>>> 5a96ae137e56613954ff6e051768dd93bf4e9ac3
     border-radius: 65px;
     text-align: center;
     border: none;
     font-size: 1em;
-<<<<<<< HEAD
-    margin-top: 2rem;
-}
-
-.trainer-infos {
-    justify-content: space-evenly;
-}
-
-.infos {
-    margin-left: -30px;
-}
-
-.trainer-pic {
-=======
   }
 
   [dir="rtl"] .rating {
@@ -510,50 +284,11 @@ i {
     margin-left: -30px;
   }
   .trainer-pic {
->>>>>>> 5a96ae137e56613954ff6e051768dd93bf4e9ac3
     border-radius: 50%;
     height: 120px;
     width: 120px;
     background-image: url(/static/img-trainer/gosling.jpg);
     background-size: 120px;
-<<<<<<< HEAD
-}
-
-.training-type {
-    justify-content: space-around;
-}
-
-.orange {
-    background-color: #fa6650;
-}
-
-.btn-cont {
-    text-align: center;
-}
-
-.card-container {
-    padding: 1rem;
-}
-
-@media only screen and (min-width: 600px) {
-    .feed-container {
-        width: 70%;
-        border-radius: 65px;
-        min-height: 60vh;
-    }
-    .background-container {
-        padding: 1rem;
-    }
-}
-
-@media only screen and (min-width: 1000px) {
-    .feed-container {
-        width: 50%;
-    }
-}
-
-@media only screen and (min-width: 600px) {}
-=======
   }
   .training-type {
     justify-content: space-around;
@@ -585,4 +320,3 @@ i {
       width: 50%;
     }
   }
->>>>>>> 5a96ae137e56613954ff6e051768dd93bf4e9ac3
