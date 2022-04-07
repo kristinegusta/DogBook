@@ -4,12 +4,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
-@media only screen and (min-width: 600px) {}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Roboto", sans-serif;
   }
   .flex {
     display: flex;
@@ -115,10 +109,9 @@
   #description {
     height: 150px;
   }
-
   #review {
     height: 85px;
-
+  }
   .activities-infos {
     margin-left: 10vw;
   }
@@ -327,5 +320,4 @@
     .feed-container {
       width: 50%;
     }
-
   }
