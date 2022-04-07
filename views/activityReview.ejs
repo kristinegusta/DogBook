@@ -1,0 +1,126 @@
+<title>ActivityReview</title>
+<link rel="stylesheet" href="/static/stylesheets/activities.css" />
+
+<div class="background-container">
+    <div class="feed-container">
+        <div class="main-container">
+            <div class="header flex">
+                <img src="/static/img-activity/logo.png" alt="" />
+                <a class="nav" href="/trainers">Trainers</a>
+                <a class="nav page-now" href="/activities">Activities</a>
+                <img src="/static/img-activity/user-profile-img.jpg" alt="" />
+            </div>
+            <hr class="orange-line" />
+
+            <!-- reviews -->
+            <!-- buttons -->
+            <div class="button-container">
+                <a class="btn2 orange" href="">About</a>
+                <a class="btn2 black" href="">Reviews</a>
+            </div>
+            <hr class="orange-line"/>
+
+            <div class="activities-infos flex">
+                <div class="activity-name">
+                  <h4>Dog Park Near Brussel</h4>
+                  <div class="location-text flex">
+                    <img
+                    src="/static/img-activity/location-icon.png"
+                    alt=""
+                    class="location location-img"
+                    />
+                    <p>UitBredingstraat 2, 1000<br>Brussel</p>
+                    </div>
+                  <p class="grey-text">Posted by: Anna Fakesurname</p>
+                  <p class="grey-text">Date: 20/01/2022</p>
+                </div>
+            </div>
+            <hr class="orange-line" />
+
+            <!-- adding reviews begin -->
+            <div class="ratings">
+                <h3 class="average-rating padding">Average rating: 4.5</h3>
+                <!-- begin forEach -->
+                <div class="profile flex padding">
+                    <div class="trainer-pic"></div>
+                    <div class="user-review">
+                        <p>Anna Fakesurname</p>
+                        <p class="grey-text">This dog park near Brusels is really amazing.</p>
+                        <div class="flex">
+                            <h2 class="average-rating">4.6</h2>
+                            <img src="/static/img-activity/star.png" alt="" class="star"/>
+                        </div>
+                        <p class="grey-text">30/10/2021</p>
+                    </div>
+                </div>
+                <!-- end forEach -->
+
+                <!-- temp filler -->
+                <div class="profile flex padding">
+                    <div class="trainer-pic"></div>
+                    <div class="user-review">
+                        <p>Anna Fakesurname</p>
+                        <p class="grey-text">This dog park near Brusels is really amazing.</p>
+                        <div class="flex">
+                            <h2 class="average-rating">4.6</h2>
+                            <img src="/static/img-activity/star.png" alt="" class="star"/>
+                        </div>
+                        <p class="grey-text">30/10/2021</p>
+                    </div>
+                </div>
+                <div class="profile flex padding">
+                    <div class="trainer-pic"></div>
+                    <div class="user-review">
+                        <p>Anna Fakesurname</p>
+                        <p class="grey-text">This dog park near Brusels is really amazing.</p>
+                        <div class="flex">
+                            <h2 class="average-rating">4.6</h2>
+                            <img src="/static/img-activity/star.png" alt="" class="star"/>
+                        </div>
+                        <p class="grey-text">30/10/2021</p>
+                    </div>
+                </div>
+                <div class="profile flex padding">
+                    <div class="trainer-pic"></div>
+                    <div class="user-review">
+                        <p>Anna Fakesurname</p>
+                        <p class="grey-text">This dog park near Brusels is really amazing.</p>
+                        <div class="flex">
+                            <h2 class="average-rating">4.6</h2>
+                            <img src="/static/img-activity/star.png" alt="" class="star"/>
+                        </div>
+                        <p class="grey-text">30/10/2021</p>
+                    </div>
+                </div>
+            
+            
+                
+            </div>
+            <!-- adding reviews end -->
+
+            <div class="post-my-review">
+                <h3 class="average-rating">Add your review:</h3>
+                <form action="/posts/newReview" method="post">
+                    <input class="input" type="text" placeholder="Give your opinion" id="review" name="review"/>
+
+                    <div class="space-between">
+                        <input
+                            class="rating"
+                            max="5"
+                            oninput="this.style.setProperty('--value', this.value)"
+                            step="1"
+                            type="range"
+                            value="1">
+                        <!-- <img src="/static/img-activity/star.png" alt="" class="star"/> -->
+                        <button type="submit" class="btn3 orange">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- <a class="post-btn" href="/posts/postActivity"
+                >Post my activity<i class="fa-solid fa-plus"></i
+            ></a> -->
+            
+        </div>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ActivitySchema  = new mongoose.Schema({
+const ActivitySchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
@@ -23,22 +23,20 @@ const ActivitySchema  = new mongoose.Schema({
 
   // a bunch of pics to come
 
-//   ratings: [
-//     {
-//       type: mongoose.Schema.Types.ObjectId,
-//       ref: "Rating"
-//     }
-//   ],
+  rating: {
+    type: Number,
+    required: false
+  },
 
-//   comments: [
-//     {
-//       type: mongoose.Schema.Types.ObjectId,
-//       ref: "Comment"
-//     }
-//   ],
+  //   comments: [
+  //     {
+  //       type: mongoose.Schema.Types.ObjectId,
+  //       ref: "Comment"
+  //     }
+  //   ],
 
 });
 
 const Activity = mongoose.model('Activity', ActivitySchema);
 
-module.exports = {Activity, ActivitySchema};
+module.exports = { Activity, ActivitySchema };

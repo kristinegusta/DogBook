@@ -1,10 +1,11 @@
 <title>Trainers</title>
-<link rel="stylesheet" href="/static/stylesheets/trainer.css" />
-
+<link rel="stylesheet" href="/static/stylesheets/activitiesKristine.css" />
+<div class="background-container">
+  <div class="feed-container">
 <div class="main-container">
   <div class="header flex">
     <img src="/static/img-trainer/logo.png" alt="" />
-    <a class="nav trainer" href="/trainers">Trainers</a>
+    <a class="nav page-now" href="/trainers">Trainers</a>
     <a class="nav" href="/activities">Activities</a>
     <img src="/static/img-trainer/user-profile-img.jpg" alt="" />
   </div>
@@ -28,49 +29,31 @@
     </div>
   </div>
   <div class="search-bar-div">
-    <input
-      type="text"
-      class="search-bar"
-      placeholder="Search for a trainer"
-    />
+    <input type="text" class="search-bar" placeholder="Search for a trainer" />
   </div>
+  <hr class="orange-line" />
   <!-- trainer profile -->
+  
+  <!-- adding activities begin -->
+  <% trainers.reverse().forEach((trainer) => { %>
+  <div class="card-container trainer-card">
   <div class="trainer-profile">
-    <hr class="orange-line" />
-    <div class="trainer-infos flex">
-      <div class="trainer-pic"></div>
+
       <div class="infos">
-        <h3>Dog Trainer Jack</h3>
-        <div class="trainer-category flex">
-          <img
-            src="/static/img-trainer/obedience.png"
-            alt=""
-            class="obedience-img"
-          />
-          <p>obedience</p>
-        </div>
-        <div class="location flex">
-          <img
-            src="/static/img-trainer/location-icon.png"
-            class="location-img"
-            alt=""
-          />
-          <p>Bruxelles</p>
+        <h4><%= trainer.name %></h4>
+
+        <div class="location">
+          <p class="grey-text"><%= trainer.street %></p> 
+          <p class="grey-text"><%= trainer.city %></p> 
+          <p class="grey-text"><%= trainer.country %></p>
+          <p >Phone: <%= trainer.phone %></p>
+          <p >Email: <%= trainer.email %></p>
+          <p >Website: <%= trainer.website %></p>
+
         </div>
       </div>
-    </div>
-    <div class="trainer-text flex">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-      voluptates sit distinctio aliquam voluptatum. A consequatur nostrum
-      quod temporibus dignissimos illo eveniet consectetur error obcaecati
-      totam ipsam, ex, possimus omnis! Ullam consequatur quisquam quidem
-      eius, vero totam qui ipsam numquam voluptate est quis laudantium,
-      ducimus labore eos perspiciatis, iste explicabo laboriosam porro odit
-      aspernatur et saepe veniam! Voluptas, temporibus sequi!
-    </div>
-    <div class="dog-pic">
-      <img src="/static/img-trainer/puppy.jpg" alt="" class="dog-pic" />
-    </div>
+    
+<!-- 
     <div class="reviews flex">
       <h2 class="average-rating">4.6</h2>
       <img src="/static/img-trainer/star.png" alt="" class="star" />
@@ -78,54 +61,11 @@
       <img src="/static/img-trainer/star.png" alt="" class="star" />
       <img src="/static/img-trainer/star.png" alt="" class="star" />
       <img src="/static/img-trainer/star.png" alt="" class="star" />
-    </div>
-    <div class="trainer-profile">
-        <hr class="orange-line" />
-        <div class="trainer-infos flex">
-          <div class="trainer-pic"></div>
-          <div class="infos">
-            <h3>Dog Trainer Jack</h3>
-            <div class="trainer-category flex">
-              <img
-                src="/static/img-trainer/obedience.png"
-                alt=""
-                class="obedience-img"
-              />
-              <p>obedience</p>
-            </div>
-            <div class="location flex">
-              <img
-                src="/static/img-trainer/location-icon.png"
-                class="location-img"
-                alt=""
-              />
-              <p>Bruxelles</p>
-            </div>
-          </div>
-        </div>
-        <div class="trainer-text flex">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-          voluptates sit distinctio aliquam voluptatum. A consequatur nostrum
-          quod temporibus dignissimos illo eveniet consectetur error obcaecati
-          totam ipsam, ex, possimus omnis! Ullam consequatur quisquam quidem
-          eius, vero totam qui ipsam numquam voluptate est quis laudantium,
-          ducimus labore eos perspiciatis, iste explicabo laboriosam porro odit
-          aspernatur et saepe veniam! Voluptas, temporibus sequi!
-        </div>
-        <div class="dog-pic">
-          <img src="/static/img-trainer/puppy.jpg" alt="" class="dog-pic" />
-        </div>
-        <div class="reviews flex">
-          <h2 class="average-rating">4.6</h2>
-          <img src="/static/img-trainer/star.png" alt="" class="star" />
-          <img src="/static/img-trainer/star.png" alt="" class="star" />
-          <img src="/static/img-trainer/star.png" alt="" class="star" />
-          <img src="/static/img-trainer/star.png" alt="" class="star" />
-          <img src="/static/img-trainer/star.png" alt="" class="star" />
-        </div>
+    </div> -->
   </div>
-  <div class="footer">
-    <hr class="footer-line" />
   </div>
+  <% })%>
+    <!-- adding trainers end -->
 </div>
-
+</div>
+</div
