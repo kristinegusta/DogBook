@@ -1,51 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="trainer.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-      rel="stylesheet"
-    />
-    <title>Trainers</title>
-  </head>
-  <body>
-    <div class="main-container">
-      <div class="header flex">
-        <img src="./img-trainer/logo.png" alt="" />
-        <a class="nav" href="">Trainers</a>
-        <a class="nav trainer" href="">Activities</a>
-        <img src="./img-trainer/user-profile-img.jpg" alt="" />
-      </div>
-      <hr class="orange-line" />
-      <!-- buttons -->
-      <div class="button-container">
-        <a class="btn orange" href="">About</a>
-        <a class="btn black" href="">Reviews</a>
-      </div>
-      <hr class="orange-line" />
-      <div class="activities-card">
-        <h2>Dog park near Brussel</h2>
-        <h3>Location: Somefakestreet 2 3655 Brussel</h3>
-        <h4>Posted by: John Doe</h4>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum
-          officia exercitationem asperiores doloribus atque, nesciunt ipsa nihil
-          est impedit nemo fugiat molestias optio vel voluptatibus tempora
-          mollitia? Praesentium, expedita velit?
-        </p>
-        <div class="activities-img-div"></div>
-        <div class="activities-img-div"></div>
-        <hr class="orange-line" />
-      </div>
 
-      <div class="footer">
-        <hr class="footer-line" />
-      </div>
+<link rel="stylesheet" href="/static/stylesheets/trainer.css" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css"
+  rel="stylesheet"
+/>
+<title>Activity - about</title>
+
+<div class="main-container">
+  <div class="header flex">
+    <img src="/static/img-activity/logo.png" alt="" />
+    <a class="nav" href="/trainers">Trainers</a>
+    <a class="nav page-now" href="/activities">Activities</a>
+    <img src="/static/img-activity/user-profile-img.jpg" alt="" />
+  </div>
+  <hr class="orange-line" />
+
+  <% activity.forEach((activity) => { %>
+    <!-- buttons -->
+    <div class="button-container">
+      <a class="btn orange" href="/ActivityAbout?<%= activity.activityId %>">About</a>
+      <a class="btn black" href="/ActivityReview?<%= activity.activityId %>">Reviews</a>
     </div>
-  </body>
-</html>
+    <hr class="orange-line" />
+    <!-- activity -->
+    <div class="activities-card">
+      <h2><%= activity.activityName %></h2>
+      <h3>Location: <span><%= activity.location %></span></h3>
+      <div id="map-container"><!-- Insert the map here --></div>
+      <h4>Posted by: <%= activity.authorName %></h4>
+      <p><%= activity.description %></p>
+      <div class="activities-img-div"></div>
+      <div class="activities-img-div"></div>
+      <hr class="orange-line" />
+    </div>
+  <% }) %>
+
+</div>
+
+<script>
+  let adress = document.querySelector("span").innerText;
+
+  fetch(
+    `https://api.mapbox.com/geocoding/v5/mapbox.places/${adress}.json?access_token=pk.eyJ1Ijoia3JpaWthMiIsImEiOiJja3pxdDFjOGQwYmV5MnZvOXI5bm1qemV3In0.jEvhkABH1R8bftOK9d3Fkw`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.features[0].geometry.coordinates);
+      mapboxgl.accessToken =
+        "pk.eyJ1Ijoia3JpaWthMiIsImEiOiJja3pxcTJvdTgwY3o2MnBtdW0yNXRjbWIyIn0.wZxIsEtWF9lU5MKLTRuQPQ";
+      const map = new mapboxgl.Map({
+        container: "map-container", // container ID
+        style: "mapbox://styles/mapbox/streets-v11", // style URL
+        center: data.features[0].geometry.coordinates, // starting position [lng, lat] Brussel
+        zoom: 12, // starting zoom
+      });
+
+      new mapboxgl.Marker()
+        .setLngLat(data.features[0].geometry.coordinates)
+        .addTo(map);
+    })
+    .catch((error) => {
+      console.log("There was an error!", error);
+    });
+</script>

@@ -34,12 +34,12 @@ const ProfileSchema  = new mongoose.Schema({
     }
   ],
 
-  // ratings: [
-  //   {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: "Rating"
-  //   }
-  // ],
+  reviews: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Review"
+    }
+  ],
 
   // posts: [
   //   {

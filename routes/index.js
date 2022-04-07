@@ -4,36 +4,96 @@ const { ensureAuthenticated } = require('../config/auth')
 const Profile = require("../models/profile").Profile;
 // const Post = require("../models/post").Post;
 const Activity = require("../models/activitiy").Activity;
+const Trainer = require("../models/trainerK").Trainer;
+const Review = require("../models/review").Review;
+const TrainerProfile = require("../models/trainerProfile").TrainerProfile;
 
-//db info
-const mongoose = require("mongoose");
-const dbPassword = "0TeEaRuCdH5yqRpJ";
-const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority`;
-
-//landing page
-router.get('/', (req, res) => {
-    res.render('index');
+//test page
+router.get('/test', (req, res) => {
+    res.render("oldActivity_post")
 })
 
-//rendering activities page
-router.get('/activities', (req, res) => {
-    //call renderacrivities renderAllActivities()
-    renderAllActivities(res)
-    // res.render('activities');
-})
 
-//trainers page
-router.get("/trainers", (req, res) => {
-    res.render("trainer");
+// Activity Review page
+router.get("/ActivityReview", (req, res) => {
+    let activityId = req.url.split("?")
+    // res.render("activityReview")
+    renderActivityReview(res, activityId[1])
 })
+const renderActivityReview = async function (res, id) {
+    let activity = await getActivityFromDB(id)
+    let reviews = await getReviewFromDB(id)
 
-const getActivityFromDB = async () => {
+    res.render("activityReview", {
+        activity: activity,
+        reviews: reviews
+    });
+}
+
+// Activity About Page
+router.get("/ActivityAbout", (req, res) => {
+    let activityId = req.url.split("?")
+    renderActivityAbout(res, activityId[1])
+})
+const renderActivityAbout = async function (res, id) {
+    let activity = await getActivityFromDB(id)
+
+    res.render("activities-about", {
+        activity: activity
+    });
+}
+// Trainer about ( KAATS STYLE)
+/*
+router.get("/:id", async (req, res) => {
+    console.log(req.params.id)
+    //const trainerQuery = await TrainerProfile.findById(req.params.id)
+
+    
+    res.render('trainer-about', {
+        trainer: trainerQuery
+    })
+    
+    res.render('trainer-about')
+})
+*/
+const getReviewFromDB = async (id) => {
+    let reviews = [];
+    const cursor = await Activity.find({ _id: id });
+    const review = await Review.find({ _id: cursor[0].reviews });
+    // console.log(review);
+    for (let i = 0; i < review.length; i++) {
+        let doc = review[i];
+
+        let info = {
+            reviewId: "",
+            description: "",
+            rating: "",
+            time: "",
+            authorName: "",
+        }
+
+
+        info.reviewId = doc._id
+        info.description = doc.description
+        info.rating = doc.rating
+        let date = doc.date.toString().split("GMT")
+        info.time = date[0].trim()
+
+        const result = await Profile.find({ reviews: doc._id });
+        info.authorName = result[0].name
+        reviews.push(info)
+    }
+    return reviews;
+}
+
+const getActivityFromDB = async (id) => {
     let activities = [];
-    const cursor = await Activity.find({});
+
+    const cursor = await Activity.find({ _id: id });
 
     for (let i = 0; i < cursor.length; i++) {
         let doc = cursor[i];
-    
+
         let info = {
             activityId: "",
             activityName: "",
@@ -42,47 +102,27 @@ const getActivityFromDB = async () => {
             time: "",
             authorName: "",
         }
-        
+
         info.activityId = doc._id
         info.activityName = doc.name
         info.description = doc.description
         info.location = doc.location
-        info.time = doc.date 
-    
-        const result = await Profile.find({activities: doc._id});
+
+        let date = doc.date.toString().split("GMT")
+        info.time = date[0].trim()
+
+        const result = await Profile.find({ activities: doc._id });
         info.authorName = result[0].name
         activities.push(info)
-    } 
-
-    return activities;  
+    }
+    return activities;
 }
 
-
-const renderAllActivities = async function (res) {
-    let activities = await getActivityFromDB()
-    console.log(activities);
-
-    res.render("activities", {
-        activities: activities
-    });
-}
-
-
-// const getProfileAndPopulate = function (id) {
-//     return Profile.findById(id).populate("posts")
-// }
-
-// const renderDashboardWithPosts = async function (req, res) {
-//     posts = await getProfileAndPopulate(req.user.profile._id)
-
-//     res.render('dashboard', {
-//         user: req.user,
-//         posts: posts
-//     });
-// }
-
-
-
+//landing page
+router.get('/', (req, res) => {
+    res.render('index');
+})
+// dashboard
 router.get('/dashboard', ensureAuthenticated, (req, res) => {
     if (!req.user.profile) {
         res.render('dashboard', {
@@ -94,4 +134,140 @@ router.get('/dashboard', ensureAuthenticated, (req, res) => {
         res.redirect("activities")
     }
 })
+// trainer dashboard 
+router.get("/trainerCreate", ensureAuthenticated, (req, res) => {
+    if (!req.user.profile) {
+        res.render("trainerCreate", {
+            user: req.user,
+        });
+    } else {
+        res.redirect("activities");
+    }
+});
+
+/* EVERYTHING ACTIVITIES RELATED */
+//rendering activities page
+router.get('/activities', (req, res) => {
+    renderAllActivities(res)
+})
+
+const getActivitiesFromDB = async () => {
+    let activities = [];
+    const cursor = await Activity.find({});
+    for (let i = 0; i < cursor.length; i++) {
+        let doc = cursor[i];
+        let reviews = [];
+
+        const review = await Review.find({ _id: cursor[i].reviews });
+        for (let i = 0; i < review.length; i++) {
+            let doc = review[i];
+            let rating = doc.rating
+            reviews.push(rating)
+        }
+
+        let info = {
+            activityId: "",
+            activityName: "",
+            description: "",
+            location: "",
+            time: "",
+            authorName: "",
+            rating: "",
+            reviews: "",
+        }
+
+        if (reviews.length === 0) {
+            info.rating = 0
+        } else {
+            let total = 0
+            for (let rating of reviews) {
+                total += rating
+            }
+            info.rating = total / reviews.length
+        }
+        info.reviews = reviews.length
+        info.activityId = doc._id
+        info.activityName = doc.name
+        info.description = doc.description
+        info.location = doc.location
+
+        let date = doc.date.toString().split("GMT")
+        info.time = date[0].trim()
+
+        const result = await Profile.find({ activities: doc._id });
+        info.authorName = result[0].name
+        activities.push(info)
+    }
+    return activities;
+}
+
+
+const renderAllActivities = async function (res) {
+    let activities = await getActivitiesFromDB()
+    res.render("activities", {
+        activities: activities
+    });
+}
+
+/* EVERYTHING TRAINER RELATED */
+//trainers page
+router.get("/trainers", (req, res) => {
+    renderAllTrainers(res);
+});
+
+const notScrappedGetTrainersFromDB = async () => {
+    let trainers = [];
+    const cursor = await TrainerProfile.find({});
+
+    for (let i = 0; i < cursor.length; i++) {
+        let doc = cursor[i];
+
+        let info = {};
+
+        info.trainerId = doc._id;
+        info.trainerName = doc.name;
+        info.email = doc.email;
+        info.location = doc.location;
+        info.phone = doc.phone;
+        info.website = doc.website;
+        info.bio = doc.bio;
+        info.time = doc.date;
+        trainers.push(info);
+
+    }
+
+    return trainers;
+};
+
+const getTrainerFromDB = async () => {
+    let scrappedTrainers = [];
+    const cursor = await Trainer.find({});
+
+    for (let i = 0; i < cursor.length; i++) {
+        let doc = cursor[i];
+        let info = {};
+
+        info.trainerId = doc._id;
+        info.name = doc.name;
+        info.street = doc.street;
+        info.city = doc.city;
+        info.country = doc.country;
+        info.phone = doc.phone;
+        info.email = doc.email;
+        info.website = doc.website;
+
+        scrappedTrainers.push(info);
+    }
+    return scrappedTrainers;
+};
+const renderAllTrainers = async function (res) {
+    let scrappedTrainers = await getTrainerFromDB();
+    let trainers = await notScrappedGetTrainersFromDB();
+
+    res.render("trainer", {
+        trainers: trainers,
+        scrappedTrainers: scrappedTrainers,
+    });
+};
+
 module.exports = router;

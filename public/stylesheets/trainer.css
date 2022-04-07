@@ -180,5 +180,16 @@ h2,
 h3,
 h4,
 p {
+<<<<<<< HEAD
     margin: 1em;
 }
+=======
+  margin: 1em;
+}
+#map-container {
+  height: 300px;
+}
+h2 {
+  font-size: 2em;
+}
+>>>>>>> 5a96ae137e56613954ff6e051768dd93bf4e9ac3

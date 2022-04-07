@@ -1,5 +1,7 @@
+
+
 <title>Trainers</title>
-<link rel="stylesheet" href="/static/stylesheets/activities.css" />
+<link rel="stylesheet" href="/static/stylesheets/activitiesKristine.css" />
 <div class="background-container">
   <div class="feed-container">
 <div class="main-container">
@@ -32,44 +34,86 @@
     <input type="text" class="search-bar" placeholder="Search for a trainer" />
   </div>
   <hr class="orange-line" />
-  <!-- trainer profile -->
   <div class="card-container">
-  <div class="trainer-profile">
-   
-    <div class="trainer-infos flex">
-      <div class="trainer-pic"></div>
-      <div class="infos">
-        <h4>Dog Trainer Jack</h4>
-        <div class="trainer-category flex">
-          
-          <p class="grey-text">Obedience</p>
-        </div>
-        <div class="location flex">
-          <p >Bruxelles</p>
+     <!-- trainer profile -->
+
+  <!-- adding unscrapped profiles -->
+  <% trainers.reverse().forEach((trainer) => { %>
+    <a href="/about/show/<%= trainer.trainerId %>">
+    <div class="trainer-profile">
+     
+      <div class="trainer-infos flex">
+        <div class="trainer-pic"></div>
+        <div class="infos">
+          <h4><%= trainer.trainerName %></h4>
+          <p><%= trainer.email %></p>
+
+          <div class="trainer-category flex">
+            
+            <p class="grey-text">Obedience</p>
+          </div>
+          <div class="location flex">
+            <p ><%= trainer.location %></p>
+            <p><%= trainer.phone %></p>
+            <p><%= trainer.website %></p>
+  
+          </div>
         </div>
       </div>
+      <div class="activity-description">
+        <%= trainer.bio %>
+      </div>
+      <p><%= trainer.date %></p>
+      <div class="dog-pic">
+        <img src="/static/img-trainer/puppy.jpg" alt="" class="dog-pic" />
+      </div>
+      <div class="reviews flex">
+        <h2 class="average-rating">4.6</h2>
+        <img src="/static/img-trainer/star.png" alt="" class="star" />
+        <img src="/static/img-trainer/star.png" alt="" class="star" />
+        <img src="/static/img-trainer/star.png" alt="" class="star" />
+        <img src="/static/img-trainer/star.png" alt="" class="star" />
+        <img src="/static/img-trainer/star.png" alt="" class="star" />
+      </div>
     </div>
-    <div class="activity-description">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
-      voluptates sit distinctio aliquam voluptatum. A consequatur nostrum quod
-      temporibus dignissimos illo eveniet consectetur error obcaecati totam
-      ipsam, ex, possimus omnis! Ullam consequatur quisquam quidem eius, vero
-      totam qui ipsam numquam voluptate est quis laudantium, ducimus labore eos
-      perspiciatis, iste explicabo laboriosam porro odit aspernatur et saepe
-      veniam! Voluptas, temporibus sequi!
+  </a>
+    <% })%>
+
+    <!-- adding scrapped profiles  -->
+
+  <% scrappedTrainers.reverse().forEach((trainer) => { %>
+    <div class="card-container trainer-card">
+    <div class="trainer-profile">
+  
+        <div class="infos">
+          <h4><%= trainer.name %></h4>
+  
+          <div class="location">
+            <p class="grey-text"><%= trainer.street %></p> 
+            <p class="grey-text"><%= trainer.city %></p> 
+            <p class="grey-text"><%= trainer.country %></p>
+            <p >Phone: <%= trainer.phone %></p>
+            <p >Email: <%= trainer.email %></p>
+            <p >Website: <%= trainer.website %></p>
+  
+          </div>
+        </div>
+      
+  <!-- 
+      <div class="reviews flex">
+        <h2 class="average-rating">4.6</h2>
+        <img src="/static/img-trainer/star.png" alt="" class="star" />
+        <img src="/static/img-trainer/star.png" alt="" class="star" />
+        <img src="/static/img-trainer/star.png" alt="" class="star" />
+        <img src="/static/img-trainer/star.png" alt="" class="star" />
+        <img src="/static/img-trainer/star.png" alt="" class="star" />
+      </div> -->
     </div>
-    <div class="dog-pic">
-      <img src="/static/img-trainer/puppy.jpg" alt="" class="dog-pic" />
     </div>
-    <div class="reviews flex">
-      <h2 class="average-rating">4.6</h2>
-      <img src="/static/img-trainer/star.png" alt="" class="star" />
-      <img src="/static/img-trainer/star.png" alt="" class="star" />
-      <img src="/static/img-trainer/star.png" alt="" class="star" />
-      <img src="/static/img-trainer/star.png" alt="" class="star" />
-      <img src="/static/img-trainer/star.png" alt="" class="star" />
-    </div>
-  </div>
+    <% })%>
+  
+
+  <!-- adding trainers end -->
 </div>
 </div>
 </div>

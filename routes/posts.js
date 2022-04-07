@@ -1,20 +1,40 @@
 const express = require('express');
 const router = express.Router();
 const Profile = require("../models/profile").Profile;
-const User = require("../models/user")
-const Post = require("../models/post").Post
+// const User = require("../models/user")
+// const Post = require("../models/post").Post
+const Review = require("../models/review").Review;
 const Activity = require("../models/activitiy").Activity
 const cloudinary = require("cloudinary");
-//mongoose
-const mongoose = require("mongoose");
 const { ensureAuthenticated } = require('../config/auth');
-const dbPassword = "0TeEaRuCdH5yqRpJ";
-const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority`;
 
+//post review
+router.post("/newReview", ensureAuthenticated, async (req, res) => {
+    if (!req.user.profile) {
+        res.render('dashboard', {
+            user: req.user
+        });
+    } else {
+        // console.log(req.headers.referer);
+        let activityId = req.headers.referer.split("?")
 
-// OUR CODE
+        try {
+            const newReview = new Review({
+                rating: req.body.rating,
+                description: req.body.review,
+            })
+            await newReview.save()
+            await Profile.findOneAndUpdate({ _id: req.user.profile._id }, { $push: { reviews: newReview._id } }, { useFindAndModify: false })
+            await Activity.findOneAndUpdate({ _id: activityId[1] }, { $push: { reviews: newReview._id } }, { useFindAndModify: false })
+            res.redirect(`/ActivityReview?${activityId[1]}`)
+        } catch (err) {
+            console.log(err);
+            res.redirect(`/ActivityReview?${activityId[1]}`)
+        }
+    }
+})
+
 //Post my activity handle
-//login handle
 router.get('/postActivity', ensureAuthenticated, (req, res) => {
     if (!req.user.profile) {
         res.render('dashboard', {
@@ -35,7 +55,7 @@ router.post("/newActivity", async (req, res) => {
             location: req.body.location,
         })
         await newActivity.save()
-        await Profile.findOneAndUpdate({_id: req.user.profile._id}, {$push: {activities: newActivity._id }}, {useFindAndModify: false})
+        await Profile.findOneAndUpdate({ _id: req.user.profile._id }, { $push: { activities: newActivity._id } }, { useFindAndModify: false })
         res.redirect('/activities')
     } catch (err) {
         console.log(err);
@@ -65,7 +85,8 @@ router.post("/newActivity", async (req, res) => {
 //     }
 
 // })
-
+/*
+Hangling uploads
 router.post("/upload-image", async (req, res) => {
     try {
 
@@ -76,7 +97,7 @@ router.post("/upload-image", async (req, res) => {
         res.status(500).json({ err: 'Something went wrong' });
     }
 });
-
+*/
 
 
 

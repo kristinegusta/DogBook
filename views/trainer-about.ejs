@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/static/stylesheets/activitiesKristine.css" />
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css"
+  rel="stylesheet"
+/>
+
+<title>Trainer - about</title>
+
+<div class="main-container">
+  <div class="header flex">
+    <img src="/static/img-activity/logo.png" alt="" />
+    <a class="nav" href="/trainers">Trainers</a>
+    <a class="nav page-now" href="/activities">Activities</a>
+    <img src="/static/img-activity/user-profile-img.jpg" alt="" />
+  </div>
+  <div class="button-container">
+    <a class="btn orange" href="">About</a>
+    <a class="btn black" href=""">Reviews</a>
+  </div>
+  <hr class="orange-line" />
+  <div class="trainer-profile">
+    <div class="trainer-infos flex">
+      <div class="trainer-pic"></div>
+      <div class="infos">
+        <h4><%= trainer.name %></h4>
+        <p><%= trainer.email %></p>
+
+        <div class="location flex">
+          <p><span><%= trainer.location %></span></p> 
+          <p><%= trainer.phone %></p>
+          <p><%= trainer.website %></p>
+        </div>
+      </div>
+    </div>
+    <div class="activity-description"><%= trainer.bio %></div>
+    <p><%= trainer.date %></p>
+    <div class="dog-pic">
+      <img src="/static/img-trainer/puppy.jpg" alt="" class="dog-pic" />
+    </div>
+  </div>
+  <div id="map-container"><!-- Insert the map here --></div>
+</div>
+
+<script>
+    let adress = document.querySelector("span").innerText;
+  
+    fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${adress}.json?access_token=pk.eyJ1Ijoia3JpaWthMiIsImEiOiJja3pxdDFjOGQwYmV5MnZvOXI5bm1qemV3In0.jEvhkABH1R8bftOK9d3Fkw`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.features[0].geometry.coordinates);
+        mapboxgl.accessToken =
+          "pk.eyJ1Ijoia3JpaWthMiIsImEiOiJja3pxcTJvdTgwY3o2MnBtdW0yNXRjbWIyIn0.wZxIsEtWF9lU5MKLTRuQPQ";
+        const map = new mapboxgl.Map({
+          container: "map-container", // container ID
+          style: "mapbox://styles/mapbox/streets-v11", // style URL
+          center: data.features[0].geometry.coordinates, // starting position [lng, lat] Brussel
+          zoom: 12, // starting zoom
+        });
+  
+        new mapboxgl.Marker()
+          .setLngLat(data.features[0].geometry.coordinates)
+          .addTo(map);
+      })
+      .catch((error) => {
+        console.log("There was an error!", error);
+      });
+  </script>

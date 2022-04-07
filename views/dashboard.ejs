@@ -6,12 +6,20 @@
   <div id="register">
     <h1>Create a profile</h1>
     <div class="form-container">
-      <p class="p">Who are you?</p>
+      <p class="p" style="text-align: center ;">Who are you?</p>
       <div class="center">
-        <p>User</p>
-        <input type="checkbox" name="" />
-        <p>Trainer</p>
-      </div>
+        <a href="/dashboard">
+          <div>
+            <p>User</p>
+          </div>
+        </a>
+        <span style="margin: 0 15vw 0 0;"></span>
+        <a href="/trainerCreate">
+          <div>
+            <p>Trainer</p>
+          </div>
+                </div>
+        </a>
 
       <form action="/profiles/new" method="post">
         <p class="p">Your name</p>
