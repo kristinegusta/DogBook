@@ -3,7 +3,10 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+<<<<<<< HEAD
     overflow-x: hidden;
+=======
+>>>>>>> omer2
 }
 
 #big__container {
@@ -27,7 +30,11 @@
 
 #logo {
     background-image: url("../img/logo.png");
+<<<<<<< HEAD
     height: 250px;
+=======
+    height: 200px;
+>>>>>>> omer2
     width: 100%;
     background-repeat: no-repeat;
     background-size: contain;

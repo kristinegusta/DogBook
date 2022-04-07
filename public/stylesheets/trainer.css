@@ -175,6 +175,17 @@ input {
     margin-bottom: 1rem;
 }
 
+<<<<<<< HEAD
+=======
+h1,
+h2,
+h3,
+h4,
+p {
+    margin: 1em;
+}
+
+>>>>>>> omer2
 #map-container {
     height: 300px;
 }
