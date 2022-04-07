@@ -171,7 +171,7 @@ const getActivitiesFromDB = async () => {
             for (let rating of reviews) {
                 total += rating
             }
-            info.rating = total / reviews.length
+            info.rating = Math.round((total/(reviews.length))*10)/10
         }
         info.reviews = reviews.length
         info.activityId = doc._id
