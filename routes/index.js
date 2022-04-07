@@ -171,7 +171,7 @@ const getActivitiesFromDB = async () => {
             for (let rating of reviews) {
                 total += rating
             }
-            info.rating = Math.round((total/(reviews.length))*10)/10
+            info.rating = Math.round((total / (reviews.length)) * 10) / 10
         }
         info.reviews = reviews.length
         info.activityId = doc._id
@@ -220,6 +220,7 @@ const notScrappedGetTrainersFromDB = async () => {
         info.website = doc.website;
         info.bio = doc.bio;
         info.time = doc.date;
+        info.url = doc.url
         trainers.push(info);
 
     }

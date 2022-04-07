@@ -1,7 +1,7 @@
 <title>BookDoog</title>
 <link rel="stylesheet" href="/static/stylesheets/registerP.css" />
 <!-- <script src="/static/scripts/createprofile.js"></script> -->
-<div id="big__container" class="">
+<div id="big__container">
   <div id="logo"></div>
   <div id="register">
     <h1>Create a profile</h1>
@@ -21,7 +21,7 @@
                 </div>
         </a>
 
-      <form action="/profiles/newTrainer" method="post">
+      <form action="/profiles/newTrainer" method="post" enctype="multipart/form-data">
         <p class="p">Your name</p>
         <input type="text" name="name" placeholder="Enter Your name" />
 
@@ -43,6 +43,8 @@
           name="bio"
           placeholder="Write Your bio"
         ></textarea>
+        <p>Upload profile picture here</p>
+        <input type='file' name='image' />
 
         <div class="btn-cont">
           <button type="submit" class="btn orange">Create</button>
