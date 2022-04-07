@@ -3,28 +3,27 @@
 <link rel="stylesheet" href="/static/stylesheets/registerP.css" />
 
 <div id="big__container">
-  <div id="logo"></div>
+    <div id="logo"></div>
 
-  <div id="register">
-    <h1>Login</h1>
-    <div class="form-container">
-      <%- include ('./partials/messages') %>
-      <form action="/users/login" method="post">
-        <p>Enter your email</p>
-        <input type="text" name="email" placeholder="Enter Email" />
+    <div id="register">
+        <h1>Login</h1>
+        <div class="form-container">
+            <%- include ('./partials/messages') %>
+                <form action="/users/login" method="post">
+                    <p>Enter your email</p>
+                    <input type="text" name="email" placeholder="Enter Email" />
 
-        <p>Enter your password</p>
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter your password"
-        />
+                    <p>Enter your password</p>
+                    <input type="password" name="password" placeholder="Enter your password" />
+                    <i class="fas fa-eye" id="icon" onclick="togglePW()"></i>
 
-        <div class="btn-cont">
-          <button type="submit" class="btn orange">Login</button>
-          <a class="btn black" href="/users/register">No account? Register</a>
+                    <br />
+                    <div class="btn-cont">
+                        <button type="submit" class="btn orange">Login</button>
+                    </div>
+                </form>
         </div>
-      </form>
     </div>
-  </div>
+
+    <div id="line"></div>
 </div>
