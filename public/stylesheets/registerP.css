@@ -3,7 +3,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
-    overflow: hidden;
 }
 
 #big__container {
@@ -148,7 +147,7 @@ textarea {
 
 @media screen and (min-width: 640px) and (max-width: 800px) {
     #logo {
-        height: 200px;
+        height: 350px;
     }
 }
 
