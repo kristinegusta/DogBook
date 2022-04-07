@@ -18,21 +18,71 @@ router.post("/newReview", ensureAuthenticated, async (req, res) => {
         // console.log(req.headers.referer);
         let activityId = req.headers.referer.split("?")
 
-        try {
-            const newReview = new Review({
-                rating: req.body.rating,
-                description: req.body.review,
-            })
-            await newReview.save()
-            await Profile.findOneAndUpdate({ _id: req.user.profile._id }, { $push: { reviews: newReview._id } }, { useFindAndModify: false })
-            await Activity.findOneAndUpdate({ _id: activityId[1] }, { $push: { reviews: newReview._id } }, { useFindAndModify: false })
-            res.redirect(`/ActivityReview?${activityId[1]}`)
-        } catch (err) {
-            console.log(err);
+        let allowReview = await checkExisingReviews(activityId[1], req)
+        if (allowReview) {
+            try {
+                const newReview = new Review({
+                    rating: req.body.rating,
+                    description: req.body.review,
+                })
+                await newReview.save()
+                await Profile.findOneAndUpdate({ _id: req.user.profile._id }, { $push: { reviews: newReview._id } }, { useFindAndModify: false })
+                await Activity.findOneAndUpdate({ _id: activityId[1] }, { $push: { reviews: newReview._id } }, { useFindAndModify: false })
+                res.redirect(`/ActivityReview?${activityId[1]}`)
+            } catch (err) {
+                console.log(err);
+                res.redirect(`/ActivityReview?${activityId[1]}`)
+            }
+        } else {
+            //alert doesn't work maybe look into popup forms
+            console.log("You already posted a review for this activity")
             res.redirect(`/ActivityReview?${activityId[1]}`)
         }
     }
 })
+
+let checkExisingReviews = async (id, req) => {
+    let check = true;
+    const cursor = await Activity.find({ _id: id});
+    const reviews = await Review.find({ _id: cursor[0].reviews });
+    for (const review of reviews) {
+        const userProfile = await Profile.find({reviews: review._id})
+        if ((userProfile[0]._id).toString() == (req.user.profile._id).toString()) {
+            check = false;
+        }
+    }
+    return check
+}
+
+const getReviewFromDB = async (id) => {
+    let reviews = [];
+    const cursor = await Activity.find({ _id: id });
+    const review = await Review.find({ _id: cursor[0].reviews });
+    // console.log(review);
+    for (let i = 0; i < review.length; i++) {
+        let doc = review[i];
+
+        let info = {
+            reviewId: "",
+            description: "",
+            rating: "",
+            time: "",
+            authorName: "",
+        }
+
+
+        info.reviewId = doc._id
+        info.description = doc.description
+        info.rating = doc.rating
+        let date = doc.date.toString().split("GMT")
+        info.time = date[0].trim()
+
+        const result = await Profile.find({ reviews: doc._id });
+        info.authorName = result[0].name
+        reviews.push(info)
+    }
+    return reviews;
+}
 
 //Post my activity handle
 router.get('/postActivity', ensureAuthenticated, (req, res) => {

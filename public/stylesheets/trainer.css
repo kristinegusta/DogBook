@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .flex {
@@ -175,15 +175,6 @@ input {
     margin-bottom: 1rem;
 }
 
-h1,
-h2,
-h3,
-h4,
-p {
-
-=======
-  margin: 1em;
-}
 #map-container {
   height: 300px;
 }
