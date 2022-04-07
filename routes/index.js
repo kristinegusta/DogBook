@@ -23,7 +23,7 @@ router.get("/ActivityReview", (req, res) => {
 const renderActivityReview = async function (res, id) {
     let activity = await getActivityFromDB(id)
     let reviews = await getReviewFromDB(id)
-
+    console.log(reviews)
     res.render("activityReview", {
         activity: activity,
         reviews: reviews
@@ -42,20 +42,6 @@ const renderActivityAbout = async function (res, id) {
         activity: activity
     });
 }
-// Trainer about ( KAATS STYLE)
-/*
-router.get("/:id", async (req, res) => {
-    console.log(req.params.id)
-    //const trainerQuery = await TrainerProfile.findById(req.params.id)
-
-    
-    res.render('trainer-about', {
-        trainer: trainerQuery
-    })
-    
-    res.render('trainer-about')
-})
-*/
 const getReviewFromDB = async (id) => {
     let reviews = [];
     const cursor = await Activity.find({ _id: id });
@@ -70,6 +56,7 @@ const getReviewFromDB = async (id) => {
             rating: "",
             time: "",
             authorName: "",
+            authorImg: ""
         }
 
 
@@ -81,6 +68,7 @@ const getReviewFromDB = async (id) => {
 
         const result = await Profile.find({ reviews: doc._id });
         info.authorName = result[0].name
+        info.authorImg = result[0].url
         reviews.push(info)
     }
     return reviews;

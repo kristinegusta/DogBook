@@ -6,16 +6,17 @@ const expressEjsLayout = require("express-ejs-layouts");
 const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
-const multer = require("multer");
-const cloudinary = require("cloudinary");
-const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const fileupload = require("express-fileupload");
+
 
 //passport config:
 require("./config/passport")(passport);
+//fileupload co
+router.use(fileupload({ useTempFiles: true }))
 
 //mongoose
 // Dylan cluster
+// The passwords should go in the .env file
 const dbPassword = "0TeEaRuCdH5yqRpJ";
 const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority`;
 // Antoine cluster
@@ -30,21 +31,8 @@ mongoose
     .then(() => console.log("connected,,"))
     .catch((err) => console.log(err));
 
-//CLOUDINARY
 
-cloudinary.config({
-    cloud_name: "",
-    api_key: "",
-    api_secret: "",
-});
 
-// const storage = new CloudinaryStorage({
-// cloudinary: cloudinary,
-// folder: "diogface",
-// allowedFormats: ["jpg", "png"],
-// transformation: [{ width: 500, height: 500, crop: "limit" }]
-// });
-// const parser = multer({ storage: storage });
 
 //EJS
 app.set("view engine", "ejs");
@@ -52,6 +40,7 @@ app.use(expressEjsLayout);
 //BodyParser
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+router.use(fileupload({ useTempFiles: true }))
 //express session
 app.use(
     session({
