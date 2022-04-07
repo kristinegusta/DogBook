@@ -2,40 +2,30 @@
 <link rel="stylesheet" href="/static/stylesheets/registerP.css" />
 
 <div id="big__container">
-  <div id="logo"></div>
+    <div id="logo"></div>
 
-  <div id="register">
-    <h1>Register</h1>
-    <div class="form-container">
-      <%- include ('./partials/messages') %>
-      <form action="/users/register" method="post">
-        <p>Enter your email</p>
-        <input
-          type="email"
-          name="email"
-          value="<%= typeof email != 'undefined' ? email : '' %>"
-        />
+    <div id="register">
+        <h1>Register</h1>
+        <div class="form-container">
+            <%- include ('./partials/messages') %>
+                <form action="/users/register" method="post">
+                    <p>Enter your email</p>
+                    <input type="email" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" />
 
-        <p>Enter your password</p>
-        <input
-          type="password"
-          name="password"
-          value="<%= typeof password != 'undefined' ? password : '' %>"
-        />
+                    <p>Enter your password</p>
+                    <input type="password" name="password" value="<%= typeof password != 'undefined' ? password : ''  %>" />
+                    <i class="fas fa-eye" id="icon" onclick="show()"></i>
 
-        <p>Confirm password</p>
-        <input
-          type="password"
-          name="password2"
-          value="<%= typeof password2 != 'undefined' ? password : '' %>"
-        />
-
-        <br />
-        <div class="btn-cont">
-          <button type="submit" class="btn orange">Submit</button>
-          <a class="btn black" href="/users/login"
-            >Already have an account? </br> Log in</a
+                    <p>Confirm password</p>
+                    <input type="password" name="password2" id="conferm" value="<%= typeof password2 != 'undefined' ? password : '' %>" />
+                    <i class="fas fa-eye" id="icon2" onclick="showP()"></i>
+                    <br />
+                    <div class="btn-cont">
+                        <button type="submit" class="btn orange">Submit</button>
+                        <a class="btn black" href="/users/login">Already have an account? </br> Log in</a
           >
+          
+    
         </div>
       </form>
     </div>
@@ -43,3 +33,30 @@
 
   <div id="line"></div>
 </div>
+
+<script>
+function show() {
+    var password = document.querySelector('[name=password]');
+    if (password.getAttribute('type') === 'password') {
+        password.setAttribute('type', 'text');
+        document.getElementsById("icon").style.color = 'orange';
+    } else {
+        password.setAttribute('type', 'password');
+        document.getElementById("icon").style.color = 'black';
+
+    }
+}
+
+function showP() {
+    var password1 = document.querySelector('[name=password2]');
+    console.log(password1)
+    if (password1.getAttribute('type') === 'password') {
+        password1.setAttribute('type', 'text');
+        document.getElementsById("icon2").style.color = 'orange';
+    } else {
+        password1.setAttribute('type', 'password');
+        document.getElementById("icon2").style.color = 'black';
+
+    }
+}
+</script>
