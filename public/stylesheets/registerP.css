@@ -19,10 +19,10 @@
     }
     #logo {
         background-image: url("../img/logo.png");
-        height: 160px;
+        height: 200px;
         width: 100%;
         background-repeat: no-repeat;
-        background-size: cover;
+        background-size: contain;
         background-position: center;
     }
     h1 {
@@ -132,10 +132,10 @@
 
 #logo {
     background-image: url("../img/logo.png");
-    height: 160px;
+    height: 200px;
     width: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
 }
 
