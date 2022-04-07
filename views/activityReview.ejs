@@ -47,7 +47,7 @@
                     <% reviews.forEach((review) => { %>
                         <% total += review.rating %>
                     <% }) %>
-                    <% let average = total/reviews.length %>
+                    <% let average = Math.round((total/(reviews.length))*10)/10 %>
                     <h3 class="average-rating padding">Average rating: <%= average %></h3>
                 <% } %>
                 <!-- begin forEach -->
