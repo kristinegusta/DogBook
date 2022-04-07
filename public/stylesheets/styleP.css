@@ -77,11 +77,13 @@ p {
 }
 
 .black {
+
     background: rgba(0, 0, 0, 0.55);
 }
 
+}
 @media screen and (min-width: 800px) {
-    #logo {
-        height: 300px;
-    }
+  #logo {
+    height: 300px;
+  }
 }

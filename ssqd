@@ -1,0 +1,624 @@
+[33mcommit 640dd3ca677796cef0725b361e394d2129ed33f3[m[33m ([m[1;36mHEAD -> [m[1;32mOmer[m[33m, [m[1;31morigin/Omer[m[33m)[m
+Author: root <root@DESKTOP-D35VALO.localdomain>
+Date:   Tue Apr 5 09:35:08 2022 +0200
+
+    adding overflow
+
+[33mcommit 7e8dab6caa260b13bcb1cefddade1ba5e7b4227c[m
+Author: root <root@DESKTOP-D35VALO.localdomain>
+Date:   Mon Apr 4 16:21:26 2022 +0200
+
+    sfasf
+
+[33mcommit 9635555290572d7f1fac6d06a3e98930bace258b[m
+Author: root <root@DESKTOP-D35VALO.localdomain>
+Date:   Mon Apr 4 15:58:22 2022 +0200
+
+    hi
+
+[33mcommit 774af19ab69ebc1cf961ba6ed49a1c2889843e5e[m
+Author: root <root@DESKTOP-D35VALO.localdomain>
+Date:   Mon Apr 4 15:30:37 2022 +0200
+
+    heroku test
+
+[33mcommit 52d112b49bbdb3e6367eff225c67a17c39189aa9[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Mon Apr 4 10:02:38 2022 +0200
+
+    added href to activities
+
+[33mcommit 2a9b0f5ebfbd15aa6ff28ce84fbaad89c5ab5788[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Mon Apr 4 09:42:34 2022 +0200
+
+    fixed routes
+
+[33mcommit 799e9f9540ac617ec05ee9e223357c714a0df0da[m
+Merge: 3164c2b 87385a7
+Author: AntoineDePoorter98 <95038367+AntoineDePoorter98@users.noreply.github.com>
+Date:   Sun Apr 3 21:53:43 2022 +0200
+
+    Merge pull request #13 from kristinegusta/Antoine
+    
+    worked on activity post
+
+[33mcommit 87385a7f99e0cd06a3d3d383668d1fe41a0b4bbd[m[33m ([m[1;31morigin/Antoine[m[33m)[m
+Merge: 00a9af6 3164c2b
+Author: AntoineDePoorter98 <95038367+AntoineDePoorter98@users.noreply.github.com>
+Date:   Sun Apr 3 21:48:52 2022 +0200
+
+    Merge branch 'main' into Antoine
+
+[33mcommit 00a9af6dba0821ba61a76f73f62ed37673168c65[m
+Author: Antoine De Poorter <antoine.depoorter@outlook.com>
+Date:   Sun Apr 3 21:24:46 2022 +0200
+
+    worked on activity post
+
+[33mcommit 3164c2babe432dcbc31c1a3cbe23ffb1affadce7[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Sat Apr 2 23:35:46 2022 +0200
+
+    info retrieved from db needs to be added to cards that don't exist
+
+[33mcommit 39c3c124854cfe2636d5a1ea6ba46d3f4f16cfb9[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Fri Apr 1 19:33:35 2022 +0200
+
+    fixed authentication for posting activity
+
+[33mcommit 2c68b60f0977ed91f7e8515b14f29b9e3a71bc86[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Fri Apr 1 18:22:00 2022 +0200
+
+    added activites to db
+
+[33mcommit c8e5540506d9f980118f87a84b5a626a3b3f8598[m
+Merge: 1d243fd 8052645
+Author: Kristine Gusta <95911759+kristinegusta@users.noreply.github.com>
+Date:   Fri Apr 1 16:02:01 2022 +0200
+
+    Merge pull request #12 from kristinegusta/Kristine3
+    
+    fixed post.ejs
+
+[33mcommit 80526454bf0c01786aeefbff6a543e1afb3dffe0[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Fri Apr 1 16:01:14 2022 +0200
+
+    fixed post.ejs
+
+[33mcommit 1d243fd12d37335261b6c78dc68438f48da31f4f[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Fri Apr 1 15:35:50 2022 +0200
+
+    modified file names all 'old' files can be deleted later
+
+[33mcommit f5b193f1314833378dad7f9b0ef5eb1eb990a46b[m
+Merge: 138c42e 543eb8b
+Author: Kristine Gusta <95911759+kristinegusta@users.noreply.github.com>
+Date:   Fri Apr 1 15:18:46 2022 +0200
+
+    Merge pull request #11 from kristinegusta/PostMyActivityKristine
+    
+    made the btn stivky on activities page
+
+[33mcommit 543eb8bc004eaafe68d6f6e683b3dcd353649dbc[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Fri Apr 1 15:17:09 2022 +0200
+
+    made the btn stivky on activities page
+
+[33mcommit 138c42e371f770773a50bd496dcbb6f4c5fbc876[m
+Merge: 07e86fe ca5238c
+Author: Kristine Gusta <95911759+kristinegusta@users.noreply.github.com>
+Date:   Fri Apr 1 15:07:43 2022 +0200
+
+    Merge pull request #10 from kristinegusta/Kristine2
+    
+    fixing ahres on activities page
+
+[33mcommit ca5238c58f41d2b68a10f54ae855028dbc6cfc9b[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Fri Apr 1 15:06:21 2022 +0200
+
+    fixing ahres on activities page
+
+[33mcommit 07e86fe12a6efd5119c486adecc464e2de63a628[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Fri Apr 1 15:04:02 2022 +0200
+
+    linked trainers page with activities page and gave proper link to trainers page
+
+[33mcommit 78abe22f6fb0e7e53b7ea179a99d5d51a49211ab[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Fri Apr 1 12:09:07 2022 +0200
+
+    deleted an unnecesary css file and updates create a profile css
+
+[33mcommit 6744f160374d7db5652db9eb4b2e41aaff5486fe[m
+Merge: ad4810f 97fe6cd
+Author: kriika2 <kriika2@gmail.com>
+Date:   Fri Apr 1 12:00:04 2022 +0200
+
+    Merge branch 'main' of https://github.com/kristinegusta/DogBook
+
+[33mcommit ad4810fd6202eeaedf12a9e819dd8fe3c4383489[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Fri Apr 1 11:59:51 2022 +0200
+
+    fixed login css
+
+[33mcommit 97fe6cdb7af2a39710fc038fc163af424b429b3d[m
+Merge: 051c0c6 e4e691e
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Fri Apr 1 11:57:13 2022 +0200
+
+    Merge branch 'dylan' into main
+
+[33mcommit e4e691e5bd70793f133fa5bb1661e0280783a40b[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Fri Apr 1 11:56:52 2022 +0200
+
+    fixed route to redirect to activities page and not render 'activites'
+
+[33mcommit 051c0c6c29908cddb31cc2f9fc53342343a29539[m
+Merge: 6dbbd9f a528b7c
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Fri Apr 1 11:46:04 2022 +0200
+
+    Merge branch 'dylan' into main
+
+[33mcommit a528b7cb67b4c10bc5b56b4c07828dd8f845d58b[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Fri Apr 1 11:45:42 2022 +0200
+
+    fixed deprecation warning
+
+[33mcommit 6dbbd9f70e349524206883a4721f4d4399f85786[m
+Merge: 8cb9955 1d8eccd
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Fri Apr 1 11:32:13 2022 +0200
+
+    Merge pull request #8 from kristinegusta/dylan
+    
+    added creation and activities page + info to db
+
+[33mcommit 8cb9955e1cbf27c0f50e07063281d7f4b06c9a2a[m
+Merge: c772775 6d6efab
+Author: kriika2 <kriika2@gmail.com>
+Date:   Fri Apr 1 11:30:51 2022 +0200
+
+    Merge branch 'main' of https://github.com/kristinegusta/DogBook
+
+[33mcommit c77277577b0208d05804ae4d3fe472270c7eba8e[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Fri Apr 1 11:29:55 2022 +0200
+
+    SORRY I WORKED ON MAIN... adjust css and html register page
+
+[33mcommit 1d8eccd8e08a1f8b697372e8dac0cbecfee6433c[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Fri Apr 1 11:29:27 2022 +0200
+
+    added creation and activities page + info to db
+
+[33mcommit 6d6efab908de0bbafdce455ae06b566b79def29a[m
+Author: Antoine De Poorter <antoine.depoorter@outlook.com>
+Date:   Thu Mar 31 16:25:19 2022 +0200
+
+    fix
+
+[33mcommit edd4523737123b29ff9e06e85013e342282aefd8[m
+Merge: de5adb3 f60abfe
+Author: Kristine Gusta <95911759+kristinegusta@users.noreply.github.com>
+Date:   Thu Mar 31 16:08:33 2022 +0200
+
+    Merge pull request #6 from kristinegusta/Kristine
+    
+    Kristine
+
+[33mcommit f60abfe97ea0a91b3236d95a754138470c2d19fc[m
+Merge: 80501c4 de5adb3
+Author: Kristine Gusta <95911759+kristinegusta@users.noreply.github.com>
+Date:   Thu Mar 31 16:08:22 2022 +0200
+
+    Merge branch 'main' into Kristine
+
+[33mcommit de5adb391b55b3c16a726aa057d7313400ed0d8e[m
+Author: Antoine De Poorter <antoine.depoorter@outlook.com>
+Date:   Thu Mar 31 15:58:20 2022 +0200
+
+    added trainer route page
+
+[33mcommit e0479d7d6f937705e10cd6bf6abe9cbae2bc53f5[m
+Merge: 6aa8ba1 b123972
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 15:55:29 2022 +0200
+
+    Merge branch 'main' of https://github.com/kristinegusta/DogBook
+
+[33mcommit 80501c423acebcaf1945c6b51d768ddfe8add398[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 15:54:59 2022 +0200
+
+    worked on ativities
+
+[33mcommit b1239727581fe34586d32199b0a50975bb10bf67[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Thu Mar 31 15:49:05 2022 +0200
+
+    added register options page
+
+[33mcommit 6aa8ba176097f596d97cd8f48830810be8eb0196[m
+Merge: 919ffa3 c702626
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 15:23:00 2022 +0200
+
+    Merge branch 'Kristine'
+
+[33mcommit 919ffa34a1a34d5b46d5928c86431b4f041694c6[m
+Merge: 58d994f bc788e9
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 15:11:37 2022 +0200
+
+    Merge branch 'main' of https://github.com/kristinegusta/DogBook
+
+[33mcommit bc788e9d0d5b1e262e39a6e113a2d904a0752bcd[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Thu Mar 31 15:11:28 2022 +0200
+
+    added login page
+
+[33mcommit c70262642010141053c29874d7a1dd6fd385d6e7[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 15:07:40 2022 +0200
+
+    fix buttons
+
+[33mcommit e0b480fd14bc43081cd6a163c4d4925a9b62c3b2[m
+Merge: 48d267a 9753061
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 14:59:56 2022 +0200
+
+    fix landing
+
+[33mcommit 58d994fc861be2c66bf49e8f3628441121c24e64[m
+Merge: 9753061 48d267a
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 14:57:33 2022 +0200
+
+    fix merge
+
+[33mcommit 48d267ab66251e4b247c688ded1ab10e8321315e[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 14:54:19 2022 +0200
+
+    finish landing
+
+[33mcommit 9753061e189f1783c438996d709286215bd21c7d[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Thu Mar 31 14:40:17 2022 +0200
+
+    added links to login and register pages and removed welcome.ejs
+
+[33mcommit 47d43151ef77c97c0707d8f0d9fe953e3e50bdd3[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 14:27:42 2022 +0200
+
+    Update app.js
+
+[33mcommit 91515c006f96274059d509e9c575c42faec24cbe[m
+Merge: 82b4d5c 5ca537a
+Author: Kristine Gusta <95911759+kristinegusta@users.noreply.github.com>
+Date:   Thu Mar 31 14:25:48 2022 +0200
+
+    Merge pull request #4 from kristinegusta/Kristine
+    
+    adding activities-about ejs and stome styling
+
+[33mcommit 5ca537a77c695ab961207ca3ddb489eca439e5f6[m
+Merge: 3786ceb 82b4d5c
+Author: Kristine Gusta <95911759+kristinegusta@users.noreply.github.com>
+Date:   Thu Mar 31 14:25:40 2022 +0200
+
+    Merge branch 'main' into Kristine
+
+[33mcommit 3786ceb8adc9073ed6a9c90577067cbaf38436ff[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 14:20:46 2022 +0200
+
+    another commit
+
+[33mcommit 5155b5c293f11c0bdd15618bb7d57c4c14cf6836[m
+Merge: 6a913a8 8991693
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 14:04:30 2022 +0200
+
+    Merge branch 'main' into Kristine
+
+[33mcommit 6a913a8d1d5676da105f1913dac90437b94f6f6d[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 14:03:50 2022 +0200
+
+    fix index.ejs
+
+[33mcommit 82b4d5c7651232e5227b0f1bb326ba102c5e62dd[m
+Merge: 8d9896d 7f26009
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 12:08:42 2022 +0200
+
+    Merge pull request #5 from kristinegusta/dylan
+    
+    fixed app.js
+
+[33mcommit 7f26009ce7f9fb566c81838d09a05ed3baa84716[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Thu Mar 31 12:07:29 2022 +0200
+
+    fixed app.js
+
+[33mcommit 24408883e52fb2037ecfca083fc0a6c3fc9a9896[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 12:00:01 2022 +0200
+
+    addign img
+
+[33mcommit c999de02cd11e9e461389493213c52f5f76d0460[m
+Merge: 5a2bd9f f2c4cac
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 11:37:36 2022 +0200
+
+    Merge branch 'main' of https://github.com/kristinegusta/DogBook into Kristine
+
+[33mcommit 8d9896d1b8dc35ed4d2f4aafa318f34a582f9446[m
+Merge: f2c4cac 682018b
+Author: Antoine De Poorter <antoine.depoorter@outlook.com>
+Date:   Thu Mar 31 11:34:09 2022 +0200
+
+    Merge branch 'Antoine'
+
+[33mcommit 682018bc0bb5bc11de40207fa5c24d64e52b5a2e[m
+Author: Antoine De Poorter <antoine.depoorter@outlook.com>
+Date:   Thu Mar 31 11:33:20 2022 +0200
+
+    added activity page
+
+[33mcommit 8991693b08b1f5422cd614e9edf220e92bb5e63a[m
+Merge: 5a2bd9f f2c4cac
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 10:47:28 2022 +0200
+
+    Merge branch 'main' of https://github.com/kristinegusta/DogBook
+
+[33mcommit f2c4cac4c4e162e70d55af99bfbea57e9ca2b4ea[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 10:47:09 2022 +0200
+
+    Delete login.html
+
+[33mcommit f58cfdffdc7079b356b1a368819cedd573ca2251[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 10:46:56 2022 +0200
+
+    Delete register.css
+
+[33mcommit 8469b15faf3a16505782c647bdd897f43c55e790[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 10:46:47 2022 +0200
+
+    Delete index.js
+
+[33mcommit 7ceb4c5eabce4fc6b7f08153272f1f88ae649e5f[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 10:46:37 2022 +0200
+
+    Delete register.html
+
+[33mcommit 36be8cacac322757ac418945113c53e2a072ce22[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 10:46:29 2022 +0200
+
+    Delete style.css
+
+[33mcommit 0a7bf2db343daff22108ca57a5bc52fb8105aa90[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 10:46:21 2022 +0200
+
+    Delete trainerCre.css
+
+[33mcommit 8a530374dcec2815caa64930599ee53aa826d946[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 10:46:11 2022 +0200
+
+    Delete trainerCreate.html
+
+[33mcommit 0b2b2588770484ef774aa11019345ccac7df3c2a[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 10:46:01 2022 +0200
+
+    Delete index.html
+
+[33mcommit b05396d04134b9fb957146be39dadf12ae42a1ba[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 10:45:44 2022 +0200
+
+    Delete create.html
+
+[33mcommit f87468b64be54bd252f584ea101bbe128edf5931[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 10:45:34 2022 +0200
+
+    Delete create.css
+
+[33mcommit 681431e8e131f424fa4d2ea8ed1b5a134a33f41e[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 10:45:12 2022 +0200
+
+    Delete activity directory
+
+[33mcommit da0b1af293cb3e708fcf3b9e41d50c774dccaa4d[m
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Thu Mar 31 10:44:54 2022 +0200
+
+    Delete .vs directory
+
+[33mcommit 5a2bd9f0e362542cc5175c0d21a07f0fc683e60a[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Thu Mar 31 10:37:24 2022 +0200
+
+    adding activities-about ejs and stome styling
+
+[33mcommit fa597d68c99d07dfb8020ce88e2b8572ed9e3794[m
+Merge: 46397d4 32d0cb9
+Author: Omer Aslani <95867985+OmerAslani@users.noreply.github.com>
+Date:   Thu Mar 31 10:17:56 2022 +0200
+
+    Merge pull request #3 from kristinegusta/Omer
+    
+    Omer
+
+[33mcommit 32d0cb94cafef8df4ad68aada6da19738b52d2d3[m
+Merge: 2aa2d00 46397d4
+Author: root <root@DESKTOP-D35VALO.localdomain>
+Date:   Thu Mar 31 10:17:36 2022 +0200
+
+    fixed conflict
+
+[33mcommit 2aa2d00516c86fea376d54df4422152ad0fd4219[m
+Author: root <root@DESKTOP-D35VALO.localdomain>
+Date:   Thu Mar 31 10:03:59 2022 +0200
+
+    test
+
+[33mcommit 14bbdb4aec021a0add981bdffbadb8ab5a4a2310[m
+Merge: 78bc296 7412c87
+Author: root <root@DESKTOP-D35VALO.localdomain>
+Date:   Thu Mar 31 09:59:51 2022 +0200
+
+    Merge branch 'master' of https://github.com/kristinegusta/DogBook into Omer
+    my commit hope it works
+
+[33mcommit 78bc296bf8740c39d18e3cd5f2e31e53886d9a5b[m
+Author: root <root@DESKTOP-D35VALO.localdomain>
+Date:   Thu Mar 31 09:57:45 2022 +0200
+
+    omer
+
+[33mcommit 46397d4032f0ca3299dfc6d02e26b16fb2d56518[m
+Merge: d95aec4 d21c862
+Author: Omer Aslani <95867985+OmerAslani@users.noreply.github.com>
+Date:   Thu Mar 31 09:42:00 2022 +0200
+
+    Merge pull request #2 from kristinegusta/Omer
+    
+    Omer
+
+[33mcommit d21c862e3e0534d57a5c404a9678aa030bcda1db[m
+Author: Omer Aslani <95867985+OmerAslani@users.noreply.github.com>
+Date:   Thu Mar 31 09:39:38 2022 +0200
+
+    login,crate,create prfile,lunding,
+
+[33mcommit d95aec43f2b3a67008db1126a1fff0560628d6bd[m
+Author: AntoineDePoorter98 <95038367+AntoineDePoorter98@users.noreply.github.com>
+Date:   Thu Mar 31 09:38:45 2022 +0200
+
+    Update trainer.css
+
+[33mcommit fc128f22cd8e64c8e51f8ca1da4ca1a34efdd275[m
+Author: Omer Aslani <95867985+OmerAslani@users.noreply.github.com>
+Date:   Wed Mar 30 23:29:06 2022 +0200
+
+    Add files via upload
+
+[33mcommit 7412c870760e3f89804ebea5943da5b2eb6cce91[m
+Author: OmerAslani <aslaniomer21@gmail.com>
+Date:   Wed Mar 30 23:14:46 2022 +0200
+
+    lunding page
+
+[33mcommit da2dbbabe2df959455c4b9964d55356ea19fec3e[m
+Merge: 279c3b2 31ff45a
+Author: Antoine De Poorter <antoine.depoorter@outlook.com>
+Date:   Wed Mar 30 15:52:05 2022 +0200
+
+    Merge branch 'Antoine'
+
+[33mcommit 31ff45a6dfb9207f40441b75eb315ba071fb3e20[m
+Author: Antoine De Poorter <antoine.depoorter@outlook.com>
+Date:   Wed Mar 30 15:50:41 2022 +0200
+
+    trainer.ejs and trainer.css added
+
+[33mcommit 279c3b2129a71829e38fe78a18c31a7f8207d8f0[m
+Merge: 59ef956 a82997f
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Wed Mar 30 15:15:58 2022 +0200
+
+    Merge branch 'main' of github.com:kristinegusta/DogBook into main
+
+[33mcommit 59ef956b7efd66a09ea4d3811e4aa413ed270725[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Wed Mar 30 15:10:05 2022 +0200
+
+    connect to DB and add activity info to db
+
+[33mcommit e5761d672ab9a8a6a464f243c310f5a521ce9879[m
+Author: OmerAslani <aslaniomer21@gmail.com>
+Date:   Wed Mar 30 11:04:22 2022 +0200
+
+    initial commit
+
+[33mcommit a7c4b18272ee47ce46a806280eb086d88c65487a[m
+Author: Omer Aslani <95867985+OmerAslani@users.noreply.github.com>
+Date:   Wed Mar 30 10:57:19 2022 +0200
+
+    Delete Project directory
+
+[33mcommit 29f3719367688bf9e03e6b6b1fb804d2ffe07b16[m
+Author: Omer Aslani <95867985+OmerAslani@users.noreply.github.com>
+Date:   Wed Mar 30 10:56:36 2022 +0200
+
+    Add files via upload
+
+[33mcommit a82997f3b7573eff8abbebe2bf095aea8ac72fd3[m
+Merge: dd77b47 04d8a7c
+Author: dburgiss <33450259+dburgiss@users.noreply.github.com>
+Date:   Tue Mar 29 15:52:54 2022 +0200
+
+    Merge pull request #1 from kristinegusta/dylan
+    
+    added .gitignore
+
+[33mcommit 04d8a7cb4e36f8052e757061728349cbdfe32e2d[m
+Author: dburgiss <dylan.burgisser@hotmail.com>
+Date:   Tue Mar 29 15:49:13 2022 +0200
+
+    added .gitignore
+
+[33mcommit dd77b47567e565fdec0e07f60865b724fc6b11d2[m
+Merge: 442c3be afe8bbe
+Author: kriika2 <kriika2@gmail.com>
+Date:   Tue Mar 29 12:47:14 2022 +0200
+
+    Merge branch 'main' of https://github.com/kristinegusta/DogBook
+
+[33mcommit 442c3be42d3a63b3152c3e80e5d8a3135c34be9c[m
+Author: kriika2 <kriika2@gmail.com>
+Date:   Tue Mar 29 12:31:05 2022 +0200
+
+    first commit
+
+[33mcommit afe8bbed8816a7b63136e05a3fab19cb2e354f4c[m
+Author: Kristine Gusta <95911759+kristinegusta@users.noreply.github.com>
+Date:   Tue Mar 29 12:27:11 2022 +0200
+
+    Delete README.md
+
+[33mcommit 9849a7bd3a24a4023e88ccda430278b9fff2e3df[m
+Author: Kristine Gusta <95911759+kristinegusta@users.noreply.github.com>
+Date:   Tue Mar 29 12:18:44 2022 +0200
+
+    Initial commit
