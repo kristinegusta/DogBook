@@ -43,12 +43,13 @@
             <img src="/static/img-activity/parc.jpg" alt="" class="dog-pic" />
           </div>
           <div class="reviews flex">
-            <h2 class="average-rating">4.6</h2>
+            <h2 class="average-rating"><%= activity.rating %></h2>
             <img src="/static/img-activity/star.png" alt="" class="star" />
             <img src="/static/img-activity/star.png" alt="" class="star" />
             <img src="/static/img-activity/star.png" alt="" class="star" />
             <img src="/static/img-activity/star.png" alt="" class="star" />
             <img src="/static/img-activity/star.png" alt="" class="star" />
+            <h2>(<%= activity.reviews %>)</h2>
           </div>
         </div>
       </a>

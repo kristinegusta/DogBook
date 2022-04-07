@@ -28,12 +28,19 @@ const ActivitySchema = new mongoose.Schema({
     required: false
   },
 
-  //   comments: [
-  //     {
-  //       type: mongoose.Schema.Types.ObjectId,
-  //       ref: "Comment"
-  //     }
-  //   ],
+  reviews: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Review"
+    }
+  ],
+
+//   comments: [
+//     {
+//       type: mongoose.Schema.Types.ObjectId,
+//       ref: "Comment"
+//     }
+//   ],
 
 });
 
