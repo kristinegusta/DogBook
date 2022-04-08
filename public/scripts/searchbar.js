@@ -30,12 +30,12 @@ function searchBarActivity() {
   // Declare variables
   let input, filter, ul, li, a, i, txtValue;
   input = document.querySelector(
-    "body > div > div > div.search-bar-div > input"
+    ".search-bar"
   );
 
   filter = input.value.toUpperCase();
   filter = removeSpace(filter);
-  li = document.querySelectorAll(".trainer-profile");
+  li = document.querySelectorAll(".card-container");
 
   // Loop through all list items, and hide those who don't match the search query
   for (i = 0; i < li.length; i++) {

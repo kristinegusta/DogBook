@@ -75,10 +75,11 @@ h2 {
 @media screen and (min-width: 800px) {
   #logo {
     height: 300px;
+    background-size: contain;
   }
 }
 @media screen and (min-width: 1600px) {
   #logo {
-    height: 500px;
+    background-size: contain;
   }
 }
