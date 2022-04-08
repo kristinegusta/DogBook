@@ -1,5 +1,6 @@
 <title>Trainers</title>
 <link rel="stylesheet" href="/static/stylesheets/activities.css" />
+<script src="/static/scripts/searchbar.js"></script>
 
 <div class="background-container">
   <div class="feed-container">
@@ -13,46 +14,51 @@
       <hr class="orange-line" />
     </div>
     <div class="search-bar-div">
-      <input type="text" class="search-bar" placeholder="Search an activity" />
+      <input
+        type="text"
+        class="search-bar"
+        onkeyup="searchBarActivity()"
+        placeholder="Search for a trainer"
+      />
     </div>
     <!-- activities -->
 
     <!-- adding activities begin -->
     <% activities.reverse().forEach((activity) => { %>
-      <a href="/ActivityAbout?<%= activity.activityId %>">
-        <div class="trainer-profile">
-          <hr class="orange-line" />
-          <div class="activities-infos flex">
-            <div class="trainer-pic"></div>
-            <div class="activity-name">
-              <h4><%= activity.activityName %></h4>
-              <p class="grey-text">Shared by - <%= activity.authorName %></p>
-              <p class="grey-text"><%= activity.time %></p>
-            </div>
-          </div>
-          <div class="activity-description flex"><%= activity.description %></div>
-          <div class="location-text flex">
-            <img
-              src="/static/img-activity/location-icon.png"
-              alt=""
-              class="location location-img"
-            />
-            <p><%= activity.location %></p>
-          </div>
-          <div class="dog-pic">
-            <img src="/static/img-activity/parc.jpg" alt="" class="dog-pic" />
-          </div>
-          <div class="reviews flex">
-            <h2 class="average-rating"><%= activity.rating %></h2>
-            <img src="/static/img-activity/star.png" alt="" class="star" />
-            <img src="/static/img-activity/star.png" alt="" class="star" />
-            <img src="/static/img-activity/star.png" alt="" class="star" />
-            <img src="/static/img-activity/star.png" alt="" class="star" />
-            <img src="/static/img-activity/star.png" alt="" class="star" />
-            <h2>(<%= activity.reviews %>)</h2>
+    <a href="/ActivityAbout?<%= activity.activityId %>">
+      <div class="trainer-profile">
+        <hr class="orange-line" />
+        <div class="activities-infos flex">
+          <div class="trainer-pic"></div>
+          <div class="activity-name">
+            <h4><%= activity.activityName %></h4>
+            <p class="grey-text">Shared by - <%= activity.authorName %></p>
+            <p class="grey-text"><%= activity.time %></p>
           </div>
         </div>
-      </a>
+        <div class="activity-description flex"><%= activity.description %></div>
+        <div class="location-text flex">
+          <img
+            src="/static/img-activity/location-icon.png"
+            alt=""
+            class="location location-img"
+          />
+          <p><%= activity.location %></p>
+        </div>
+        <div class="dog-pic">
+          <img src="/static/img-activity/parc.jpg" alt="" class="dog-pic" />
+        </div>
+        <div class="reviews flex">
+          <h2 class="average-rating"><%= activity.rating %></h2>
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <img src="/static/img-activity/star.png" alt="" class="star" />
+          <h2>(<%= activity.reviews %>)</h2>
+        </div>
+      </div>
+    </a>
     <% })%>
     <!-- adding activities end -->
 
