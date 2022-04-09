@@ -96,7 +96,7 @@ router.get('/postActivity', ensureAuthenticated, (req, res) => {
 })
 
 router.post("/newActivity", async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     try {
         const newActivity = new Activity({

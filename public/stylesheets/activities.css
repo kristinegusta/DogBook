@@ -239,6 +239,9 @@ a {
     font-weight: 600;
     text-decoration: none;
 }
+.anti-a {
+    font-weight: 100;
+}
 
 .post-btn {
     color: white;
@@ -331,6 +334,11 @@ i {
     width: 120px;
     background-image: url(/static/img-trainer/gosling.jpg);
     background-size: 120px;
+}
+.profile-pic {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
 }
 
 .training-type {

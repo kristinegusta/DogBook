@@ -13,7 +13,7 @@ const TrainerProfile = require("../models/trainerProfile").TrainerProfile;
 
 router.get("/show/:id", async (req, res) => {
     const trainerQuery = await TrainerProfile.findById(req.params.id)
-    console.log(trainerQuery)
+    // console.log(trainerQuery)
 
 
     res.render('trainer-about', {

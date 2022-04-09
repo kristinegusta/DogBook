@@ -61,10 +61,7 @@
                 <% } else { %>
                     <% reviews.forEach((review) => { %>
                         <div class="profile flex padding">
-                             <div
-            class="trainer-pic"
-            style="background-image: url('<%= review.authorImg %>')"
-          ></div>
+                            <div class="trainer-pic" style="background-image: url('<%= review.authorImg %>')"></div>
                             <div class="user-review">
                                 <p><%= review.authorName %></p>
                                 <p class="grey-text"><%= review.description %></p>

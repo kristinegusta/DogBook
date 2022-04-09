@@ -22,7 +22,6 @@ router.get("/ActivityReview", (req, res) => {
 const renderActivityReview = async function (res, id) {
   let activity = await getActivityFromDB(id);
   let reviews = await getReviewFromDB(id);
-  console.log(reviews);
   res.render("activityReview", {
     activity: activity,
     reviews: reviews,
@@ -134,7 +133,7 @@ router.get("/trainerCreate", ensureAuthenticated, (req, res) => {
 /* EVERYTHING ACTIVITIES RELATED */
 //rendering activities page
 router.get("/activities", (req, res) => {
-  renderAllActivities(res);
+  renderAllActivities(res, req);
 });
 
 const getActivitiesFromDB = async () => {
@@ -158,6 +157,7 @@ const getActivitiesFromDB = async () => {
       location: "",
       time: "",
       authorName: "",
+      authorImg: "",
       rating: "",
       reviews: "",
     };
@@ -182,15 +182,18 @@ const getActivitiesFromDB = async () => {
 
     const result = await Profile.find({ activities: doc._id });
     info.authorName = result[0].name;
+    info.authorImg = result[0].url;
     activities.push(info);
   }
   return activities;
 };
 
-const renderAllActivities = async function (res) {
+const renderAllActivities = async function (res, req) {
   let activities = await getActivitiesFromDB();
+  // console.log(req.user)
   res.render("activities", {
     activities: activities,
+    user: req.user,
   });
 };
 
