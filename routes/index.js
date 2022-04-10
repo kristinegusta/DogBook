@@ -181,7 +181,7 @@ const getActivitiesFromDB = async () => {
     info.time = date[0].trim();
 
     const result = await Profile.find({ activities: doc._id });
-    info.authorName = result[0].name;
+    // info.authorName = result[0].name;
     activities.push(info);
   }
   return activities;
