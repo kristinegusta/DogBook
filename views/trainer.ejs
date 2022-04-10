@@ -1,4 +1,5 @@
-<script src="/static/scripts/searchbar.js"></script>
+
+
 <!--  -->
 <title>Trainers</title>
 <link rel="stylesheet" href="/static/stylesheets/activitiesKristine.css" />
@@ -9,8 +10,9 @@
     <img src="/static/img-trainer/logo.png" alt="" />
     <a class="nav page-now" href="/trainers">Trainers</a>
     <a class="nav" href="/activities">Activities</a>
-    <img src="/static/img-trainer/user-profile-img.jpg" alt="" />
-  </div>
+    <a href="/profiles/profile">
+      <img class="profile-pic" src="http://res.cloudinary.com/dj7oqrsqo/image/upload/v1649589604/b4ykqtt8hyba0iimxtcp.jpg" alt="">
+    </a>  </div>
   <hr class="orange-line" />
   <div class="training-type flex">
     <div class="training-img">
@@ -70,11 +72,13 @@
       </div>
       <div class="reviews flex">
         <h2 class="average-rating">4.6</h2>
-        <img src="/static/img-trainer/star.png" alt="" class="star" />
-        <img src="/static/img-trainer/star.png" alt="" class="star" />
-        <img src="/static/img-trainer/star.png" alt="" class="star" />
-        <img src="/static/img-trainer/star.png" alt="" class="star" />
-        <img src="/static/img-trainer/star.png" alt="" class="star" />
+        <div class="starDiv">
+          <span class="fa fa-star 1"></span>
+          <span class="fa fa-star 2"></span>
+          <span class="fa fa-star 3"></span>
+          <span class="fa fa-star 4"></span>
+          <span class="fa fa-star 5"></span>
+        </div>
       </div>
     </div>
   </a>
@@ -120,3 +124,5 @@
 </div>
 </div
 
+<script src="/static/scripts/searchbar.js"></script>
+<script src="/static/scripts/stars.js"></script>
