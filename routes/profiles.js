@@ -6,6 +6,7 @@ const TrainerProfile = require("../models/trainerProfile").TrainerProfile;
 const cloudinary = require("cloudinary");
 const fileupload = require("express-fileupload");
 const dotenv = require('dotenv').config();
+const { ensureAuthenticated } = require("../config/auth");
 
 //CLOUDINARY
 cloudinary.config({
@@ -16,10 +17,32 @@ cloudinary.config({
 
 // OUR CODE
 
+router.get("/profile", ensureAuthenticated, (req, res) => {
+  // console.log(req.user.profile);
+  if (!req.user.profile) {
+    res.render('dashboard', {
+      user: req.user
+    });
+  } else {
+    res.render("profile", {
+      user: req.user,
+    });
+  }
+})
+
+
 router.post("/new", async (req, res) => {
   //img upload handle
-  const fileStr = req.files.image || "https://picsum.photos/300/600";
-  const uploadResponse = await cloudinary.uploader.upload(fileStr.tempFilePath, {});
+  // console.log(req.files.image);
+  let fileStr;
+  let uploadResponse;
+  try {
+    fileStr = req.files.image;
+    uploadResponse = await cloudinary.uploader.upload(fileStr.tempFilePath, {});
+  } catch (err) {
+    fileStr = "https://picsum.photos/300/600";
+    uploadResponse = await cloudinary.uploader.upload(fileStr);
+  }
 
   const newProfile = new Profile({
     name: req.body.name,

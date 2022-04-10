@@ -9,7 +9,15 @@
         <img src="/static/img-activity/logo.png" alt="" />
         <a class="nav" href="/trainers">Trainers</a>
         <a class="nav page-now" href="/activities">Activities</a>
-        <img src="/static/img-activity/user-profile-img.jpg" alt="" />
+        <% if(!user){ %>
+          <a href="/dashboard">
+            <img class="profile-pic" src="/static/img-activity/user-profile-img.jpg" alt="" />
+          </a>
+        <% }else{ %>
+          <a href="/profiles/profile">
+            <img class="profile-pic" src="<%= user.profile.url %>" alt="" />
+          </a>
+        <% } %>
       </div>
       <hr class="orange-line" />
     </div>
@@ -18,7 +26,7 @@
         type="text"
         class="search-bar"
         onkeyup="searchBarActivity()"
-        placeholder="Search for a trainer"
+        placeholder="Search for an activity"
       />
     </div>
     <!-- activities -->
@@ -29,7 +37,7 @@
       <div class="trainer-profile">
         <hr class="orange-line" />
         <div class="activities-infos flex">
-          <div class="trainer-pic"></div>
+          <div class="trainer-pic" style="background-image: url('<%= activity.authorImg %>')" ></div>
           <div class="activity-name">
             <h4><%= activity.activityName %></h4>
             <p class="grey-text">Shared by - <%= activity.authorName %></p>

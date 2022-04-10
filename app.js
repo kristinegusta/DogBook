@@ -7,7 +7,7 @@ const flash = require("connect-flash");
 const session = require("express-session");
 const passport = require("passport");
 const fileupload = require("express-fileupload");
-
+const dotenv = require('dotenv').config();
 
 //passport config:
 require("./config/passport")(passport);
@@ -16,9 +16,7 @@ router.use(fileupload({ useTempFiles: true }))
 
 //mongoose
 // Dylan cluster
-// The passwords should go in the .env file
-const dbPassword = "0TeEaRuCdH5yqRpJ";
-const dbURI = `mongodb+srv://MangoDBTester:${dbPassword}@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority`;
+const dbURI = process.env.DB_URI
 // Antoine cluster
 // const dbPassword = "ppp111ppp111";
 // const dbURI = `mongodb+srv://antoine:${dbPassword}@cluster0.h3l4q.mongodb.net/dogbook_database?retryWrites=true&w=majority`;
