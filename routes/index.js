@@ -31,13 +31,14 @@ const renderActivityReview = async function (res, id) {
 // Activity About Page
 router.get("/ActivityAbout", (req, res) => {
   let activityId = req.url.split("?");
-  renderActivityAbout(res, activityId[1]);
+  renderActivityAbout(res, activityId[1], req);
 });
-const renderActivityAbout = async function (res, id) {
+const renderActivityAbout = async function (res, id, req) {
   let activity = await getActivityFromDB(id);
 
   res.render("activities-about", {
     activity: activity,
+    user: req.user,
   });
 };
 const getReviewFromDB = async (id) => {
