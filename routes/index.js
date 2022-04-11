@@ -17,14 +17,15 @@ router.get("/test", (req, res) => {
 router.get("/ActivityReview", (req, res) => {
   let activityId = req.url.split("?");
   // res.render("activityReview")
-  renderActivityReview(res, activityId[1]);
+  renderActivityReview(res, activityId[1], req);
 });
-const renderActivityReview = async function (res, id) {
+const renderActivityReview = async function (res, id, req) {
   let activity = await getActivityFromDB(id);
   let reviews = await getReviewFromDB(id);
   res.render("activityReview", {
     activity: activity,
     reviews: reviews,
+    user: req.user
   });
 };
 
