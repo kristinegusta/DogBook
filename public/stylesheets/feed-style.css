@@ -110,6 +110,8 @@
   margin: 1rem auto;
   height: 300px;
   width: 85%;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 .big {
   height: auto !important;
@@ -127,8 +129,8 @@ h2 {
 }
 .user-pic {
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 90px;
+  width: 90px;
   margin-right: 5px;
   /* background-image: url(/static/img-trainer/gosling.jpg); */
   background-size: cover;
@@ -143,15 +145,21 @@ h2 {
 
 .description {
   color: rgb(92, 91, 91);
+  text-align: justify;
+  margin: 10px 0 0 20px;
 }
 
 .location-text {
   color: rgb(92, 91, 91);
   display: flex;
-  margin-top: 10px;
+  margin-top: 30px;
   margin-bottom: 10px;
+  justify-content: center;
 }
-
+.starDiv {
+  margin: 4px 10px 0 10px;
+  vertical-align: auto;
+}
 .location {
   height: 25px;
   line-height: 25px;
@@ -178,9 +186,12 @@ i {
   margin-right: 10px;
   text-align: center;
 }
-
+.flex {
+  display: flex;
+}
 .reviews {
   height: 30px;
+  justify-content: center;
 }
 
 .btn {
@@ -262,6 +273,9 @@ i {
   justify-content: space-between;
   align-items: center;
   height: 65px;
+}
+.loupe {
+  margin: 6px 0 0 2px;
 }
 .rating {
   --star: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.25l-6.188 3.75 1.641-7.031-5.438-4.734 7.172-0.609 2.813-6.609 2.813 6.609 7.172 0.609-5.438 4.734 1.641 7.031z"/></svg>');
