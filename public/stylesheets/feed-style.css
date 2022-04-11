@@ -132,6 +132,7 @@ h2 {
   margin-right: 5px;
   /* background-image: url(/static/img-trainer/gosling.jpg); */
   background-size: cover;
+  background-position: center;
 }
 
 .grey-text {

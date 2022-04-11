@@ -14,7 +14,25 @@
         <div class="img-cont logo"></div>
         <a class="nav" href="/trainers">Trainers</a>
         <a class="nav" href="/activities">Activities</a>
-        <div class="img-cont user"></div>
+        <% if(!user){ %>
+          <a href="/dashboard">
+            <img
+              class="profile-pic"
+              src="/static/img-activity/user-profile-img.jpg"
+              alt=""
+            />
+          </a>
+          <% }else{ %>
+          <a href="/profiles/profile">
+            <div class="shared-by">
+              <div
+                class="profile-pic"
+                style="background-image: url('<%= user.profile.url %>')"
+              ></div>
+            </div>
+            <!-- <img class="profile-pic" src="<%= user.profile.url %>" alt="" /> -->
+          </a>
+          <% } %>
       </div>
     </div>
     <!-- NAVBAR FINISH -->
