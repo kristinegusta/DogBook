@@ -16,8 +16,8 @@ router.use(fileupload({ useTempFiles: true }));
 
 //mongoose
 // Dylan cluster
-// const dbURI = process.env.DB_URI;
-const dbURI = "mongodb+srv://MangoDBTester:0TeEaRuCdH5yqRpJ@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority"
+const dbURI = process.env.DB_URI;
+// const dbURI = "mongodb+srv://MangoDBTester:0TeEaRuCdH5yqRpJ@dogbookdb.w3p76.mongodb.net/DogBookDB?retryWrites=true&w=majority"
 // Antoine cluster
 // const dbPassword = "ppp111ppp111";
 // const dbURI = `mongodb+srv://antoine:${dbPassword}@cluster0.h3l4q.mongodb.net/dogbook_database?retryWrites=true&w=majority`;
