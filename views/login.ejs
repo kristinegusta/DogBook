@@ -1,6 +1,6 @@
-<title>BookDoog</title>
+<title>DogBook</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-<link rel="stylesheet" href="/static/stylesheets/registerP.css" />
+<link rel="stylesheet" href="/static/stylesheets/register-style.css" />
 
 <div id="big__container">
     <div id="logo"></div>
@@ -21,29 +21,21 @@
                         <button type="submit" class="btn orange">Login</button>
                         <a class="btn black" href="/users/register">No account? Register</a>
 
-
-
-                        <br />
-
                 </form>
                 </div>
         </div>
-
     </div>
-
-    <script>
-        function show() {
-            var password = document.querySelector('[name=password]');
-            if (password.getAttribute('type') === 'password') {
-                password.setAttribute('type', 'text');
-                document.getElementById("icon").style.color = 'orange';
-            } else {
-                password.setAttribute('type', 'password');
-                document.getElementById("icon").style.color = 'black';
-
-            }
-        }
-    </script>
-
-    <div id="line"></div>
 </div>
+
+<script>
+    function show() {
+        var password = document.querySelector('[name=password]');
+        if (password.getAttribute('type') === 'password') {
+            password.setAttribute('type', 'text');
+            document.getElementById("icon").style.color = 'orange';
+        } else {
+            password.setAttribute('type', 'password');
+            document.getElementById("icon").style.color = 'black';
+        }
+    }
+</script>

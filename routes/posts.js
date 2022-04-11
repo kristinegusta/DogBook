@@ -7,6 +7,15 @@ const Review = require("../models/review").Review;
 const Activity = require("../models/activitiy").Activity
 const cloudinary = require("cloudinary");
 const { ensureAuthenticated } = require('../config/auth');
+const fileupload = require("express-fileupload");
+const dotenv = require('dotenv').config();
+
+//CLOUDINARY
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_APIKEY,
+    api_secret: process.env.CLOUD_SECRETKEY
+});
 
 //post review
 router.post("/newReview", ensureAuthenticated, async (req, res) => {
@@ -43,10 +52,10 @@ router.post("/newReview", ensureAuthenticated, async (req, res) => {
 
 let checkExisingReviews = async (id, req) => {
     let check = true;
-    const cursor = await Activity.find({ _id: id});
+    const cursor = await Activity.find({ _id: id });
     const reviews = await Review.find({ _id: cursor[0].reviews });
     for (const review of reviews) {
-        const userProfile = await Profile.find({reviews: review._id})
+        const userProfile = await Profile.find({ reviews: review._id })
         if ((userProfile[0]._id).toString() == (req.user.profile._id).toString()) {
             check = false;
         }
@@ -95,6 +104,7 @@ router.get('/postActivity', ensureAuthenticated, (req, res) => {
     }
 })
 
+<<<<<<< HEAD
 router.post("/newActivity", async (req, res) => {
     // console.log(req.body);
 
@@ -110,46 +120,32 @@ router.post("/newActivity", async (req, res) => {
     } catch (err) {
         console.log(err);
         res.redirect("/posts/postActivity")
+=======
+router.post("/newActivity", ensureAuthenticated, async (req, res) => {
+    if (!req.user.profile) {
+        res.render('dashboard', {
+            user: req.user
+        });
+>>>>>>> cssFixKristine
+    }
+    else {
+        try {
+            const fileStr = req.files.image || "https://picsum.photos/300/600";
+            const uploadResponse = await cloudinary.uploader.upload(fileStr.tempFilePath, {});
+            const newActivity = new Activity({
+                name: req.body.name,
+                description: req.body.description,
+                location: req.body.location,
+                url: uploadResponse.url
+            })
+            await newActivity.save()
+            await Profile.findOneAndUpdate({ _id: req.user.profile._id }, { $push: { activities: newActivity._id } }, { useFindAndModify: false })
+            res.redirect('/activities')
+        } catch (err) {
+            console.log(err);
+            res.redirect("/posts/postActivity")
+        }
     }
 })
-
-// router.post("/new", async (req, res) => {
-//     console.log(req.body)
-
-//     try {
-//         const fileStr = req.files.image;
-//         const uploadResponse = await cloudinary.uploader.upload(fileStr.tempFilePath, {});
-//         console.log(uploadResponse);
-//         const url = uploadResponse.url
-//         const newPost = new Post({
-//             title: req.body.title,
-//             post_content: req.body.post_content,
-//             url: url
-//         })
-//         await newPost.save()
-//         await Profile.findOneAndUpdate({ _id: req.user.profile._id }, { $push: { posts: newPost._id } })
-//         res.redirect('/dashboard')
-//     } catch (err) {
-//         console.log(err)
-//         res.redirect("/dashboard")
-//     }
-
-// })
-/*
-Hangling uploads
-router.post("/upload-image", async (req, res) => {
-    try {
-
-        console.log(uploadResponse);
-        res.json({ msg: 'yaya' });
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ err: 'Something went wrong' });
-    }
-});
-*/
-
-
-
 
 module.exports = router;

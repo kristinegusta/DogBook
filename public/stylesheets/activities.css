@@ -97,7 +97,10 @@ h1 {
   border-radius: 30px;
   border: none;
   background-color: rgb(241, 241, 241);
+<<<<<<< HEAD
   text-align: center;
+=======
+>>>>>>> cssFixKristine
 }
 
 .trainer-profile {
@@ -218,6 +221,7 @@ form {
 }
 
 .post-my-review {
+<<<<<<< HEAD
   /* height: 250px; */
   background-color: white;
   /* justify-content: center;
@@ -226,6 +230,10 @@ form {
     margin: 3vh 10vw 0 10vw;
     border-radius: 65px; */
   /* color: white; */
+=======
+  background-color: white;
+  padding: 1rem;
+>>>>>>> cssFixKristine
   position: sticky;
   bottom: 1;
 }
@@ -241,9 +249,12 @@ a {
   color: black;
   font-weight: 600;
   text-decoration: none;
+<<<<<<< HEAD
 }
 .anti-a {
   font-weight: 100;
+=======
+>>>>>>> cssFixKristine
 }
 
 .post-btn {
@@ -341,11 +352,14 @@ i {
   width: 120px;
   background-image: url(/static/img-trainer/gosling.jpg);
   background-size: 120px;
+<<<<<<< HEAD
 }
 .profile-pic {
   border-radius: 50%;
   height: 60px;
   width: 60px;
+=======
+>>>>>>> cssFixKristine
 }
 
 .training-type {

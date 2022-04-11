@@ -1,17 +1,24 @@
 <title>Trainers</title>
+<<<<<<< HEAD
 <link rel="stylesheet" href="/static/stylesheets/activities.css" />
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
 />
+=======
+<link rel="stylesheet" href="/static/stylesheets/feed-style.css" />
+<script src="/static/scripts/searchbar.js"></script>
+>>>>>>> cssFixKristine
 
 <div class="background-container">
   <div class="feed-container">
-    <div class="main-container">
-      <div class="header flex">
-        <img src="/static/img-activity/logo.png" alt="" />
+    <!-- NAVBAR -->
+    <div class="navbar-container">
+      <div class="navbar">
+        <div class="img-cont logo"></div>
         <a class="nav" href="/trainers">Trainers</a>
         <a class="nav page-now" href="/activities">Activities</a>
+<<<<<<< HEAD
         <% if(!user){ %>
         <a href="/dashboard">
           <img
@@ -25,9 +32,12 @@
           <img class="profile-pic" src="<%= user.profile.url %>" alt="" />
         </a>
         <% } %>
+=======
+        <div class="img-cont user"></div>
+>>>>>>> cssFixKristine
       </div>
-      <hr class="orange-line" />
     </div>
+<<<<<<< HEAD
     <div class="search-bar-div">
       <input
         type="text"
@@ -35,11 +45,31 @@
         onkeyup="searchBarActivity()"
         placeholder="Search for an activity"
       />
-    </div>
-    <!-- activities -->
+=======
 
-    <!-- adding activities begin -->
+    <!-- NAVBAR FINISH -->
+    <!-- HEADER -->
+
+    <div class="title-container">
+      <h1>Browse Activities</h1>
+      <div class="search-bar-div">
+        <input
+          type="text"
+          class="search-bar"
+          onkeyup="searchBarActivity()"
+          placeholder="Search for an activity "
+        />
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+>>>>>>> cssFixKristine
+    </div>
+    <hr class="orange-line" />
+
+    <!-- HEADER FINISH -->
+
+    <!-- activities begin -->
     <% activities.reverse().forEach((activity) => { %>
+<<<<<<< HEAD
     <a href="/ActivityAbout?<%= activity.activityId %>">
       <div class="trainer-profile">
         <hr class="orange-line" />
@@ -81,8 +111,38 @@
     </a>
     <% })%>
     <!-- adding activities end -->
+=======
+      <a href="/ActivityAbout?<%= activity.activityId %>">
+        <div class="card-container">
+          <div class="trainer-profile">
+            <h2><%= activity.activityName %></h2>
+  
+            <div class="description">
+              <%= activity.description %>
+            </div>
+            <div class="post-img" style="background-image: url('<%= activity.url %>');">
+            </div>
+            <div class="location-text">
+              <i class="fa-solid fa-location-dot"></i>
+              <p><%= activity.location %></p>
+            </div>
+            <div class="reviews location-text">
+              <i class="fa-solid fa-star"></i>
+              <p>Avarage rating : <%= activity.rating %>(<%= activity.reviews %>)</p>
+            </div>
+            <div class="shared-by">
+              <div class="user-pic" style="background-image: url('<%= activity.authorImg %>');"></div>
+              <p class="grey-text">Shared by - <%= activity.authorName %> </br> <%= activity.time %></p> 
+            </div>
+          </div>
+        </div>
+      </a>
+      <% })%>
 
-    <div class="post-my-activity flex">
+    <!-- adding activities finish -->
+>>>>>>> cssFixKristine
+
+    <div class="post-my-activity">
       <a class="post-btn" href="/posts/postActivity"
         >Post my activity<i class="fa-solid fa-plus"></i
       ></a>
