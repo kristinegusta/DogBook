@@ -17,6 +17,29 @@ cloudinary.config({
 
 // OUR CODE
 
+router.get("/edit", (req, res) => {
+  res.render("edit", {
+    user: req.user
+  })
+})
+router.post("/edit", async (req, res) => {
+  let fileStr;
+  let uploadResponse;
+  try {
+    fileStr = req.files.image;
+    uploadResponse = await cloudinary.uploader.upload(fileStr.tempFilePath, {});
+  } catch (err) {
+    fileStr = false;
+  }
+  if (fileStr) {
+    await Profile.findOneAndUpdate({ _id: req.user.profile._id }, { url: uploadResponse.url }, { useFindAndModify: false })
+  }
+  await Profile.findOneAndUpdate({ _id: req.user.profile._id }, {bio: req.body.bio,}, { useFindAndModify: false })
+  await Profile.findOneAndUpdate({ _id: req.user.profile._id }, {name: req.body.name}, { useFindAndModify: false })
+  res.redirect("/profile");
+})
+
+
 router.post("/new", async (req, res) => {
   //img upload handle
   // console.log(req.files.image);
