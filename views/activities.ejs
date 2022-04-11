@@ -25,7 +25,7 @@
           />
         </a>
         <% }else{ %>
-        <a href="/profiles/profile">
+        <a href="/profile">
           <div class="shared-by">
             <div class="profile-pic" style="background-image: url('<%= user.profile.url %>');"></div>
           </div>
@@ -101,7 +101,7 @@
     <!-- adding activities end -->
 
     <!-- activities begin -->
-    <% activities.reverse().forEach((activity) => { %>
+    <% activities.forEach((activity) => { %>
       <a href="/ActivityAbout?<%= activity.activityId %>">
         <div class="card-container big">
           <div class="trainer-profile">

@@ -41,7 +41,7 @@ const renderActivityAbout = async function (res, id, req) {
     user: req.user,
   });
 };
-const getReviewFromDB = async (id) => {
+async function getReviewFromDB(id) {
   let reviews = [];
   const cursor = await Activity.find({ _id: id });
   const review = await Review.find({ _id: cursor[0].reviews });
@@ -260,4 +260,110 @@ const renderAllTrainers = async function (res, req) {
   });
 };
 
+//profile page
+
+router.get("/profile", ensureAuthenticated, async (req, res) => {
+  // console.log(req.user.profile);
+  if (!req.user.profile) {
+    res.render('dashboard', {
+      user: req.user
+    });
+  } else {
+    let reviews = await getReviewsFromDB(req.user.profile._id);
+    let activities = await getActivitysFromDB(req.user.profile._id);
+    res.render("profile", {
+      user: req.user,
+      reviews: reviews,
+      activities: activities,
+    });
+  }
+})
+
+async function getReviewsFromDB(id) {
+  let reviews = [];
+  const cursor = await Profile.find({ _id: id });
+  const review = await Review.find({ _id: cursor[0].reviews });
+  // console.log(review);
+  for (let i = 0; i < review.length; i++) {
+    let doc = review[i];
+
+    let info = {
+      reviewId: "",
+      description: "",
+      rating: "",
+      time: "",
+      authorName: "",
+      authorImg: "",
+      activityId: "",
+    };
+
+    info.reviewId = doc._id;
+    info.description = doc.description;
+    info.rating = doc.rating;
+    let date = doc.date.toString().split("GMT");
+    info.time = date[0].trim();
+
+    info.authorName = cursor[0].name;
+    info.authorImg = cursor[0].url;
+
+    let actiId = await Activity.find({reviews: review[i]._id})
+    info.activityId = actiId[0]._id
+    console.log(info.activityId);
+    reviews.push(info);
+  }
+  return reviews;
+};
+const getActivitysFromDB = async (id) => {
+  let activities = [];
+  const profile = await Profile.find({ _id: id });
+  const cursor = await Activity.find({ _id: profile[0].activities });
+
+  for (let i = 0; i < cursor.length; i++) {
+    let doc = cursor[i];
+    let reviews = [];
+
+    const review = await Review.find({ _id: cursor[i].reviews });
+    for (let i = 0; i < review.length; i++) {
+      let doc = review[i];
+      let rating = doc.rating;
+      reviews.push(rating);
+    }
+
+    let info = {
+      activityId: "",
+      activityName: "",
+      description: "",
+      location: "",
+      time: "",
+      authorName: "",
+      authorImg: "",
+      rating: "",
+      reviews: "",
+    };
+
+    if (reviews.length === 0) {
+      info.rating = 0;
+    } else {
+      let total = 0;
+      for (let rating of reviews) {
+        total += rating;
+      }
+      info.rating = Math.round((total / reviews.length) * 10) / 10;
+    }
+    info.reviews = reviews.length;
+
+    info.activityId = doc._id;
+    info.activityName = doc.name;
+    info.description = doc.description;
+    info.location = doc.location;
+
+    let date = doc.date.toString().split("GMT");
+    info.time = date[0].trim();
+
+    info.authorName = profile[0].name;
+    info.authorImg = profile[0].url;
+    activities.push(info);
+  }
+  return activities;
+};
 module.exports = router;
