@@ -16,70 +16,6 @@
 
       <!-- activity -->
       <% activity.forEach((activity) => { %>
-<<<<<<< HEAD
-      <!-- buttons -->
-      <div class="button-container">
-        <a class="btn2 black" href="/ActivityAbout?<%= activity.activityId %>"
-          >About</a
-        >
-        <a class="btn2 orange" href="/ActivityReview?<%= activity.activityId %>"
-          >Reviews</a
-        >
-      </div>
-      <hr class="orange-line" />
-
-
-                <div class="activities-infos flex">
-                    <div class="activity-name">
-                    <h4><%= activity.activityName %></h4>
-                    <div class="location-text flex">
-                        <img
-                        src="/static/img-activity/location-icon.png"
-                        alt=""
-                        class="location location-img"
-                        />
-                        <p><%= activity.location %></p>
-                        </div>
-                    <p class="grey-text">Posted by: <%= activity.authorName %></p>
-                    <p class="grey-text">Date: <%= activity.time %></p>
-                    </div>
-                </div>
-                <hr class="orange-line" />
-            <% }) %>
-            <!-- adding reviews begin -->
-            <div class="ratings">
-                <% if (reviews.length === 0) { %>
-                    <h3 class="average-rating padding">Average rating: 0</h3>
-                <% } else { %>
-                    <% let total = 0 %>
-                    <% reviews.forEach((review) => { %>
-                        <% total += review.rating %>
-                    <% }) %>
-                    <% let average = Math.round((total/(reviews.length))*10)/10 %>
-                    <h3 class="average-rating padding">Average rating: <%= average %></h3>
-                <% } %>
-                <!-- begin forEach -->
-                <% if (reviews.length === 0) { %>
-                    <p>There are no reviews yet</p>
-                <% } else { %>
-                    <% reviews.forEach((review) => { %>
-                        <div class="profile flex padding">
-                            <div class="trainer-pic" style="background-image: url('<%= review.authorImg %>')"></div>
-                            <div class="user-review">
-                                <p><%= review.authorName %></p>
-                                <p class="grey-text"><%= review.description %></p>
-                                <div class="flex">
-                                    <h2 class="average-rating"><%= review.rating %></h2>
-                                    <img src="/static/img-activity/star.png" alt="" class="star"/>
-                                </div>
-                                <p class="grey-text"><%= review.time %></p>
-                            </div>
-                        </div>
-                    <% }) %>
-                <% } %>
-                <!-- end forEach -->
-
-=======
         <!-- buttons -->
         <div class="button-container">
           <a class="btn orange" href="/ActivityAbout?<%= activity.activityId %>">About</a>
@@ -126,7 +62,6 @@
         </div>
         <% }) %> <% } %>
         <!-- end forEach -->
->>>>>>> cssFixKristine
 
         
       </div>

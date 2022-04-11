@@ -144,7 +144,6 @@ const getActivitiesFromDB = async () => {
       reviews.push(rating);
     }
 
-<<<<<<< HEAD
     let info = {
       activityId: "",
       activityName: "",
@@ -156,9 +155,6 @@ const getActivitiesFromDB = async () => {
       rating: "",
       reviews: "",
     };
-=======
-    let info = {};
->>>>>>> cssFixKristine
 
     if (reviews.length === 0) {
       info.rating = 0;
@@ -183,10 +179,7 @@ const getActivitiesFromDB = async () => {
     const result = await Profile.find({ activities: doc._id });
     info.authorName = result[0].name;
     info.authorImg = result[0].url;
-<<<<<<< HEAD
-=======
 
->>>>>>> cssFixKristine
     activities.push(info);
   }
   return activities;
@@ -194,11 +187,7 @@ const getActivitiesFromDB = async () => {
 
 const renderAllActivities = async function (res, req) {
   let activities = await getActivitiesFromDB();
-<<<<<<< HEAD
-  // console.log(req.user)
-=======
-  console.log(activities)
->>>>>>> cssFixKristine
+
   res.render("activities", {
     activities: activities,
     user: req.user,
@@ -208,7 +197,7 @@ const renderAllActivities = async function (res, req) {
 /* EVERYTHING TRAINER RELATED */
 //trainers page
 router.get("/trainers", (req, res) => {
-  renderAllTrainers(res);
+  renderAllTrainers(res, req);
 });
 
 const notScrappedGetTrainersFromDB = async () => {
@@ -256,13 +245,14 @@ const getTrainerFromDB = async () => {
   }
   return scrappedTrainers;
 };
-const renderAllTrainers = async function (res) {
+const renderAllTrainers = async function (res, req) {
   let scrappedTrainers = await getTrainerFromDB();
   let trainers = await notScrappedGetTrainersFromDB();
 
   res.render("trainer", {
     trainers: trainers,
     scrappedTrainers: scrappedTrainers,
+    user: req.user
   });
 };
 

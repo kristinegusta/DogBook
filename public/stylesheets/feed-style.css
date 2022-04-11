@@ -80,7 +80,14 @@
   display: flex;
   justify-content: center;
 }
-
+.profile-pic {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .search-bar {
   height: 30px;
   width: 80%;
@@ -101,8 +108,11 @@ h1 {
   border-radius: 25px;
   overflow: hidden;
   margin: 1rem auto;
-  height: auto;
+  height: 300px;
   width: 85%;
+}
+.big {
+  height: auto !important;
 }
 a {
   text-decoration: none;

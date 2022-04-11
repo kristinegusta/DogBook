@@ -104,29 +104,11 @@ router.get('/postActivity', ensureAuthenticated, (req, res) => {
     }
 })
 
-<<<<<<< HEAD
-router.post("/newActivity", async (req, res) => {
-    // console.log(req.body);
-
-    try {
-        const newActivity = new Activity({
-            name: req.body.name,
-            description: req.body.description,
-            location: req.body.location,
-        })
-        await newActivity.save()
-        await Profile.findOneAndUpdate({ _id: req.user.profile._id }, { $push: { activities: newActivity._id } }, { useFindAndModify: false })
-        res.redirect('/activities')
-    } catch (err) {
-        console.log(err);
-        res.redirect("/posts/postActivity")
-=======
 router.post("/newActivity", ensureAuthenticated, async (req, res) => {
     if (!req.user.profile) {
         res.render('dashboard', {
             user: req.user
         });
->>>>>>> cssFixKristine
     }
     else {
         try {
