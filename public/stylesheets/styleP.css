@@ -3,13 +3,14 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    overflow-x: hidden;
 }
 
 #big__container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    max-width: 100vw;
     height: 100vh;
     background-image: url("../img/dogs2.jpg");
     background-size: cover;
@@ -26,7 +27,7 @@
 
 #logo {
     background-image: url("../img/logo.png");
-    height: 200px;
+    height: 250px;
     width: 100%;
     background-repeat: no-repeat;
     background-size: contain;

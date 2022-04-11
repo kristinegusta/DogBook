@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
-
+    overflow-x: hidden;
 }
 
 .flex {
@@ -174,7 +174,6 @@ input {
     background-size: contain;
     margin-bottom: 1rem;
 }
-
 
 h1,
 h2,

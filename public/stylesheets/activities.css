@@ -3,15 +3,37 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
-    overflow-x: hidden;
 }
 
 .flex {
     display: flex;
 }
 
-.background-container {
+.main-container {
     max-width: 100vw;
+    height: auto;
+}
+
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.padding {
+    padding-bottom: 30px;
+}
+
+
+/* .ratings{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  } */
+
+.background-container {
+    width: 100vw;
     min-height: 100vh;
     background-image: url("../img/dogs2.jpg");
     background-size: cover;
@@ -91,7 +113,7 @@ h1 {
     z-index: 1;
 }
 
-input {
+.input {
     padding: 10px;
     margin-bottom: 10px;
     width: 100%;
@@ -106,6 +128,10 @@ form {
 
 #description {
     height: 150px;
+}
+
+#review {
+    height: 85px;
 }
 
 .activities-infos {
@@ -175,11 +201,6 @@ form {
     height: 24px;
 }
 
-.star {
-    margin: 2px;
-    height: 24px;
-}
-
 .post-my-activity {
     background-color: #fa6650;
     height: 60px;
@@ -191,34 +212,6 @@ form {
     color: white;
     position: sticky;
     bottom: 10;
-}
-
-a {
-    color: black;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.post-btn {
-    color: white;
-    font-weight: 300;
-    font-size: 1.5em;
-}
-
-i {
-    margin-left: 10px;
-}
-
-.form-container {
-    height: 70%;
-}
-
-.btn {
-    color: white;
-    width: 200px;
-    height: auto;
-    padding: 1em;
-    margin: 0.3em;
 }
 
 .post-my-review {
@@ -293,15 +286,6 @@ i {
     text-align: center;
     border: none;
     font-size: 1em;
-    margin-top: 2rem;
-}
-
-.trainer-infos {
-    justify-content: space-evenly;
-}
-
-.infos {
-    margin-left: -30px;
 }
 
 [dir="rtl"] .rating {
@@ -348,41 +332,6 @@ i {
     background-image: url(/static/img-trainer/gosling.jpg);
     background-size: 120px;
 }
-
-.training-type {
-    justify-content: space-around;
-}
-
-.orange {
-    background-color: #fa6650;
-}
-
-.btn-cont {
-    text-align: center;
-}
-
-.card-container {
-    padding: 1rem;
-}
-
-@media only screen and (min-width: 600px) {
-    .feed-container {
-        width: 70%;
-        border-radius: 65px;
-        min-height: 60vh;
-    }
-    .background-container {
-        padding: 1rem;
-    }
-}
-
-@media only screen and (min-width: 1000px) {
-    .feed-container {
-        width: 50%;
-    }
-}
-
-@media only screen and (min-width: 600px) {}
 
 .training-type {
     justify-content: space-around;
