@@ -121,11 +121,20 @@ a {
 }
 .shared-by {
   display: flex;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+body > div > div > div.activities-card > h3 {
+  text-align: center;
 }
 h2 {
   text-align: center;
   color: black;
   margin-bottom: 20px;
+}
+.yo {
+  margin-top: 25px;
+  margin-left: 15px;
 }
 .user-pic {
   border-radius: 50%;
@@ -145,8 +154,9 @@ h2 {
 
 .description {
   color: rgb(92, 91, 91);
-  text-align: justify;
   margin: 10px 0 0 20px;
+  text-align: justify;
+  text-align-last: center;
 }
 
 .location-text {

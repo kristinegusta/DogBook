@@ -48,14 +48,12 @@
     <!-- trainer -->
     <div class="activities-card">
       <h2><%= trainer.name %></h2>
-      <div class="post-img resize" style="background-image: url('<%= trainer.url %>');"></div>
-      <h3>Location: <span><%= trainer.location %></span></h3>
-      <div id="map-container"><!-- Insert the map here --></div>
-
       <div class="description">
         <%= trainer.bio %>
       </div>
-      
+      <div class="post-img resize" style="background-image: url('<%= trainer.url %>');"></div>
+      <h3>Location: <span><%= trainer.location %></span></h3>
+      <div id="map-container"><!-- Insert the map here --></div>
       <hr class="orange-line" />
     </div>
  
