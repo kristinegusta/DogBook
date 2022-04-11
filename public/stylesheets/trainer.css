@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 .flex {
@@ -16,17 +16,16 @@
 }
 
 .orange-line {
-  margin: 1rem 0 1rem 0;
-  border: solid 2px #fa6650;
+  margin: 3vh 0 3vh 0;
+  border: solid 1px #fa6650;
   background-color: #fa6650;
 }
 
 .header {
   justify-content: space-around;
-  margin-top: 5vh;
+  padding-top: 1rem;
   height: 8vh;
   font-size: 50%;
-  line-height: 8vh;
 }
 
 .trainer {
@@ -156,12 +155,24 @@ input {
 .black {
   background: rgba(0, 0, 0, 0.55);
 }
-
-.nav {
-  text-decoration: none;
-  font-size: 2em;
-  font-weight: bold;
+a {
   color: black;
+  font-weight: 600;
+  text-decoration: none;
+}
+.nav {
+  font-family: "Shadows Into Light", cursive;
+  font-size: 3.5em;
+}
+.page-now {
+  border: 2px solid #af4638;
+  border-radius: 65px;
+  padding: 3px;
+}
+.profile-pic {
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
 }
 
 .activities-card {
@@ -193,4 +204,19 @@ p {
 
 h2 {
   font-size: 2em;
+}
+@media only screen and (min-width: 600px) {
+  .feed-container {
+    width: 70%;
+    border-radius: 65px;
+    min-height: 60vh;
+  }
+  .background-container {
+    padding: 1rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .feed-container {
+    width: 50%;
+  }
 }
