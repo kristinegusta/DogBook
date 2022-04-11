@@ -20,10 +20,10 @@ const TrainerProfileSchema = new mongoose.Schema({
     required: false
   },
 
-  ratings: [
+  reviews: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Rating"
+      ref: "Review"
     }
   ],
   rating: {

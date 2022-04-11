@@ -35,6 +35,7 @@ router.get("/reviews/:id", async (req, res) => {
 async function getTrainerReviewsFromDB(id) {
     let reviews = [];
     const cursor = await TrainerProfile.find({ _id: id });
+    // console.log(cursor[0], cursor[0].reviews)
     const review = await Review.find({ _id: cursor[0].reviews });
 
     console.log(review);
@@ -73,28 +74,32 @@ router.post("/newTrainerReview", ensureAuthenticated, async (req, res) => {
 
         let trainerId = req.headers.referer.split("reviews/")
 
-
-        try {
-            const newReview = new Review({
-                rating: req.body.rating,
-                description: req.body.review,
-            })
-            await newReview.save()
-            await Profile.findOneAndUpdate({ _id: req.user.profile._id }, { $push: { reviews: newReview._id } }, { useFindAndModify: false })
-            await TrainerProfile.findOneAndUpdate({ _id: trainerId[1] }, { $push: { reviews: newReview._id } }, { useFindAndModify: false })
-            res.redirect(`/about/reviews/${trainerId[1]}`)
-        } catch (err) {
-            console.log(err);
+        let allowReview = await checkExisingReviews(trainerId[1], req)
+        if (allowReview){
+            try {
+                const newReview = new Review({
+                    rating: req.body.rating,
+                    description: req.body.review,
+                })
+                await newReview.save()
+                await Profile.findOneAndUpdate({ _id: req.user.profile._id }, { $push: { reviews: newReview._id } }, { useFindAndModify: false })
+                await TrainerProfile.findOneAndUpdate({ _id: trainerId[1] }, { $push: { reviews: newReview._id } }, { useFindAndModify: false })
+                res.redirect(`/about/reviews/${trainerId[1]}`)
+            } catch (err) {
+                console.log(err);
+                res.redirect(`/about/reviews/${trainerId[1]}`)
+            }
+        } else {
+            //alert doesn't work maybe look into popup forms
+            console.log("You already posted a review for this activity")
             res.redirect(`/about/reviews/${trainerId[1]}`)
         }
-
-
     }
 })
 
 let checkExisingReviews = async (id, req) => {
     let check = true;
-    const cursor = await Trainer.find({ _id: id });
+    const cursor = await TrainerProfile.find({ _id: id });
     const reviews = await Review.find({ _id: cursor[0].reviews });
     for (const review of reviews) {
         const userProfile = await Profile.find({ reviews: review._id })
