@@ -97,7 +97,6 @@ h1 {
   border-radius: 30px;
   border: none;
   background-color: rgb(241, 241, 241);
-  text-align: center;
 }
 
 .trainer-profile {
@@ -218,14 +217,8 @@ form {
 }
 
 .post-my-review {
-  /* height: 250px; */
   background-color: white;
-  /* justify-content: center;
-    align-items: center;
-    font-size: 1em;
-    margin: 3vh 10vw 0 10vw;
-    border-radius: 65px; */
-  /* color: white; */
+  padding: 1rem;
   position: sticky;
   bottom: 1;
 }
@@ -354,10 +347,60 @@ i {
   height: 60px;
   width: 60px;
 }
+
+/* <---------------------------------------------Navbar---------------------------------------------> */
+.navbar-container {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  border-bottom: solid 2px #fa6650;
+  /* background: rgba(0, 0, 0, 0.55); */
+}
+.navbar {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+.nav {
+  font-size: 1.5em;
+  font-family: "Shadows Into Light", cursive;
+  color: black;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.page-now {
+  border: 2px solid #af4638;
+  border-radius: 65px;
+  padding: 3px;
+}
+
+.img-cont {
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.logo {
+  background-image: url("/static/img-activity/logo.png");
+}
+.user {
+  background-image: url("/static/img-activity/user-profile-img.jpg");
+}
+
+
 .resized-logo {
   height: 56px;
   width: 56px;
 }
+
 .training-type {
   justify-content: space-around;
 }
@@ -384,6 +427,7 @@ i {
 .h3-tags{
   padding-top: 1rem;
 }
+
 
 @media only screen and (min-width: 600px) {
   .feed-container {

@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+#big__container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100vw;
+  min-height: 100vh;
+  background-image: url("../img/dogs2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#logo {
+  background-image: url("../img/logo.png");
+  height: 160px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+h1 {
+  color: #fa6650;
+  margin-bottom: 10px;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 2em;
+}
+#register {
+  width: 70%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.form-container {
+  width: 100%;
+}
+form {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 25px;
+  border: none;
+}
+.small-input-cont {
+  width: 48%;
+  margin-right: 3px;
+}
+.btn {
+  color: white;
+  width: 230px;
+  height: auto;
+  padding: 1em;
+  border-radius: 65px;
+  text-align: center;
+  border: none;
+  font-size: 0.9em;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 0.3rem;
+}
+textarea {
+  width: 100%;
+  height: 100px;
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  margin-bottom: 10px;
+  resize: none;
+}
+a {
+  text-decoration: none;
+  display: block;
+}
+a:hover {
+  color: white;
+  background: rgba(0, 0, 0, 0.55);
+  transition: 0.5s ease-in;
+}
+.orange {
+  background-color: #fa6650;
+}
+.black {
+  background: rgba(0, 0, 0, 0.55);
+}
+.btn-cont {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+input[type="file"] {
+  display: none;
+}
+button:hover {
+  color: white;
+  background: rgba(0, 0, 0, 0.55);
+  transition: 0.5s ease-in;
+}
+.clicked {
+  border: 1px solid #fa6650;
+}
+.small {
+  width: 100px;
+}
+.custom-file-upload {
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+@media screen and (min-width: 800px) {
+  .form-container {
+    width: 450px;
+  }
+  h1 {
+    font-size: 3em;
+  }
+}

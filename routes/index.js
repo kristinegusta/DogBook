@@ -17,14 +17,15 @@ router.get("/test", (req, res) => {
 router.get("/ActivityReview", (req, res) => {
   let activityId = req.url.split("?");
   // res.render("activityReview")
-  renderActivityReview(res, activityId[1]);
+  renderActivityReview(res, activityId[1], req);
 });
-const renderActivityReview = async function (res, id) {
+const renderActivityReview = async function (res, id, req) {
   let activity = await getActivityFromDB(id);
   let reviews = await getReviewFromDB(id);
   res.render("activityReview", {
     activity: activity,
     reviews: reviews,
+    user: req.user
   });
 };
 
@@ -35,7 +36,6 @@ router.get("/ActivityAbout", (req, res) => {
 });
 const renderActivityAbout = async function (res, id, req) {
   let activity = await getActivityFromDB(id);
-
   res.render("activities-about", {
     activity: activity,
     user: req.user,
@@ -76,29 +76,24 @@ const getActivityFromDB = async (id) => {
   let activities = [];
 
   const cursor = await Activity.find({ _id: id });
-
+  console.log(cursor)
   for (let i = 0; i < cursor.length; i++) {
     let doc = cursor[i];
 
-    let info = {
-      activityId: "",
-      activityName: "",
-      description: "",
-      location: "",
-      time: "",
-      authorName: "",
-    };
+    let info = {};
 
     info.activityId = doc._id;
     info.activityName = doc.name;
     info.description = doc.description;
     info.location = doc.location;
+    info.url = doc.url;
 
     let date = doc.date.toString().split("GMT");
     info.time = date[0].trim();
 
     const result = await Profile.find({ activities: doc._id });
     info.authorName = result[0].name;
+    info.authorImg = result[0].url;
     activities.push(info);
   }
   return activities;
@@ -177,13 +172,16 @@ const getActivitiesFromDB = async () => {
     info.activityName = doc.name;
     info.description = doc.description;
     info.location = doc.location;
+    info.url = doc.url;
 
     let date = doc.date.toString().split("GMT");
     info.time = date[0].trim();
 
+
     const result = await Profile.find({ activities: doc._id });
     info.authorName = result[0].name;
     info.authorImg = result[0].url;
+
     activities.push(info);
   }
   return activities;
@@ -191,7 +189,7 @@ const getActivitiesFromDB = async () => {
 
 const renderAllActivities = async function (res, req) {
   let activities = await getActivitiesFromDB();
-  // console.log(req.user)
+
   res.render("activities", {
     activities: activities,
     user: req.user,
@@ -201,7 +199,7 @@ const renderAllActivities = async function (res, req) {
 /* EVERYTHING TRAINER RELATED */
 //trainers page
 router.get("/trainers", (req, res) => {
-  renderAllTrainers(res);
+  renderAllTrainers(res, req);
 });
 
 const notScrappedGetTrainersFromDB = async () => {
@@ -249,13 +247,14 @@ const getTrainerFromDB = async () => {
   }
   return scrappedTrainers;
 };
-const renderAllTrainers = async function (res) {
+const renderAllTrainers = async function (res, req) {
   let scrappedTrainers = await getTrainerFromDB();
   let trainers = await notScrappedGetTrainersFromDB();
 
   res.render("trainer", {
     trainers: trainers,
     scrappedTrainers: scrappedTrainers,
+    user: req.user
   });
 };
 
