@@ -1,0 +1,33 @@
+<title>Profile</title>
+<link rel="stylesheet" href="/static/stylesheets/register-style.css" />
+<link rel="stylesheet" href="/static/stylesheets/activities.css" />
+<div class="background-container">
+    <div class="feed-container">
+        <div class="container flex">
+            <a href="/profile"><= Edit Profile</a>
+            <!-- <button class="btn5">Save</button> -->
+        </div>
+        <form action="/profiles/edit" method="post" enctype="multipart/form-data">
+            <label for="name">Your name</label>
+            <input value="<%= user.profile.name %>" class="input" id="name" type="text" name="name" />
+    
+            <label for="bio">Description</label>
+            <textarea
+                class="textarea"
+                id="bio"
+                type="text"
+                name="bio"
+                placeholder="<%= user.profile.bio %>"
+            ></textarea>
+            <label for="image" class="custom-file-upload"
+              >Change Profile Picture
+              <i class="fa-solid fa-file-arrow-down"></i
+            ></label>
+            <input id="image" type="file" name="image" />
+    
+            <div class="btn-cont">
+              <button type="submit" class="btn orange">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

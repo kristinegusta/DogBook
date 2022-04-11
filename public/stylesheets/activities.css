@@ -293,6 +293,13 @@ i {
   border: none;
   font-size: 1em;
 }
+.btn5 {
+  background-color: white;
+  width: 175px;
+  text-align: right;
+  border: none;
+  font-size: 1em;
+}
 
 [dir="rtl"] .rating {
   --dir: left;
@@ -426,6 +433,9 @@ i {
 }
 .h3-tags{
   padding-top: 1rem;
+}
+.container {
+  justify-content: space-between;
 }
 
 

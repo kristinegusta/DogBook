@@ -13,13 +13,13 @@
         </div>
 
         <div class="second-container flex">
-            <a href=""><h3>Edit profile</h3></a>
+            <a href="/profiles/edit"><h3>Edit profile</h3></a>
             <button class="btn4" onclick="toggleReviews()"><h3 class="h3-tags">See your reviews</h3></button>
             <button class="btn4" onclick="toggleActivities()"><h3 class="h3-tags">See your activities</h3></button>
             <a href="/users/logout"><h3 class="h3-tags">Logout</h3></a>
         </div>
 
-        <div id="reviews" style="visibility:hidden">
+        <div id="reviews" style="display: none;">
             <% if (reviews.length === 0) { %>
                 <p>You haven't posted any reviews yet!</p>
             <% } else { %>
@@ -41,7 +41,7 @@
             <% } %>
         </div>
         
-        <div id="activities" style="visibility:hidden">
+        <div id="activities" style="display: none;">
             <% if (activities.length === 0) { %>
                 <p>You haven't posted any activities yet!</p>
             <% } else { %>
@@ -94,20 +94,18 @@
 <script type="text/javascript">
     function toggleActivities() {
         var activities = document.getElementById("activities");
-        console.log(activities.style.visibility);
-        if (activities.style.visibility === "hidden"){
-            activities.style.visibility = "visible"
+        if (activities.style.display === "none"){
+            activities.style.display = "block"
         } else {
-            activities.style.visibility = "hidden";
+            activities.style.display = "none";
         }
     }
     function toggleReviews() {
         var reviews = document.getElementById("reviews");
-        console.log(reviews.style.visibility);
-        if (reviews.style.visibility === "hidden"){
-            reviews.style.visibility = "visible"
+        if (reviews.style.display === "none"){
+            reviews.style.display = "block"
         } else {
-            reviews.style.visibility = "hidden";
+            reviews.style.display = "none";
         }
     }
 </script>
