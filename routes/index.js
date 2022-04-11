@@ -94,6 +94,7 @@ const getActivityFromDB = async (id) => {
     const result = await Profile.find({ activities: doc._id });
     info.authorName = result[0].name;
     info.authorImg = result[0].url;
+
     activities.push(info);
   }
   return activities;
@@ -179,9 +180,10 @@ const getActivitiesFromDB = async () => {
 
 
     const result = await Profile.find({ activities: doc._id });
+    /*
     info.authorName = result[0].name;
     info.authorImg = result[0].url;
-
+    */
     activities.push(info);
   }
   return activities;
