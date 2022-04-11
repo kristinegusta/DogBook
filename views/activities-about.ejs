@@ -7,35 +7,50 @@
 />
 <title>Activity - about</title>
 
-<div class="main-container">
-  <div class="header flex">
-    <img src="/static/img-activity/logo.png" alt="" />
-    <a class="nav" href="/trainers">Trainers</a>
-    <a class="nav page-now" href="/activities">Activities</a>
-    <img src="/static/img-activity/user-profile-img.jpg" alt="" />
-  </div>
-  <hr class="orange-line" />
-
-  <% activity.forEach((activity) => { %>
-    <!-- buttons -->
-    <div class="button-container">
-      <a class="btn orange" href="/ActivityAbout?<%= activity.activityId %>">About</a>
-      <a class="btn black" href="/ActivityReview?<%= activity.activityId %>">Reviews</a>
-    </div>
-    <hr class="orange-line" />
-    <!-- activity -->
-    <div class="activities-card">
-      <h2><%= activity.activityName %></h2>
-      <h3>Location: <span><%= activity.location %></span></h3>
-      <div id="map-container"><!-- Insert the map here --></div>
-      <h4>Posted by: <%= activity.authorName %></h4>
-      <p><%= activity.description %></p>
-      <div class="activities-img-div"></div>
-      <div class="activities-img-div"></div>
+<div class="background-container">
+  <div class="feed-container">
+    <div class="main-container">
+      <div class="header flex">
+        <img src="/static/img-activity/logo.png" alt="" />
+        <a class="nav" href="/trainers">Trainers</a>
+        <a class="nav page-now" href="/activities">Activities</a>
+        <% if(!user){ %>
+        <a href="/dashboard">
+          <img
+            class="profile-pic"
+            src="/static/img-activity/user-profile-img.jpg"
+            alt=""
+          />
+        </a>
+        <% }else{ %>
+        <a href="/profiles/profile">
+          <img class="profile-pic" src="<%= user.profile.url %>" alt="" />
+        </a>
+        <% } %>
+      </div>
       <hr class="orange-line" />
     </div>
-  <% }) %>
 
+    <% activity.forEach((activity) => { %>
+      <!-- buttons -->
+      <div class="button-container">
+        <a class="btn orange" href="/ActivityAbout?<%= activity.activityId %>">About</a>
+        <a class="btn black" href="/ActivityReview?<%= activity.activityId %>">Reviews</a>
+      </div>
+      <hr class="orange-line" />
+      <!-- activity -->
+      <div class="activities-card">
+        <h2><%= activity.activityName %></h2>
+        <h3>Location: <span><%= activity.location %></span></h3>
+        <div id="map-container"><!-- Insert the map here --></div>
+        <h4>Posted by: <%= activity.authorName %></h4>
+        <p><%= activity.description %></p>
+        <div class="activities-img-div"></div>
+        <div class="activities-img-div"></div>
+        <hr class="orange-line" />
+      </div>
+    <% }) %>
+  </div>
 </div>
 
 <script>
