@@ -1,0 +1,104 @@
+<title>Trainer Review</title>
+<link rel="stylesheet" href="/static/stylesheets/feed-style.css" />
+
+<div class="background-container">
+  <div class="feed-container">
+    <!-- NAVBAR -->
+    <div class="navbar-container">
+      <div class="navbar">
+        <div class="img-cont logo"></div>
+        <a class="nav" href="/trainers">Trainers</a>
+        <a class="nav" href="/activities">Activities</a>
+        <% if(!user){ %>
+        <a href="/dashboard">
+          <img
+            class="profile-pic"
+            src="/static/img-activity/user-profile-img.jpg"
+            alt=""
+          />
+        </a>
+        <% }else{ %>
+        <a href="/profile">
+          <div class="shared-by">
+            <div
+              class="profile-pic"
+              style="background-image: url('<%= user.profile.url %>')"
+            ></div>
+          </div>
+          <!-- <img class="profile-pic" src="<%= user.profile.url %>" alt="" /> -->
+        </a>
+        <% } %>
+      </div>
+    </div>
+    <!-- NAVBAR FINISH -->
+
+    <!-- buttons -->
+    <div class="button-container">
+      <a class="btn orange" href="/about/show/<%= trainer._id %>">About</a>
+      <a class="btn black" href="/about/reviews/<%= trainer._id %>">Reviews</a>
+    </div>
+    <hr class="orange-line" />
+    <!-- activity -->
+    <div class="activities-card">
+      <h2><%= trainer.name %></h2>
+      <h3>Location: <span><%= trainer.location %></span></h3>
+    </div>
+    <!-- adding reviews begin -->
+    <div class="ratings">
+      <% if (reviews.length === 0) { %>
+      <h3 class="padding">Average rating: 0</h3>
+      <% } else { %> <% let total = 0 %> <% reviews.forEach((review) => { %> <%
+      total += review.rating %> <% }) %> <% let average =
+      Math.round((total/(reviews.length))*10)/10 %>
+      <h3 class="padding">Average rating: <%= average %></h3>
+      <% } %>
+      <!-- begin forEach -->
+      <% if (reviews.length === 0) { %>
+      <p>There are no reviews yet</p>
+      <% } else { %> <% reviews.forEach((review) => { %>
+      <div class="user-review flex padding">
+        <div
+          class="user-pic"
+          style="background-image: url('<%= review.authorImg %>')"
+        ></div>
+        <div>
+          <p><%= review.authorName %></p>
+          <p class="grey-text"><%= review.description %></p>
+          <div class="flex">
+            <h2><%= review.rating %></h2>
+            <img src="/static/img-activity/star.png" alt="" class="star" />
+          </div>
+          <p class="grey-text"><%= review.time %></p>
+        </div>
+      </div>
+      <% }) %> <% } %>
+      <!-- end forEach -->
+
+      <div class="post-my-review">
+        <h3>Add your review:</h3>
+        <form action="/about/newTrainerReview" method="post">
+          <input
+            class="input"
+            type="text"
+            placeholder="Give your opinion"
+            id="review"
+            name="review"
+          />
+
+          <div class="space-between">
+            <input
+              class="rating"
+              max="5"
+              oninput="this.style.setProperty('--value', this.value)"
+              step="0.5"
+              type="range"
+              value="1"
+              name="rating"
+            />
+            <button type="submit" class="btn3 orange">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

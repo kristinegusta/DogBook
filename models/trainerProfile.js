@@ -6,12 +6,6 @@ const TrainerProfileSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
-  // image: {
-  //   data: Buffer,
-  //   contentType: String,
-  //   required: true
-  // },
   email: {
     type: String,
     required: true,
@@ -26,12 +20,16 @@ const TrainerProfileSchema = new mongoose.Schema({
     required: false
   },
 
-  // ratings: [
-  //   {
-  //     type: mongoose.Schema.Types.ObjectId,
-  //     ref: "Rating"
-  //   }
-  // ],
+  ratings: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Rating"
+    }
+  ],
+  rating: {
+    type: Number,
+    required: false
+  },
 
   phone: {
     type: String,

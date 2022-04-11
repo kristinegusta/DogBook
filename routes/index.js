@@ -180,10 +180,10 @@ const getActivitiesFromDB = async () => {
 
 
     const result = await Profile.find({ activities: doc._id });
-    /*
+
     info.authorName = result[0].name;
     info.authorImg = result[0].url;
-    */
+
     activities.push(info);
   }
   return activities;
@@ -306,7 +306,7 @@ async function getReviewsFromDB(id) {
     info.authorName = cursor[0].name;
     info.authorImg = cursor[0].url;
 
-    let actiId = await Activity.find({reviews: review[i]._id})
+    let actiId = await Activity.find({ reviews: review[i]._id })
     info.activityId = actiId[0]._id
     console.log(info.activityId);
     reviews.push(info);
