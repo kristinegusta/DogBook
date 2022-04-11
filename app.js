@@ -41,7 +41,7 @@ app.use(expressEjsLayout);
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 router.use(fileupload({ useTempFiles: true }))
-//express session
+    //express session
 app.use(
     session({
         secret: "secret",
@@ -68,7 +68,8 @@ app.use("/users", require("./routes/users"));
 app.use("/profiles", require("./routes/profiles"));
 app.use("/posts", require("./routes/posts"));
 app.use("/about", require("./routes/about"))
-// app.use("/trainer", require("./routes/trainer"));
-// app.use("/activity", require("./routes/activity"));
+    //app.use("/TrainerReview", require("./routes/trainerReview"))
+    // app.use("/trainer", require("./routes/trainer"));
+    // app.use("/activity", require("./routes/activity"));
 
 app.listen(process.env.PORT || 3000);

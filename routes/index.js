@@ -29,9 +29,12 @@ const renderActivityReview = async function(res, id, req) {
     });
 };
 
-router.get("/trainerReview", (req, res) => {
+router.get("/TrainerReview", (req, res) => {
+    /*
     let trainerId = req.url.split("?");
     renderTrainerReview(res, trainerId[1], req);
+    */
+    res.render("trainerReview")
 })
 
 
@@ -46,26 +49,28 @@ const renderTrainerReview = async function(res, id, req) {
 };
 
 
-const getTrainersFromDB = async() => {
-    let trainer = [];
-    const cursor = await Trainer.find({});
+const GetTrainersFromDB = async() => {
+    let trainers = [];
+    const cursor = await TrainerProfile.find({ _id: id });
 
     for (let i = 0; i < cursor.length; i++) {
         let doc = cursor[i];
+
         let info = {};
 
         info.trainerId = doc._id;
-        info.name = doc.name;
-        info.street = doc.street;
-        info.city = doc.city;
-        info.country = doc.country;
-        info.phone = doc.phone;
+        info.trainerName = doc.name;
         info.email = doc.email;
+        info.location = doc.location;
+        info.phone = doc.phone;
         info.website = doc.website;
-
-        trainer.push(info);
+        info.bio = doc.bio;
+        info.time = doc.date;
+        info.url = doc.url;
+        trainers.push(info);
     }
-    return trainer;
+
+    return trainers;
 };
 
 // Activity About Page
