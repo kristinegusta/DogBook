@@ -1,17 +1,18 @@
 <title>Profile</title>
 <link rel="stylesheet" href="/static/stylesheets/activities.css" />
 <div class="background-container">
-    <div class="feed-container">
-        <div class="main-container">
-            <div class="header flex">
-                <a href="/activities"><img class="resized-logo" src="/static/img-activity/logo.png" /></a>
-                <a class="nav" href="/trainers">Trainers</a>
-                <a class="nav page-now" href="/activities">Activities</a>
-                <img class="profile-pic" src="<%= user.profile.url %>" alt="" />
-            </div>
-            <hr class="orange-line" />
-        </div>
-
+  <div class="feed-container">
+    <div class="main-container">
+      <div class="header flex">
+        <a href="/activities"
+          ><img class="resized-logo" src="/static/img-activity/logo.png"
+        /></a>
+        <a class="nav" href="/trainers">Trainers</a>
+        <a class="nav page-now" href="/activities">Activities</a>
+        <img class="profile-pic" src="<%= user.profile.url %>" alt="" />
+      </div>
+      <hr class="orange-line" />
+    </div>
         <div class="second-container flex">
             <a href="/profiles/edit"><h3>Edit profile</h3></a>
             <button class="btn4" onclick="toggleReviews()"><h3 class="h3-tags">See your reviews</h3></button>
@@ -88,7 +89,10 @@
                 <% })%>
             <% } %>
         </div>
+      </a>
+      <% })%> <% } %>
     </div>
+  </div>
 </div>
 
 <script type="text/javascript">

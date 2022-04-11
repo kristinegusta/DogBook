@@ -94,6 +94,7 @@ const getActivityFromDB = async (id) => {
     const result = await Profile.find({ activities: doc._id });
     info.authorName = result[0].name;
     info.authorImg = result[0].url;
+
     activities.push(info);
   }
   return activities;
@@ -179,6 +180,7 @@ const getActivitiesFromDB = async () => {
 
 
     const result = await Profile.find({ activities: doc._id });
+
     info.authorName = result[0].name;
     info.authorImg = result[0].url;
 
@@ -208,8 +210,26 @@ const notScrappedGetTrainersFromDB = async () => {
 
   for (let i = 0; i < cursor.length; i++) {
     let doc = cursor[i];
+    let reviews = [];
+
+    const review = await Review.find({ _id: cursor[i].reviews });
+    for (let i = 0; i < review.length; i++) {
+      let doc = review[i];
+      let rating = doc.rating;
+      reviews.push(rating);
+    }
 
     let info = {};
+    if (reviews.length === 0) {
+      info.rating = 0;
+    } else {
+      let total = 0;
+      for (let rating of reviews) {
+        total += rating;
+      }
+      info.rating = Math.round((total / reviews.length) * 10) / 10;
+    }
+    info.reviews = reviews.length;
 
     info.trainerId = doc._id;
     info.trainerName = doc.name;
@@ -304,7 +324,7 @@ async function getReviewsFromDB(id) {
     info.authorName = cursor[0].name;
     info.authorImg = cursor[0].url;
 
-    let actiId = await Activity.find({reviews: review[i]._id})
+    let actiId = await Activity.find({ reviews: review[i]._id })
     info.activityId = actiId[0]._id
     console.log(info.activityId);
     reviews.push(info);
