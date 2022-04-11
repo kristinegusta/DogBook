@@ -17,20 +17,6 @@ cloudinary.config({
 
 // OUR CODE
 
-router.get("/profile", ensureAuthenticated, (req, res) => {
-  // console.log(req.user.profile);
-  if (!req.user.profile) {
-    res.render('dashboard', {
-      user: req.user
-    });
-  } else {
-    res.render("profile", {
-      user: req.user,
-    });
-  }
-})
-
-
 router.post("/new", async (req, res) => {
   //img upload handle
   // console.log(req.files.image);

@@ -293,6 +293,13 @@ i {
   border: none;
   font-size: 1em;
 }
+.btn4 {
+  background-color: white;
+  width: 175px;
+  text-align: left;
+  border: none;
+  font-size: 1em;
+}
 
 [dir="rtl"] .rating {
   --dir: left;
@@ -369,6 +376,13 @@ i {
 
 .card-container {
   padding: 1rem;
+}
+.second-container{
+  flex-direction: column;
+  padding: 1rem;
+}
+.h3-tags{
+  padding-top: 1rem;
 }
 
 @media only screen and (min-width: 600px) {
