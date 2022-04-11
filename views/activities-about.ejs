@@ -47,16 +47,19 @@
     <!-- activity -->
     <div class="activities-card">
       <h2><%= activity.activityName %></h2>
+      <div class="description">
+        <%= activity.description %>
+      </div>
       <div class="post-img resize" style="background-image: url('<%= activity.url %>');"></div>
       <h3>Location: <span><%= activity.location %></span></h3>
       <div id="map-container"><!-- Insert the map here --></div>
       <div class="shared-by">
         <div class="user-pic" style="background-image: url('<%= activity.authorImg %>');"></div>
-        <p class="grey-text">Shared by - <%= activity.authorName %> </br> <%= activity.time %></p> 
+        <div class="yo">
+          <p class="grey-text">Shared by - <%= activity.authorName %> </br> <%= activity.time %></p> 
+        </div>
       </div>
-      <div class="description">
-        <%= activity.description %>
-      </div>
+     
       
       <hr class="orange-line" />
     </div>
