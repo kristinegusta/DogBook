@@ -97,9 +97,9 @@
   background-color: rgb(241, 241, 241);
   padding: 10px;
 }
-h1 {
+/* h1 {
   padding: 1rem;
-}
+} */
 /* <---------------------------------------------CARDS---------------------------------------------> */
 .card-container {
   box-shadow: 0 15px 30px 1px grey;
@@ -310,7 +310,32 @@ i {
   line-height: 5vh;
   margin-top: 5px;
 }
-
+/* <---------------------------------------------POST---------------------------------------------> */
+.form-container {
+  height: 70%;
+}
+h1 {
+  color: #fa6650;
+  margin-bottom: 10px;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 3em;
+  text-align: center;
+}
+form {
+  padding: 1.5em;
+}
+.input {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  border-radius: 25px;
+  border: none;
+  background-color: #f0f0f0;
+}
+.btn-cont {
+  text-align: center;
+  padding: 1rem;
+}
 @media only screen and (min-width: 600px) {
   .feed-container {
     width: 70%;

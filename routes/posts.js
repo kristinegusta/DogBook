@@ -100,7 +100,9 @@ router.get('/postActivity', ensureAuthenticated, (req, res) => {
             user: req.user
         });
     } else {
-        res.render('post');
+        res.render('post', {
+            user: req.user
+        });
     }
 })
 

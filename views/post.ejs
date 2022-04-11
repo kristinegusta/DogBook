@@ -1,14 +1,37 @@
-<link rel="stylesheet" href="/static/stylesheets/activities.css" />
+<link rel="stylesheet" href="/static/stylesheets/feed-style.css" />
+<!-- <link rel="stylesheet" href="/static/stylesheets/activities.css" /> -->
 <title>Post activity</title>
 
 <div class="background-container">
   <div class="feed-container">
-    <div class="header flex">
-      <img src="/static/img-trainer/logo.png" alt="" />
-      <a class="nav trainer" href="/trainers">Trainers</a>
-      <a class="nav" href="/activities">Activities</a>
-      <img src="/static/img-activity/user-profile-img.jpg" alt="" />
+    <div class="navbar-container">
+      <div class="navbar">
+        <div class="img-cont logo"></div>
+        <a class="nav" href="/trainers">Trainers</a>
+        <a class="nav" href="/activities">Activities</a>
+        <% if(!user){ %>
+        <a href="/dashboard">
+          <img
+            class="profile-pic"
+            src="/static/img-activity/user-profile-img.jpg"
+            alt=""
+          />
+        </a>
+        <% }else{ %>
+        <a href="/profiles/profile">
+          <div class="shared-by">
+            <div
+              class="profile-pic"
+              style="background-image: url('<%= user.profile.url %>')"
+            ></div>
+          </div>
+          <!-- <img class="profile-pic" src="<%= user.profile.url %>" alt="" /> -->
+        </a>
+        <% } %>
+      </div>
     </div>
+
+    <!-- NAVBAR FINISH -->
 
     <hr class="orange-line" />
     <div class="form-container">
