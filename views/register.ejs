@@ -1,31 +1,43 @@
 <title>BookDoog</title>
-<link rel="stylesheet" href="/static/stylesheets/registerP.css" />
+<link rel="stylesheet" href="/static/stylesheets/register-style.css" />
 
 <div id="big__container">
-    <div id="logo"></div>
+  <div id="logo"></div>
 
-    <div id="register">
-        <h1>Register</h1>
-        <div class="form-container">
-            <%- include ('./partials/messages') %>
-                <form action="/users/register" method="post">
-                    <p>Enter your email</p>
-                    <input type="email" name="email" value="<%= typeof email != 'undefined' ? email : '' %>" />
+  <div id="register">
+    <h1>Register</h1>
+    <div class="form-container">
+      <%- include ('./partials/messages') %>
+      <form action="/users/register" method="post">
+        <p>Enter your email</p>
+        <input
+          type="email"
+          name="email"
+          value="<%= typeof email != 'undefined' ? email : '' %>"
+        />
 
-                    <p>Enter your password</p>
-                    <input type="password" name="password" value="<%= typeof password != 'undefined' ? password : ''  %>" />
-                    <!-- <i class="fas fa-eye" id="icon" onclick="show()"></i> -->
+        <p>Enter your password</p>
+        <input
+          type="password"
+          name="password"
+          value="<%= typeof password != 'undefined' ? password : ''  %>"
+        />
+        <!-- <i class="fas fa-eye" id="icon" onclick="show()"></i> -->
 
-                    <p>Confirm password</p>
-                    <input type="password" name="password2" id="conferm" value="<%= typeof password2 != 'undefined' ? password : '' %>" />
-                    <!-- <i class="fas fa-eye" id="icon2" onclick="showP()"></i> -->
-                    <br />
-                    <div class="btn-cont">
-                        <button type="submit" class="btn orange">Submit</button>
-                        <a class="btn black" href="/users/login">Already have an account? </br> Log in</a
+        <p>Confirm password</p>
+        <input
+          type="password"
+          name="password2"
+          id="conferm"
+          value="<%= typeof password2 != 'undefined' ? password : '' %>"
+        />
+        <!-- <i class="fas fa-eye" id="icon2" onclick="showP()"></i> -->
+        <br />
+        <div class="btn-cont">
+          <button type="submit" class="btn orange">Submit</button>
+          <a class="btn black" href="/users/login"
+            >Already have an account? Log in</a
           >
-          
-    
         </div>
       </form>
     </div>

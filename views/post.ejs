@@ -12,9 +12,13 @@
 
     <hr class="orange-line" />
     <div class="form-container">
-      <h1>Post your idea</h1>
+      <h1>Post your ideaa</h1>
       <!-- <<%- include ('./partials/messages') %> -->
-      <form action="/posts/newActivity" method="post">
+      <form
+        action="/posts/newActivity"
+        enctype="multipart/form-data"
+        method="post"
+      >
         <p>Title</p>
         <input class="input" type="text" name="name" />
 
@@ -23,7 +27,10 @@
 
         <p>Location</p>
         <input class="input" type="text" name="location" />
-        <!-- <input type="text" name="img"/> -->
+        <label for="image" class="custom-file-upload"
+          >Upload picture here <i class="fa-solid fa-file-arrow-down"></i
+        ></label>
+        <input id="img" type="file" name="image" />
         <div class="btn-cont">
           <button type="submit" class="btn orange">Submit</button>
         </div>

@@ -27,7 +27,10 @@ const ActivitySchema = new mongoose.Schema({
     type: Number,
     required: false
   },
-
+  url: {
+    type: String,
+    required: false
+  },
   reviews: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -35,12 +38,12 @@ const ActivitySchema = new mongoose.Schema({
     }
   ],
 
-//   comments: [
-//     {
-//       type: mongoose.Schema.Types.ObjectId,
-//       ref: "Comment"
-//     }
-//   ],
+  //   comments: [
+  //     {
+  //       type: mongoose.Schema.Types.ObjectId,
+  //       ref: "Comment"
+  //     }
+  //   ],
 
 });
 

@@ -2,45 +2,54 @@
 
 <!--  -->
 <title>Trainers</title>
-<link rel="stylesheet" href="/static/stylesheets/activitiesKristine.css" />
+<link rel="stylesheet" href="/static/stylesheets/feed-style.css" />
 <div class="background-container">
   <div class="feed-container">
-<div class="main-container">
-  <div class="header flex">
-    <img src="/static/img-trainer/logo.png" alt="" />
+ <!-- NAVBAR -->
+
+ <div class="navbar-container">
+  <div class="navbar">
+    <div class="img-cont logo"></div>
     <a class="nav page-now" href="/trainers">Trainers</a>
-    <a class="nav" href="/activities">Activities</a>
+    <a class="nav " href="/activities">Activities</a>
+    <% if(!user){ %>
+    <a href="/dashboard">
+      <img
+        class="profile-pic"
+        src="/static/img-activity/user-profile-img.jpg"
+        alt=""
+      />
+    </a>
+    <% }else{ %>
     <a href="/profiles/profile">
-      <img class="profile-pic" src="/static/img-trainer/user-profile-img.jpg" alt="">
-    </a>  </div>
-  <hr class="orange-line" />
-  <div class="training-type flex">
-    <div class="training-img">
-      <img src="/static/img-trainer/obedience.png" alt="" />
-      <p>Obedience</p>
-    </div>
-    <div class="training-img">
-      <img src="/static/img-trainer/protection.png" alt="" />
-      <p>Protection</p>
-    </div>
-    <div class="training-img">
-      <img src="/static/img-trainer/hoops.png" alt="" />
-      <p>Hoops</p>
-    </div>
-    <div class="training-img">
-      <img src="/static/img-trainer/others.png" alt="" />
-      <p>Others</p>
-    </div>
+      <div class="shared-by">
+        <div class="profile-pic" style="background-image: url('<%= user.profile.url %>');"></div>
+      </div>
+      <!-- <img class="profile-pic" src="<%= user.profile.url %>" alt="" /> -->
+    </a>
+    <% } %>
   </div>
+
+</div>
+
+<!-- NAVBAR FINISH -->
+<!-- HEADER -->
+  
+  
+  
+<div class="title-container">
+  <h1>Browse Trainers</h1>
   <div class="search-bar-div">
-    <input type="text" class="search-bar" onkeyup="searchBar()" placeholder="Search for a trainer" />
+    <input type="text" class="search-bar" onkeyup="searchBar()" placeholder="Search for a trainer " />
+    <i class="fa-solid fa-magnifying-glass"></i>
   </div>
+</div>
   <hr class="orange-line" />
-  <div class="card-container">
+ 
      <!-- trainer profile -->
 
   <!-- adding unscrapped profiles -->
-  <% trainers.reverse().forEach((trainer) => { %>
+  <!-- <% trainers.reverse().forEach((trainer) => { %>
     <a href="/about/show/<%= trainer.trainerId %>">
     <div class="trainer-profile">
      
@@ -82,40 +91,71 @@
       </div>
     </div>
   </a>
-    <% })%>
+    <% })%> -->
 
+
+      <!-- adding unscrapped profiles -->
+      <% trainers.reverse().forEach((trainer)=> { %>
+        <a href="/about/show/<%= trainer.trainerId %>">
+          <div class="card-container">
+            <div class="trainer-profile">
+              <h2>
+                <%= trainer.trainerName %>
+              </h2>
+              
+              <div class="shared-by">
+                <div class="user-pic" style="background-image: url('<%= trainer.url %>');"></div>
+              </div>
+              <div class="description">
+                <%= trainer.bio %>
+              </div>
+            </div>
+            <div class="location-text">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>
+                <%= trainer.location %>
+              </p>
+            </div>
+            <div class="reviews location-text">
+              <i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+    
+    </a>
+    <% })%>
     <!-- adding scrapped profiles  -->
 
-  <% scrappedTrainers.reverse().forEach((trainer) => { %>
+    <% scrappedTrainers.reverse().forEach((trainer)=> { %>
+      <div class="card-container trainer-card">
+        <div class="trainer-profile">
     
-    <div class="trainer-profile card-container trainer-card">
-  
-        <div class="infos">
-          <h4><%= trainer.name %></h4>
-  
-          <div class="location">
-            <p class="grey-text"><%= trainer.street %></p> 
-            <p class="grey-text"><%= trainer.city %></p> 
-            <p class="grey-text"><%= trainer.country %></p>
-            <p >Phone: <%= trainer.phone %></p>
-            <p >Email: <%= trainer.email %></p>
-            <p >Website: <%= trainer.website %></p>
-  
+          <div class="infos">
+            <h4>
+              <%= trainer.name %>
+            </h4>
+    
+            <div class="location">
+              <p class="grey-text">
+                <%= trainer.street %>
+              </p>
+              <p class="grey-text">
+                <%= trainer.city %>
+              </p>
+              <p class="grey-text">
+                <%= trainer.country %>
+              </p>
+              <p>Phone: <%= trainer.phone %>
+              </p>
+              <p>Email: <%= trainer.email %>
+              </p>
+              <p>Website: <%= trainer.website %>
+              </p>
+    
+            </div>
           </div>
         </div>
-      
-  <!-- 
-      <div class="reviews flex">
-        <h2 class="average-rating">4.6</h2>
-        <img src="/static/img-trainer/star.png" alt="" class="star" />
-        <img src="/static/img-trainer/star.png" alt="" class="star" />
-        <img src="/static/img-trainer/star.png" alt="" class="star" />
-        <img src="/static/img-trainer/star.png" alt="" class="star" />
-        <img src="/static/img-trainer/star.png" alt="" class="star" />
-      </div> -->
-    </div>
-    
-    <% })%>
+      </div>
+      <% })%>
   
 
   <!-- adding trainers end -->
