@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/static/stylesheets/activitiesKristine.css" />
+<link rel="stylesheet" href="/static/stylesheets/feed-style.css" />
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
 <link
   href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css"
@@ -7,64 +7,87 @@
 
 <title>Trainer - about</title>
 
-<div class="main-container">
-  <div class="header flex">
-    <img src="/static/img-activity/logo.png" alt="" />
-    <a class="nav" href="/trainers">Trainers</a>
-    <a class="nav" href="/activities">Activities</a>
-    <img src="/static/img-activity/user-profile-img.jpg" alt="" />
-  </div>
-  <div class="button-container">
-    <a class="btn orange" href="">About</a>
-    <a class="btn black" href=""">Reviews</a>
-  </div>
-  <hr class="orange-line" />
-  <div class="trainer-profile">
-    <div class="trainer-infos flex">
-      <div class="trainer-pic" style="
-      background-image: url('http://res.cloudinary.com/dj7oqrsqo/image/upload/v1649589604/b4ykqtt8hyba0iimxtcp.jpg');"></div>      <div class="infos">
-        <h4><%= trainer.name %></h4>
-        <p><%= trainer.email %></p>
-
-        <div class="location flex">
-          <p><span><%= trainer.location %></span></p> 
-          <p><%= trainer.phone %></p>
-          <p><%= trainer.website %></p>
-        </div>
+<div class="background-container">
+  <div class="feed-container">
+    <!-- NAVBAR -->
+    <div class="navbar-container">
+      <div class="navbar">
+        <div class="img-cont logo"></div>
+        <a class="nav" href="/trainers">Trainers</a>
+        <a class="nav" href="/activities">Activities</a>
+        <% if(!user){ %>
+          <a href="/dashboard">
+            <img
+              class="profile-pic"
+              src="/static/img-activity/user-profile-img.jpg"
+              alt=""
+            />
+          </a>
+          <% }else{ %>
+          <a href="/profiles/profile">
+            <div class="shared-by">
+              <div
+                class="profile-pic"
+                style="background-image: url('<%= user.profile.url %>')"
+              ></div>
+            </div>
+            <!-- <img class="profile-pic" src="<%= user.profile.url %>" alt="" /> -->
+          </a>
+          <% } %>
       </div>
     </div>
-    <div class="activity-description"><%= trainer.bio %></div>
-    <p><%= trainer.date %></p>
-    <div class="dog-pic">
-      <img src="/static/img-trainer/puppy.jpg" alt="" class="dog-pic" />
+    <!-- NAVBAR FINISH -->
+
+
+    <!-- buttons -->
+    <div class="button-container">
+      <a class="btn orange" href="/about/show/<%= trainer.trainerId %>">About</a>
+      <a class="btn black" href="">Reviews</a>
     </div>
-  </div>
-  <div id="map-container"><!-- Insert the map here --></div>
+    <hr class="orange-line" />
+    <!-- trainer -->
+    <div class="activities-card">
+      <h2><%= trainer.name %></h2>
+      <div class="post-img resize" style="background-image: url('<%= trainer.url %>');"></div>
+      <h3>Location: <span><%= trainer.location %></span></h3>
+      <div id="map-container"><!-- Insert the map here --></div>
+
+      <div class="description">
+        <%= trainer.bio %>
+      </div>
+      
+      <hr class="orange-line" />
+    </div>
+ 
+
 </div>
+  </div>
+</div>
+    
 
 <script>
-    let adress = document.querySelector("span").innerText;
-  
-    fetch(
-      `https://api.mapbox.com/geocoding/v5/mapbox.places/${adress}.json?access_token=pk.eyJ1Ijoia3JpaWthMiIsImEiOiJja3pxdDFjOGQwYmV5MnZvOXI5bm1qemV3In0.jEvhkABH1R8bftOK9d3Fkw`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data.features[0].geometry.coordinates);
-        mapboxgl.accessToken =
-          "pk.eyJ1Ijoia3JpaWthMiIsImEiOiJja3pxcTJvdTgwY3o2MnBtdW0yNXRjbWIyIn0.wZxIsEtWF9lU5MKLTRuQPQ";
-        const map = new mapboxgl.Map({
-          container: "map-container", // container ID
-          style: "mapbox://styles/mapbox/streets-v11", // style URL
-          center: data.features[0].geometry.coordinates, // starting position [lng, lat] Brussel
-          zoom: 12, // starting zoom
-        });
-  
-        new mapboxgl.Marker()
-          .setLngLat(data.features[0].geometry.coordinates)
-          .addTo(map);
-      })
-      .catch((error) => {
-        console.log("There was an error!", error);
+  let adress = document.querySelector("span").innerText;
+
+  fetch(
+    `https://api.mapbox.com/geocoding/v5/mapbox.places/${adress}.json?access_token=pk.eyJ1Ijoia3JpaWthMiIsImEiOiJja3pxdDFjOGQwYmV5MnZvOXI5bm1qemV3In0.jEvhkABH1R8bftOK9d3Fkw`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data.features[0].geometry.coordinates);
+      mapboxgl.accessToken =
+        "pk.eyJ1Ijoia3JpaWthMiIsImEiOiJja3pxcTJvdTgwY3o2MnBtdW0yNXRjbWIyIn0.wZxIsEtWF9lU5MKLTRuQPQ";
+      const map = new mapboxgl.Map({
+        container: "map-container", // container ID
+        style: "mapbox://styles/mapbox/streets-v11", // style URL
+        center: data.features[0].geometry.coordinates, // starting position [lng, lat] Brussel
+        zoom: 12, // starting zoom
       });
-  </script>
+
+      new mapboxgl.Marker()
+        .setLngLat(data.features[0].geometry.coordinates)
+        .addTo(map);
+    })
+    .catch((error) => {
+      console.log("There was an error!", error);
+    });
+</script>

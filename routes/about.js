@@ -17,7 +17,8 @@ router.get("/show/:id", async (req, res) => {
 
 
     res.render('trainer-about', {
-        trainer: trainerQuery
+        trainer: trainerQuery,
+        user: req.user
     })
 })
 
