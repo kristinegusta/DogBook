@@ -13,4 +13,4 @@
 [DogBook - Heroku](https://dog-book-dylan-boss.herokuapp.com/)
 
 
-![Screenshot](portfolio-img.JPG "screenshot")
+![Screenshot](DogBook.JPG "screenshot")
