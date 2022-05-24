@@ -8,7 +8,9 @@
 2. Node.js / Express.js for backend
 3. MongoDB for Database
 
+### Deployed on Heroku
 
+[DogBook - Heroku](https://dog-book-dylan-boss.herokuapp.com/)
 
 
 ![Screenshot](portfolio-img.JPG "screenshot")
