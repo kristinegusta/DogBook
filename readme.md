@@ -1,23 +1,14 @@
 # DogBook
 
-## Here we can write our current tasks
+## A social app for dog lovers to connect people alike and owners to trainers
 
-1. Set up a database schema
-2. Finish Mockup
+### Technologies used :
+
+1. HTML / CSS / JS (ejs) for frontend
+2. Node.js / Express.js for backend
+3. MongoDB for Database
 
 
 
 
-### These were tasks from Diogos repo
- 
-1. Create a profile creation page after register and login in [X]
-2. Display this profile page that should contain diferent infos for diferent users [X]
-
-3. On this profile page I want users to be able to add posts to the application, and see them [X]
-
-4. On the Root level I want to display all the posts from the application
-
-5. I want to be able to search for a specific user and display their profile
-
-6. Lets actually allow users to upload images. [X]
-7. Try to make it pretty. [X]
+![Screenshot](darkmode.JPG "darkmode")
