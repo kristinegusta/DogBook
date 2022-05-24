@@ -11,4 +11,4 @@
 
 
 
-![Screenshot](darkmode.JPG "darkmode")
+![Screenshot](portfolio-img.JPG "darkmode")
