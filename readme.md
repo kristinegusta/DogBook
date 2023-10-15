@@ -28,6 +28,32 @@ App has a rating system so other users can make their choices better.
 
 [DogBook - Heroku](https://dog-book-dylan-boss.herokuapp.com/)
 
+## Heroku link is no longer supported
+You can always check out the [ScreenShots](ScreenShots) available or alternatively run it on your machine to test its features as the database is still supported:
+
+To run it on your machine, start by cloning the repo with:
+```bash
+git clone git@github.com:kristinegusta/DogBook.git
+```
+Should you have an error of the type "cannot create work tree dir" simply type:
+ ```bash
+cd ~/
+mkdir temp
+cd temp
+git clone git@github.com:kristinegusta/DogBook.git
+``` 
+Move into the repo and download the dependencies with:
+```bash
+cd DogBook
+npm install
+npm install -g nodemon
+```
+And run it using: 
+```bash
+npm start
+```
+Finally you can check it out on http://localhost:3000 !
+
 
 ![Screenshot](DogBook.JPG "screenshot")
 
